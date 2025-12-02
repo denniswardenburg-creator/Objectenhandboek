@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>BGT Objectenhandboek – ECGeo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --bg-alt: #ffffff;
+      --accent: #0066aa;
+      --accent-soft: #e5f2fb;
+      --text: #023672;
+      --text-muted: #666666;
+      --border: #d0d6e0;
+      --shadow-soft: 0 2px 6px rgba(0,0,0,0.08);
+      --radius: 8px;
+      --radius-large: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Logo in header */
+    .logo {
+      height: 48px;
+      margin-right: 0.5rem;
+      display: block;
+    }
+
+    header {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .site-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .site-title h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .site-title span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: -4px;
+    }
+
+    nav.main-nav {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    nav.main-nav a {
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    nav.main-nav a:hover {
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    .layout {
+      max-width: 1200px;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    aside {
+      align-self: flex-start;
+      position: sticky;
+      top: 5.5rem;
+    }
+
+    .side-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-large);
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1rem;
+    }
+
+    .side-card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+    }
+
+    .side-card p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .side-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .side-nav li {
+      margin-bottom: 0.2rem;
+    }
+
+    .side-nav a {
+      display: block;
+      padding: 0.3rem 0.4rem;
+      border-radius: var(--radius);
+    }
+
+    .side-nav a:hover {
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-large);
+      padding: 1.25rem 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .intro {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Zoekbalk */
+    .search-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .search-input {
+      flex: 1 1 220px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.7rem;
+      background: #f1f4f8;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .search-input input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    .search-input span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .filter-toggle {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .filter-toggle:hover {
+      background: var(--accent-soft);
+    }
+
+    /* A-Z index */
+    .az-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .az-index button {
+      border: none;
+      background: transparent;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .az-index button.active,
+    .az-index button:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* Objectenlijst */
+    .object-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+    }
+
+    .object-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 0.8rem 0.9rem;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .object-card h3 {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .object-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .object-chip {
+      display: inline-block;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
+    }
+
+    .object-card p {
+      margin: 0.3rem 0 0;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* Woordenlijst / Leeswijzer tabel */
+    .woordenlijst-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+    }
+
+    .woordenlijst-table th,
+    .woordenlijst-table td {
+      padding: 0.45rem 0.4rem;
+      border-bottom: 1px solid #e0e4ec;
+      vertical-align: top;
+    }
+
+    .woordenlijst-table th {
+      text-align: left;
+      font-weight: 600;
+      background: #f6f7fb;
+    }
+
+    .woordenlijst-term {
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .woordenlijst-relaties {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 0.8rem 1.5rem 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* BGT-hoofdcategorieën */
+    .bgt-categories {
+      margin-top: 1.2rem;
+    }
+
+    .bgt-categories h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .bgt-categories p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0.2rem 0 0.6rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .category-card {
+      background: #ffffff;
+      border-radius: var(--radius-large);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem 1rem;
+    }
+
+    .category-card h3 {
+      margin: 0 0 0.2rem;
+      font-size: 1.05rem;
+    }
+
+    .category-card span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .category-sublist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .category-sublist li {
+      margin: 0;
+    }
+
+    .category-sublist a {
+      display: inline-block;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: #eef1f7;
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    .category-sublist a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Responsief */
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      aside {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav.main-nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="site-title">
+        <img src="ECGeo.jpg" alt="ECGeo logo" class="logo">
+        <div>
+          <h1>BGT Objectenhandboek</h1>
+          <span>ECGeo – richtlijnen voor inwinning en beheer</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="#home">Startpagina</a>
+        <a href="handboek.html">Over dit handboek</a>		
+        <a href="leeswijzer.html">Leeswijzer & definities</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <div class="side-card" id="home">
+        <h2></h2>
+        <p>Dit objectenhandboek beschrijft hoe ECGeo BGT-objecten inwint, beheert en afbakent.</p>
+        <ul class="side-nav">
+          <li><a href="handboek.html">Over dit handboek</a></li>          <l		
+          <li><a href="leeswijzer.html">Leeswijzer &amp; definities</a></li>
+          <li><a href="#versies">Versies & wijzigingen</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h2>Contact & feedback</h2>
+        <p>Vragen of verbetervoorstellen?</p>
+<p>Dien een melding in via <a href="https://login.microsoftonline.com/common/saml2?SAMLRequest=jZHNasMwEITvfQqju2xLVmJJxA6BUAi0UNq0h16C7KwTgX5SSw59%2FDpOC%2Bml9CDBit3ZmU%2BL5ac1yRn6oL2rEElzlIBr%2FV67Q4Vet%2FeYo2V9twjKGnqSqyEe3TN8DBBish4v7VScJo8xnoLMMuMP2qVWt70PvoveGe0gbb3NxmO9yyYllGzWFdo1JQNWUoqFUDlmpONYzHmDy65sGBGiJOV8VzBOOFeAG942mO1hNjZBh3khmk6AUFSMpjfhSYWgz1ChTpkAl5cwwMaFqFysEM3pDBOKc7olhSyopCwlc%2FaOkref8PQSfsThgrzGrdDQO%2BlV0EE6ZSHI2MqX1eODHFvlqffRt96g%2BkpHTgv7W4W%2FBUa%2F0F%2FoofqHHpxVqtvorEmdmVBhC1HtVVTZf2Atslsr9Xf5%2B9%2FqLw%3D%3D&RelayState=67e22274-4980-448b-889e-154cf6d69282&SigAlg=http%3A%2F%2Fwww.w3.org%2F2001%2F04%2Fxmldsig-more%23rsa-sha256&Signature=Keul%2FN5pjoBINstvc%2BiwVjpETyZvPbxkq7SzAO%2FZdMzw6szFzZvJ0exFpiYcVcEvvQZo8CDObJef0T69R4BqRdLBuvPnRfJMe3EFt%2FXKkEx1ABSb66z8jWGus9pnjrMMtql0Jh1fuJJb6ispVd25fYhsImMw1cI3OOnK0A%2B9dpm6qAdEmdJVDMrMgbQCNRYdSSmVdnmoUXvrPWhXYKECNPcbsx7PcpvmB9Pnk7L1V0oue%2BLnN4OpS6YundRDJpYVBNZDLjuz1T8mUTfYBRjsIhopca9kbaBYHqwp6uMB475maGk%2BAm6d9Hqdn6NvwBD6p07BPfivyqLbV7lA70VMSA%3D%3D" target="_blank">TOPdesk!</a></p>
+      </div>
+    </aside>
+
+    <main>
+      <!-- Zoek & overzicht -->
+      <section class="card" aria-labelledby="zoek-title">
+        <h2 id="zoek-title">Zoek in het handboek</h2>
+        <p class="intro">
+          Gebruik de zoekbalk om te zoeken in BGT-objecten en begrippen. Je kunt ook direct bladeren via de A–Z index.
+        </p>
+        <div class="search-bar">
+          <div class="search-input">
+            <span>🔍</span>
+            <input id="searchBox" type="search" placeholder="Zoek op objectnaam, code of begrip…" autocomplete="off" />
+          </div>
+          <button class="filter-toggle" type="button" id="toggleObjecten">
+            Alleen BGT-objecten
+          </button>
+          <button class="filter-toggle" type="button" id="toggleWoorden">
+            Alleen begrippen
+          </button>
+        </div>
+        <div class="az-index" aria-label="A–Z index voor BGT-objecten">
+          <span style="font-size:0.9rem;color:var(--text-muted);margin-right:0.25rem;">Blader A–Z:</span>
+          <button type="button" class="az-letter active" data-letter="all">Alle</button>
+          <button type="button" class="az-letter" data-letter="b">B</button>
+          <button type="button" class="az-letter" data-letter="g">G</button>
+          <button type="button" class="az-letter" data-letter="k">K</button>
+          <button type="button" class="az-letter" data-letter="w">W</button>
+          <!-- Breid letters uit naarmate je meer objecten toevoegt -->
+        </div>
+      </section>
+
+      <!-- BGT-objecten -->
+      <section class="card bgt-categories">
+        <h2>Hoofdcategorieën BGT</h2>
+        <p>
+          De BGT-objecten zijn ingedeeld in hoofdcategorieën, naar analogie van het landelijke BGT-objectenhandboek (Geonovum).
+          Vanuit deze categorieën navigeer je door naar de detailpagina’s.
+        </p>
+
+        <div class="category-grid">
+          <!-- Transport -->
+          <div class="category-card">
+            <h3>Transport</h3>
+            <span>Weg- en spoorgerelateerde objecten</span>
+
+            <div class="category-group">
+              <h4>Wegdeel: functie</h4>
+              <ul class="category-sublist">
+                <li><a href="fietspad.html">Wegdeel functie: Fietspad</a></li>
+                <li><a href="#">Wegdeel functie: Inrit</a></li>
+                <li><a href="#">Wegdeel functie: OV-baan</a></li>
+                <li><a href="#">Wegdeel functie: Overweg</a></li>
+                <li><a href="#">Wegdeel functie: Parkeervlak</a></li>
+                <li><a href="#">Wegdeel functie: Rijbaan autosnelweg</a></li>
+                <li><a href="#">Wegdeel functie: Rijbaan autoweg</a></li>
+                <li><a href="#">Wegdeel functie: Rijbaan lokale weg</a></li>
+                <li><a href="#">Wegdeel functie: Rijbaan regionale weg</a></li>
+                <li><a href="#">Wegdeel functie: Ruiterpad</a></li>
+                <li><a href="#">Wegdeel functie: Voetgangersgebied</a></li>
+                <li><a href="#">Wegdeel functie: Voetpad</a></li>
+                <li><a href="#">Wegdeel functie: Voetpad op trap</a></li>
+                <li><a href="#">Wegdeel functie: Woonerf</a></li>
+              </ul>
+            </div>
+
+            <div class="category-group">
+              <h4>Ondersteunend wegdeel: functie</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Ondersteunend wegdeel functie: Berm</a></li>
+                <li><a href="#">Ondersteunend wegdeel functie: Verkeerseiland</a></li>
+              </ul>
+            </div>
+
+            <div class="category-group">
+              <h4>Spoor: functie</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Spoor functie: Trein</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Terrein -->
+          <div class="category-card">
+            <h3>Terrein</h3>
+            <span>Onbegroeide en begroeide terreindelen</span>
+
+            <div class="category-group">
+              <h4>Onbegroeid terreindeel: fysiek voorkomen</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Erf</a></li>
+                <li><a href="#">Gesloten verharding</a></li>
+                <li><a href="#">Half verhard</a></li>
+                <li><a href="#">Onverhard</a></li>
+                <li><a href="#">Open verharding</a></li>
+                <li><a href="#">Zand</a></li>
+              </ul>
+            </div>
+
+            <div class="category-group">
+              <h4>Begroeid terreindeel: fysiek voorkomen</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Bouwland</a></li>
+                <li><a href="#">Gemengd bos</a></li>
+                <li><a href="#">Grasland agrarisch</a></li>
+                <li><a href="#">Grasland overig</a></li>
+                <li><a href="#">Groenvoorziening</a></li>
+                <li><a href="#">Loofbos</a></li>
+                <li><a href="#">Naaldbos</a></li>
+                <li><a href="#">Rietland</a></li>
+                <li><a href="#">Struiken</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Water -->
+          <div class="category-card">
+            <h3>Water</h3>
+            <span>Oppervlaktewater en ondersteunende waterdelen</span>
+
+            <div class="category-group">
+              <h4>Waterdeel: type</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Greppel, droge sloot</a></li>
+                <li><a href="#">Waterloop</a></li>
+                <li><a href="#">Watervlakte</a></li>
+              </ul>
+            </div>
+
+            <div class="category-group">
+              <h4>Ondersteunend waterdeel: type</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Oever / slootkant</a></li>
+                <li><a href="#">Slik</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bouwwerk -->
+          <div class="category-card">
+            <h3>Bouwwerk</h3>
+            <span>Panden, overige bebouwing en scheidingen</span>
+
+            <div class="category-group">
+              <h4>Pand</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Pand</a></li>
+              </ul>
+            </div>
+
+            <div class="category-group">
+              <h4>Overige bebouwing</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Overig bouwwerk: Bassin</a></li>
+                <li><a href="#">Overig bouwwerk: Bezinkbak</a></li>
+                <li><a href="#">Overig bouwwerk: Lage trafo</a></li>
+                <li><a href="#">Overig bouwwerk: Open loods</a></li>
+                <li><a href="#">Overig bouwwerk: Opslagtank</a></li>
+                <li><a href="#">Overig bouwwerk: Overkapping</a></li>
+                <li><a href="#">Overig bouwwerk: Windturbine</a></li>
+              </ul>
+            </div>
+
+            <div class="category-group">
+              <h4>Scheiding: type</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Scheiding type: Damwand</a></li>
+                <li><a href="#">Scheiding type: Geluidsscherm</a></li>
+                <li><a href="#">Scheiding type: Hek</a></li>
+                <li><a href="#">Scheiding type: Kademuur</a></li>
+                <li><a href="#">Scheiding type: Muur</a></li>
+                <li><a href="#">Scheiding type: Walbescherming</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Kunstwerk -->
+          <div class="category-card">
+            <h3>Kunstwerk</h3>
+            <span>Bruggen, tunnels en overige kunstwerkdelen</span>
+
+            <div class="category-group">
+              <h4>Overbruggingsdeel</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Overbruggingsdeel</a></li>
+              </ul>
+            </div>
+
+            <div class="category-group">
+              <h4>Tunneldeel</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Tunneldeel</a></li>
+              </ul>
+            </div>
+
+            <div class="category-group">
+              <h4>Kunstwerkdeel: type</h4>
+              <ul class="category-sublist">
+                <li><a href="#">Kunstwerkdeel type: Gemaal</a></li>
+                <li><a href="#">Kunstwerkdeel type: Hoogspanningsmast</a></li>
+                <li><a href="#">Kunstwerkdeel type: Steiger</a></li>
+                <li><a href="#">Kunstwerkdeel type: Stuw</a></li>
+                <!-- Voeg hier desgewenst meer types toe -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Versies & wijzigingshistorie -->
+      <section class="card" id="versies" aria-labelledby="versies-title">
+        <h2 id="versies-title">Versies & wijzigingen</h2>
+        <p class="intro">
+          In dit overzicht staan de verschillende versies en inhoudelijke wijzigingen van het objectenhandboek vermeld.
+        </p>
+        <ul>
+          <li><strong>Versie 1.0 – 01-12-2025</strong>
+            <ul>
+              <li>Structuur van het handboek opgezet (startpagina, BGT-objecten).</li>
+              <li>Voorbeeldobjecten toegevoegd: Fietspad.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> ECGeo – BGT Objectenhandboek (concept). Dit is een voorbeeldopzet; inhoud en structuur kunnen nog wijzigen.
+  </footer>
+
+  <script>
+    // Huidig jaar in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const searchBox = document.getElementById('searchBox');
+    const objectCards = Array.from(document.querySelectorAll('.object-card'));
+    const woordenRows = Array.from(document.querySelectorAll('#woordenTable tbody tr'));
+    const toggleObjecten = document.getElementById('toggleObjecten');
+    const toggleWoorden = document.getElementById('toggleWoorden');
+    const azButtons = Array.from(document.querySelectorAll('.az-letter'));
+
+    let filterMode = 'all'; // 'all' | 'objecten' | 'woorden'
+    let azFilter = 'all';
+
+    function applyFilters() {
+      const query = (searchBox.value || '').toLowerCase().trim();
+
+      // Objecten filteren
+      objectCards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const letter = card.dataset.letter.toLowerCase();
+        const text = card.textContent.toLowerCase();
+
+        let visible = true;
+
+        if (filterMode === 'woorden') {
+          visible = false;
+        } else {
+          if (query && !text.includes(query) && !name.includes(query)) {
+            visible = false;
+          }
+          if (azFilter !== 'all' && letter !== azFilter) {
+            visible = false;
+          }
+        }
+        card.style.display = visible ? '' : 'none';
+      });
+
+      // Leeswijzer-rows filteren (zelfde logica als woordenlijst)
+      woordenRows.forEach(row => {
+        const term = row.dataset.term.toLowerCase();
+        const text = row.textContent.toLowerCase();
+        let visible = true;
+
+        if (filterMode === 'objecten') {
+          visible = false;
+        } else {
+          if (query && !text.includes(query) && !term.includes(query)) {
+            visible = false;
+          }
+        }
+        row.style.display = visible ? '' : 'none';
+      });
+    }
+
+    searchBox.addEventListener('input', applyFilters);
+
+    toggleObjecten.addEventListener('click', () => {
+      filterMode = filterMode === 'objecten' ? 'all' : 'objecten';
+      toggleObjecten.classList.toggle('active');
+      toggleWoorden.classList.remove('active');
+      applyFilters();
+    });
+
+    toggleWoorden.addEventListener('click', () => {
+      filterMode = filterMode === 'woorden' ? 'all' : 'woorden';
+      toggleWoorden.classList.toggle('active');
+      toggleObjecten.classList.remove('active');
+      applyFilters();
+    });
+
+    azButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        azButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        azFilter = btn.dataset.letter;
+        applyFilters();
+      });
+    });
+  </script>
+</body>
+</html>

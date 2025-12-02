@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Over dit handboek – BGT Objectenhandboek ECGeo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --bg-alt: #ffffff;
+      --accent: #0066aa;
+      --accent-soft: #e5f2fb;
+      --text: #023672;
+      --text-muted: #666666;
+      --border: #d0d6e0;
+      --shadow-soft: 0 2px 6px rgba(0,0,0,0.08);
+      --radius: 8px;
+      --radius-large: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Logo in header */
+    .logo {
+      height: 48px;
+      margin-right: 0.5rem;
+      display: block;
+    }
+
+    header {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .site-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .site-title h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .site-title span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: -4px;
+    }
+
+    nav.main-nav {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    nav.main-nav a {
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    nav.main-nav a:hover {
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    .layout {
+      max-width: 1200px;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    aside {
+      align-self: flex-start;
+      position: sticky;
+      top: 5.5rem;
+    }
+
+    .side-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-large);
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1rem;
+    }
+
+    .side-card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+    }
+
+    .side-card p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .side-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .side-nav li {
+      margin-bottom: 0.25rem;
+    }
+
+    .side-nav a {
+      display: block;
+      padding: 0.3rem 0.4rem;
+      border-radius: var(--radius);
+    }
+
+    .side-nav a:hover {
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-large);
+      padding: 1.2rem 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .intro {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .section-block h3 {
+      margin-top: 0.8rem;
+      font-size: 1rem;
+    }
+
+    .section-block ul {
+      padding-left: 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    .section-block li {
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight-box {
+      background: #f6f8fc;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 0.7rem 0.8rem;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 0.8rem 1.5rem 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Responsief */
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      aside {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav.main-nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="site-title">
+      <!-- Logo klikbaar, terug naar index.html -->
+      <a href="index.html">
+        <img src="ECGeo.jpg" alt="ECGeo logo" class="logo">
+      </a>
+      <div>
+        <h1>BGT Objectenhandboek</h1>
+        <span>ECGeo – richtlijnen voor inwinning en beheer</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Startpagina</a>
+      <a href="over-dit-handboek.html">Over dit handboek</a>
+      <a href="leeswijzer.html">Leeswijzer &amp; definities</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+  <aside>
+    <div class="side-card">
+      <h2>Over dit handboek</h2>
+      <p>Kader en uitgangspunten van het BGT/IMGEO-objectenhandboek.</p>
+      <ul class="side-nav">
+        <li><a href="#doel">Doel en achtergrond</a></li>
+        <li><a href="#bgt-imgeo">Relatie BGT en IMGeo</a></li>
+        <li><a href="#uitgangspunten">Uitgangspunten objectenlijst</a></li>
+        <li><a href="#gebruik-beheer">Gebruik &amp; beheer</a></li>
+      </ul>
+    </div>
+
+    <div class="side-card">
+      <h2>Navigatie</h2>
+      <ul class="side-nav">
+        <li><a href="index.html">Terug naar startpagina</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Intro -->
+    <section class="card">
+      <h2>Over dit handboek</h2>
+      <p class="intro">
+        Dit objectenhandboek beschrijft hoe ECGeo en de aangesloten gemeenten de Basisregistratie
+        Grootschalige Topografie (BGT) en het aanvullende IMGEO-bestand invullen en gebruiken.
+        Het handboek vormt de brug tussen landelijke afspraken en de lokale werkprocessen voor
+        inrichting, beheer en gebruik van de openbare ruimte.
+      </p>
+    </section>
+
+    <!-- Doel en achtergrond -->
+    <section id="doel" class="card section-block">
+      <h2>Doel en achtergrond</h2>
+      <p>
+        De overheid streeft naar een landelijk dekkende, uniforme en objectgerichte basiskaart:
+        de Basisregistratie Grootschalige Topografie (BGT). De BGT is primair ingericht als
+        landelijke basisregistratie, met gemeenschappelijke kenmerken die voor alle overheden
+        bruikbaar zijn. Daarmee bedient de BGT slechts een deel van de gemeentelijke werkprocessen.
+      </p>
+      <p>
+        Om beter aan te sluiten op de behoefte van de beheerders van de openbare ruimte is
+        <strong>IMGEO</strong> ontwikkeld: een informatiemodel dat de BGT verdiept en uitbreidt met
+        objecten en attributen die specifiek van belang zijn voor beheer, inrichting en beleid.
+        Dit objectenhandboek beschrijft hoe de gemeenten binnen LNRW/ECGeo IMGEO invullen en toepassen.
+      </p>
+    </section>
+
+    <!-- Relatie BGT en IMGeo -->
+    <section id="bgt-imgeo" class="card section-block">
+      <h2>Relatie tussen BGT en IMGEO</h2>
+      <p>
+        De BGT vormt de landelijke basis: hierin worden de objecten vastgelegd die onder de
+        wettelijke registratieplicht vallen. IMGEO voegt daar extra detail aan toe, zodat de
+        gegevens beter aansluiten op dagelijkse beheer- en beleidsprocessen binnen de gemeenten.
+      </p>
+      <div class="highlight-box">
+        <strong>Kort samengevat</strong><br>
+        BGT = landelijke basisregistratie met een uniform objecten- en attributenmodel.<br>
+        IMGEO = verdiepende invulling voor de gemeentelijke beheerpraktijk.
+      </div>
+      <p>
+        In dit handboek wordt per objecttype aangegeven welke onderdelen uit de BGT wettelijk
+        verplicht zijn en welke aanvullende IMGEO-objecten en -attributen door ECGeo worden
+        gebruikt om gemeentelijke taken goed te kunnen ondersteunen.
+      </p>
+    </section>
+
+    <!-- Uitgangspunten objectenlijst -->
+    <section id="uitgangspunten" class="card section-block">
+      <h2>Uitgangspunten voor de objectenlijst</h2>
+      <p>
+        De gemeenten binnen LNRW hebben de ambitie uitgesproken om een bestand conform IMGEO
+        op te bouwen, zodanig dat dit bestand integraal onderdeel is van de gemeentelijke
+        werkprocessen. Om deze ambitie concreet te maken is een objectenhandboek opgesteld
+        waarin de objecten zijn beschreven zoals LNRW/ECGeo ze in het IMGEO-bestand wil hebben.
+      </p>
+
+      <p>De lijst met objecten is samengesteld op basis van drie uitgangspunten:</p>
+      <ul>
+        <li>
+          <strong>Wettelijke basis</strong><br>
+          IMGEO-objecten worden opgenomen wanneer zij een duidelijke wettelijke basis hebben
+          (bijvoorbeeld vanuit basisregistraties, wet- en regelgeving of landelijke afspraken).
+        </li>
+        <li>
+          <strong>Gebruik in beheeromgeving</strong><br>
+          IMGEO-objecten worden opgenomen wanneer zij daadwerkelijk gebruikt worden in de
+          beheeromgeving, zoals BOR, wegbeheer, waterbeheer of vergunningverlening.
+        </li>
+        <li>
+          <strong>Specifieke vraag vanuit raad of organisatie</strong><br>
+          IMGEO-objecten worden opgenomen wanneer er expliciete vraag is vanuit raad,
+          college, management of organisatie (bijvoorbeeld voor beleid, rapportages of
+          sturingsinformatie).
+        </li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>Doel van deze keuzes</strong><br>
+        Alleen die objecten en attributen registreren die aantoonbare waarde hebben
+        voor wettelijke taken, beheerprocessen of bestuurlijke/organisatorische vragen.
+      </div>
+    </section>
+
+    <!-- Gebruik en beheer -->
+    <section id="gebruik-beheer" class="card section-block">
+      <h2>Gebruik en beheer van dit handboek</h2>
+      <p>
+        Het objectenhandboek is een levend document. Het wordt gebruikt bij:
+      </p>
+      <ul>
+        <li>de initiële opbouw van het IMGEO-bestand;</li>
+        <li>de bijhouding en het mutatieproces (inwinning, controle, verwerking);</li>
+        <li>de afstemming met gemeentelijke beheerregistraties en werkprocessen;</li>
+        <li>de communicatie over betekenis en gebruik van BGT/IMGEO-objecten binnen de organisatie.</li>
+      </ul>
+
+      <p>
+        Wanneer wet- en regelgeving wijzigt, wanneer nieuwe beheerbehoeften ontstaan of wanneer
+        werkprocessen veranderen, kan dit aanleiding zijn om het handboek aan te passen.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Versies &amp; wijzigingen</strong><br>
+        In het hoofdstuk <em>Versies &amp; wijzigingen</em> (zie startpagina) wordt vastgelegd
+        welke inhoudelijke wijzigingen in het handboek zijn doorgevoerd en per wanneer deze gelden.
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  &copy; <span id="year"></span> ECGeo – BGT Objectenhandboek (concept). Inhoud en structuur kunnen nog wijzigen.
+</footer>
+
+<script>
+  // Huidig jaar in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
