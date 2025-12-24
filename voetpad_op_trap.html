@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wegdeel functie: Voetpad op trap – BGT Objectenhandboek ECGeo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --bg: #f5f7fa;
+        --bg-alt: #ffffff;
+        --accent: #0066aa;
+        --accent-soft: #e5f2fb;
+        --text: #023672;
+        --text-muted: #666666;
+        --border: #d0d6e0;
+        --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.08);
+        --radius: 8px;
+        --radius-large: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .logo {
+        height: 48px;
+        margin-right: 0.5rem;
+        display: block;
+      }
+
+      header {
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .site-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .site-title h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+      .site-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        display: block;
+        margin-top: -4px;
+      }
+
+      nav.main-nav {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.95rem;
+      }
+      nav.main-nav a {
+        padding: 0.4rem 0.6rem;
+        border-radius: 999px;
+      }
+      nav.main-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      .layout {
+        max-width: 1200px;
+        margin: 1.5rem auto;
+        padding: 0 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+
+      aside {
+        align-self: flex-start;
+        position: sticky;
+        top: 5.5rem;
+      }
+
+      .side-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 1rem;
+      }
+
+      .side-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+      .side-card p {
+        margin: 0.3rem 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .side-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+      }
+      .side-nav li {
+        margin-bottom: 0.25rem;
+      }
+      .side-nav a {
+        display: block;
+        padding: 0.3rem 0.4rem;
+        border-radius: var(--radius);
+      }
+      .side-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1.2rem 1.4rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .card h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+      .intro {
+        font-size: 0.96rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .object-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .object-title h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      .object-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .object-meta {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.6rem 1.2rem;
+        margin-top: 0.3rem;
+      }
+
+      .meta-item-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--text-muted);
+        margin-bottom: 0.1rem;
+      }
+      .meta-item-value {
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.12rem 0.5rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.78rem;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.8rem;
+      }
+      .tab-btn {
+        border: 1px solid var(--border);
+        background: #f3f5fa;
+        border-radius: 999px;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.86rem;
+        cursor: pointer;
+      }
+      .tab-btn:hover {
+        background: var(--accent-soft);
+      }
+      .tab-btn.active {
+        background: var(--accent);
+        color: #ffffff;
+        border-color: var(--accent);
+      }
+
+      .section-block {
+        display: none;
+      }
+      .section-block.active {
+        display: block;
+      }
+      .section-block h3 {
+        margin-top: 0.8rem;
+        font-size: 1rem;
+      }
+      .section-block ul {
+        padding-left: 1.1rem;
+        font-size: 0.95rem;
+      }
+
+      .highlight-box {
+        background: #f6f8fc;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+        margin-top: 0.6rem;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 0.8rem 1.5rem 1.2rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      @media (max-width: 880px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        aside {
+          position: static;
+        }
+      }
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        nav.main-nav {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="site-title">
+          <a href="index.html"
+            ><img src="ECGeo.jpg" alt="ECGeo logo" class="logo"
+          /></a>
+          <div>
+            <h1>BGT Objectenhandboek</h1>
+            <span>ECGeo – richtlijnen voor inwinning en beheer</span>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Start</a>
+          <a href="handboek.html">Over dit handboek</a>
+          <a href="leeswijzer.html">Leeswijzer &amp; definities</a>
+          <a href="kwaliteit.html">Kwaliteit</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="side-card">
+          <h2>Wegdeel functie: Voetpad op trap</h2>
+          <p>
+            Detailpagina voor de functie Voetpad op trap binnen de objectklasse
+            Wegdeel.
+          </p>
+          <ul class="side-nav">
+            <li>
+              <a href="#" class="js-section-link" data-target="definitie"
+                >Definitie</a
+              >
+            </li>
+            <li>
+              <a href="#" class="js-section-link" data-target="afbakening"
+                >Afbakening</a
+              >
+            </li>
+            <li>
+              <a href="#" class="js-section-link" data-target="beheer"
+                >Beheer</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h2>Navigatie</h2>
+          <ul class="side-nav">
+            <li><a href="handboek.html">Over dit handboek</a></li>
+
+            <li><a href="leeswijzer.html">Leeswijzer &amp; definities</a></li>
+
+            <li><a href="kwaliteit.html">Kwaliteit</a></li>
+
+            <li><a href="index.html">Terug naar startpagina</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <main id="top">
+        <section class="card object-header">
+          <div class="object-title">
+            <h1>Wegdeel functie: Voetpad op trap</h1>
+            <span>Groep Transport · Objectklasse Wegdeel</span>
+          </div>
+
+          <div class="object-meta">
+            <div class="meta-grid">
+              <div class="meta-item">
+                <div class="meta-item-label">Objectdeel</div>
+                <div class="meta-item-value">Wegdeel</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-label">BGT functie</div>
+                <div class="meta-item-value">
+                  <span class="badge">Voetpad op trap</span>
+                </div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-label">Geometrie</div>
+                <div class="meta-item-value">Vlak</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-label">Nauwkeurigheid</div>
+                <div class="meta-item-value">
+                  30 cm; idealisatie 2–5 cm per punt
+                </div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-label">Actualiteit</div>
+                <div class="meta-item-value">6 maanden</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-label">BGT fysiek voorkomen</div>
+                <div class="meta-item-value">Gesloten verharding</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-label">Beheerder</div>
+                <div class="meta-item-value">Wegbeheer (WE)</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-label">Inwinning</div>
+                <div class="meta-item-value">Terrestrisch</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <button class="tab-btn active" data-target="definitie">
+              Definitie
+            </button>
+            <button class="tab-btn" data-target="afbakening">Afbakening</button>
+            <button class="tab-btn" data-target="beheer">Beheer</button>
+          </div>
+        </section>
+
+        <section id="definitie" class="card section-block active">
+          <h2>Definitie</h2>
+          <p class="intro">
+            Wegdeel dat bestemd is voor voetgangers en dat (gedeeltelijk) uit
+            een trap bestaat. Het gaat om openbare trappen die onderdeel vormen
+            van een looproute, bijvoorbeeld in hoogteverschillen, passages of
+            bruggen.
+          </p>
+
+          <h3>BGT- en IMGeo-classificatie</h3>
+          <ul>
+            <li><strong>Objectdeel</strong>: Wegdeel</li>
+            <li><strong>BGT functie</strong>: Voetpad op trap</li>
+            <li><strong>BGT fysiek voorkomen</strong>: Gesloten verharding</li>
+            <li><strong>IMGEO-classificatie</strong>: n.v.t.</li>
+            <li>
+              <strong>IMGeo fysiek voorkomen</strong>: Beton, Natuursteen,
+              Betonstraatstenen
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            Deze functie wordt gebruikt wanneer de trap onderdeel is van de
+            looproute en als zodanig herkenbaar is als voetpad (niet als
+            afzonderlijk bouwwerk-objecttype).
+          </div>
+        </section>
+
+        <section id="afbakening" class="card section-block">
+          <h2>Afbakening</h2>
+          <p class="intro">
+            De afbakening van het wegdeel functie Voetpad op trap volgt de
+            landelijke IMGeo-richtlijnen.
+          </p>
+
+          <div class="highlight-box" style="padding: 0; overflow: hidden">
+            <iframe
+              src="https://geonovum.github.io/IMGeo-objectenhandboek/wegdeel#voetpad-op-trap"
+              title="IMGeo objectenhandboek – Wegdeel functie voetpad op trap"
+              loading="lazy"
+              style="width: 100%; height: 600px; border: 0"
+            ></iframe>
+          </div>
+
+          <p class="intro" style="margin-top: 0.5rem">
+            <a
+              href="https://geonovum.github.io/IMGeo-objectenhandboek/wegdeel#voetpad-op-trap"
+              target="_blank"
+              rel="noopener"
+              >Open voetpad op trap in nieuw tabblad</a
+            >.
+          </p>
+
+          <h3>Wat hoort bij voetpad op trap?</h3>
+          <ul>
+            <li>
+              De trapconstructie (treden) die onderdeel vormt van een openbare
+              looproute.
+            </li>
+            <li>
+              Eventuele bordessen die functioneel onderdeel zijn van de
+              trap/looproute.
+            </li>
+          </ul>
+
+          <h3>Wat hoort niet bij voetpad op trap?</h3>
+          <ul>
+            <li>
+              Privé-trappen op eigen terrein (niet openbaar toegankelijk).
+            </li>
+            <li>
+              Trappen die uitsluitend behoren tot een gebouw (binnen of direct
+              bij een pand) en geen openbare looproute vormen.
+            </li>
+            <li>
+              Losse bouwwerken die als kunstwerkdeel/constructie-object worden
+              beheerd (indien van toepassing als eigen objecttype).
+            </li>
+          </ul>
+        </section>
+
+        <section id="beheer" class="card section-block">
+          <h2>Beheer</h2>
+          <p class="intro">
+            Wijzigingen in de trap (renovatie, vervanging, verlegging van de
+            route) en wijzigingen in materiaal/verharding moeten tijdig worden
+            verwerkt in de BGT.
+          </p>
+
+          <h3>Gebruik in beheer</h3>
+          <ul>
+            <li>
+              Onderhoud en veiligheid (stroefheid, schade aan treden/bordessen,
+              verlichting).
+            </li>
+            <li>
+              Toegankelijkheidsvraagstukken (omleiding via hellingbaan,
+              alternatieve routes).
+            </li>
+            <li>
+              Beheer van looproutes in parken, onderdoorgangen en
+              hoogteverschillen.
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> ECGeo – BGT Objectenhandboek (concept).
+      Inhoud en structuur kunnen nog wijzigen.
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
+      const sections = Array.from(document.querySelectorAll(".section-block"));
+      const sectionLinks = Array.from(
+        document.querySelectorAll(".js-section-link")
+      );
+
+      function activateSection(targetId) {
+        sections.forEach((sec) =>
+          sec.classList.toggle("active", sec.id === targetId)
+        );
+        tabButtons.forEach((btn) =>
+          btn.classList.toggle("active", btn.dataset.target === targetId)
+        );
+      }
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activateSection(btn.dataset.target);
+          document
+            .getElementById("top")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      sectionLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          activateSection(link.dataset.target);
+          document
+            .getElementById("top")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    </script>
+  </body>
+</html>

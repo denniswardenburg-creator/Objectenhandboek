@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Over dit handboek – BGT Objectenhandboek (ECGeo)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --bg: #f5f7fa;
+        --bg-alt: #ffffff;
+        --accent: #0066aa;
+        --accent-soft: #e5f2fb;
+        --text: #023672;
+        --text-muted: #666666;
+        --border: #d0d6e0;
+        --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.08);
+        --radius: 8px;
+        --radius-large: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .logo {
+        height: 48px;
+        margin-right: 0.5rem;
+        display: block;
+      }
+
+      header {
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .site-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .site-title h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      .site-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        display: block;
+        margin-top: -4px;
+      }
+
+      nav.main-nav {
+        display: flex;
+        gap: 0.6rem;
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      nav.main-nav a {
+        padding: 0.4rem 0.6rem;
+        border-radius: 999px;
+      }
+
+      nav.main-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      .layout {
+        max-width: 1200px;
+        margin: 1.5rem auto;
+        padding: 0 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+
+      aside {
+        align-self: flex-start;
+        position: sticky;
+        top: 5.5rem;
+      }
+
+      .side-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 1rem;
+      }
+
+      .side-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+
+      .side-card p {
+        margin: 0.3rem 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .side-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+      }
+
+      .side-nav li {
+        margin-bottom: 0.2rem;
+      }
+
+      .side-nav a {
+        display: block;
+        padding: 0.3rem 0.4rem;
+        border-radius: var(--radius);
+      }
+
+      .side-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1.25rem 1.4rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .card h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+      .card h3 {
+        margin-top: 1rem;
+        font-size: 1.02rem;
+      }
+
+      .intro {
+        font-size: 0.98rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 0.2rem;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.12rem 0.55rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.78rem;
+        margin-left: 0.3rem;
+        vertical-align: middle;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+        margin-top: 0.8rem;
+      }
+
+      .mini-card {
+        border-radius: var(--radius-large);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        padding: 0.9rem 1rem;
+        background: #fff;
+      }
+
+      .mini-card h3 {
+        margin: 0 0 0.25rem;
+        font-size: 1.02rem;
+      }
+      .mini-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+      .mini-card a {
+        display: inline-block;
+        margin-top: 0.5rem;
+      }
+
+      ul {
+        line-height: 1.6;
+        margin: 0.5rem 0 0;
+      }
+      li {
+        margin: 0.25rem 0;
+      }
+
+      .highlight-box {
+        margin-top: 0.9rem;
+        padding: 0.85rem 1rem;
+        border-radius: var(--radius-large);
+        background: #f6f7fb;
+        border: 1px solid #e0e4ec;
+        color: var(--text);
+      }
+
+      .muted {
+        color: var(--text-muted);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 0.8rem 1.5rem 1.2rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      @media (max-width: 880px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        aside {
+          position: static;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        nav.main-nav {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="site-title">
+          <a href="index.html" aria-label="Terug naar start">
+            <img src="ECGeo.jpg" alt="ECGeo logo" class="logo" />
+          </a>
+          <div>
+            <h1>BGT Objectenhandboek</h1>
+            <span>ECGeo – richtlijnen voor inwinning en beheer</span>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="index.html">Start</a>
+          <a href="handboek.html">Over het handboek</a>
+          <a href="leeswijzer.html">Leeswijzer &amp; definities</a>
+          <a href="kwaliteit.html">Kwaliteit</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="side-card">
+          <h2>Snelle navigatie</h2>
+          <p>
+            Kort uitgelegd wat je op deze website vindt en hoe je ’m gebruikt.
+          </p>
+          <ul class="side-nav">
+            <li><a href="#wat-is-dit">Wat is dit handboek?</a></li>
+            <li><a href="#wat-vind-je-waar">Wat vind je waar?</a></li>
+            <li><a href="#hoe-gebruik-je-dit">Hoe gebruik je dit?</a></li>
+            <li>
+              <a href="#levend-document">Levend document &amp; wijzigingen</a>
+            </li>
+            <li><a href="#feedback">Feedback / TOPdesk</a></li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h2>Tip</h2>
+          <p>
+            Begin meestal op de <a href="index.html">startpagina</a> en navigeer
+            vanuit de hoofdcategorieën door naar detailpagina’s.
+          </p>
+        </div>
+      </aside>
+
+      <main>
+        <!-- Hero / intro -->
+        <section class="card" id="wat-is-dit">
+          <h2>Over dit handboek</h2>
+          <p class="intro">
+            Dit objectenhandboek beschrijft hoe ECGeo BGT/IMGEO-objecten inwint,
+            beheert en afbakent in de praktijk. Het is bedoeld om overal
+            dezelfde keuzes te maken: wat hoort wel/niet bij een object, welke
+            geometrie gebruiken we, en welke kwaliteit/actualiteit hoort
+            daarbij.
+          </p>
+
+          <div class="highlight-box">
+            Een uniforme, objectgerichte basiskaart (BGT) is landelijk
+            gestandaardiseerd, maar in de gemeentelijke werkpraktijk zijn extra
+            afspraken nodig. IMGEO is ontwikkeld om die beheerbehoefte beter te
+            ondersteunen, en dit handboek legt die afspraken vast.
+          </div>
+        </section>
+
+        <!-- Waar vind je wat -->
+        <section class="card" id="wat-vind-je-waar">
+          <h2>Wat vind je waar?</h2>
+          <p class="intro">
+            De site is opgebouwd als “handboek in webvorm”: snel zoeken,
+            doorklikken en steeds dezelfde structuur per onderwerp.
+          </p>
+
+          <div class="grid-2">
+            <div class="mini-card">
+              <h3>Startpagina</h3>
+              <p>
+                Overzicht van hoofdcategorieën en de belangrijkste objecten.
+                Handig als “menu”.
+              </p>
+              <a href="index.html">Naar startpagina →</a>
+            </div>
+
+            <div class="mini-card">
+              <h3>Detailpagina’s per object</h3>
+              <p>
+                Per object (bijv. Wegdeel-functies) vind je definities,
+                afbakening, relaties, voorbeelden en kwaliteitscontroles.
+              </p>
+              <a href="index.html#objecten">Naar objecten →</a>
+            </div>
+
+            <div class="mini-card">
+              <h3>Leeswijzer &amp; definities</h3>
+              <p>
+                Uitleg van vaste onderdelen/velden die steeds terugkomen (zoals
+                geometrie, inwinning, actualiteit, enz.).
+              </p>
+              <a href="leeswijzer.html">Naar leeswijzer →</a>
+            </div>
+
+            <div class="mini-card">
+              <h3>Kwaliteit</h3>
+              <p>
+                Toelichting op kwaliteitskenmerken zoals juistheid,
+                volledigheid, nauwkeurigheid en actualiteit.
+              </p>
+              <a href="kwaliteit.html">Naar kwaliteit →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hoe gebruik je dit -->
+        <section class="card" id="hoe-gebruik-je-dit">
+          <h2>Hoe gebruik je het handboek?</h2>
+          <p class="intro">
+            Deze website helpt je om snel de juiste keuze te maken bij
+            inwinning, muteren en beheer. Denk aan:
+          </p>
+          <ul>
+            <li>
+              <strong>Afbakening:</strong> waar ligt de grens van het object (en
+              wanneer splits je)?
+            </li>
+            <li><strong>Geometrie:</strong> punt, lijn, vlak of multivlak.</li>
+            <li>
+              <strong>Inwinning:</strong> hoe komt de info binnen (terrestrisch,
+              fotogrammetrisch, constructie uit registraties)?
+            </li>
+            <li>
+              <strong>Actualiteit:</strong> streef-/normtermijnen voor verwerken
+              van wijzigingen.
+            </li>
+            <li>
+              <strong>Relaties:</strong> samenhang met BAG/BOR en andere
+              BGT-objecten.
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>Praktisch:</strong> twijfel je bij een situatie in het veld?
+            Pak de relevante detailpagina erbij en volg de afbakeningsregels met
+            voorbeelden.
+          </div>
+        </section>
+
+        <!-- Levend document -->
+        <section class="card" id="levend-document">
+          <h2>Levend document &amp; wijzigingen</h2>
+          <p class="intro">
+            Het handboek is een <strong>levend document</strong>: afspraken
+            kunnen wijzigen door landelijke ontwikkelingen, lokale keuzes of
+            verbeterpunten uit de praktijk. Wijzigingen worden idealiter
+            vastgelegd in een wijzigingshistorie.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Waarom wijzigen?</strong> Nieuwe objecttypen,
+              aangescherpte regels, betere voorbeelden, of praktische
+              knelpunten.
+            </li>
+            <li>
+              <strong>Waar zie je dit terug?</strong> Op de startpagina bij
+              <em>Versies &amp; wijzigingen</em> (of per detailpagina bij
+              “Versie”).
+            </li>
+          </ul>
+
+          <p class="muted" style="margin-top: 0.7rem">
+            (In jouw huidige opzet staat al een plek klaar voor een
+            versie-overzicht.)
+          </p>
+          <a href="index.html#versies">Naar versies &amp; wijzigingen →</a>
+        </section>
+
+        <!-- Feedback -->
+        <section class="card" id="feedback">
+          <h2>Feedback / verbetervoorstellen</h2>
+          <p class="intro">
+            Zie je een onduidelijkheid, ontbreekt een object? Dan is het handig
+            als dit via één kanaal binnenkomt, zodat het traceerbaar blijft.
+          </p>
+
+          <div class="highlight-box">
+            <strong>TOPdesk:</strong> dien een melding in via TOPdesk, zodat
+            ECGeo dit kan oppakken en verwerken in het handboek.
+            <div style="margin-top: 0.5rem">
+              <a href="https://login.microsoftonline.com/common/saml2"
+                >Open TOPdesk →</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> ECGeo – BGT Objectenhandboek (concept).
+      Inhoud en structuur kunnen nog wijzigen.
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

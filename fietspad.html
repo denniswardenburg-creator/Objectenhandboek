@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wegdeel functie: Fietspad – BGT Objectenhandboek ECGeo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --bg: #f5f7fa;
+        --bg-alt: #ffffff;
+        --accent: #0066aa;
+        --accent-soft: #e5f2fb;
+        --text: #023672;
+        --text-muted: #666666;
+        --border: #d0d6e0;
+        --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.08);
+        --radius: 8px;
+        --radius-large: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Logo in header */
+      .logo {
+        height: 48px;
+        margin-right: 0.5rem;
+        display: block;
+      }
+
+      header {
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .site-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .site-title h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      .site-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        display: block;
+        margin-top: -4px;
+      }
+
+      nav.main-nav {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.95rem;
+      }
+
+      nav.main-nav a {
+        padding: 0.4rem 0.6rem;
+        border-radius: 999px;
+      }
+
+      nav.main-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      .layout {
+        max-width: 1200px;
+        margin: 1.5rem auto;
+        padding: 0 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+
+      aside {
+        align-self: flex-start;
+        position: sticky;
+        top: 5.5rem;
+      }
+
+      .side-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 1rem;
+      }
+
+      .side-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+
+      .side-card p {
+        margin: 0.3rem 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .side-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+      }
+
+      .side-nav li {
+        margin-bottom: 0.25rem;
+      }
+
+      .side-nav a {
+        display: block;
+        padding: 0.3rem 0.4rem;
+        border-radius: var(--radius);
+      }
+
+      .side-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1.2rem 1.4rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .card h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+
+      .intro {
+        font-size: 0.96rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      /* Object header */
+      .object-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .object-title h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .object-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .object-meta {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.6rem 1.2rem;
+        margin-top: 0.3rem;
+      }
+
+      .meta-item-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--text-muted);
+        margin-bottom: 0.1rem;
+      }
+
+      .meta-item-value {
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.12rem 0.5rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.78rem;
+        margin-right: 0.3rem;
+      }
+
+      /* Tabs */
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.8rem;
+      }
+
+      .tab-btn {
+        border: 1px solid var(--border);
+        background: #f3f5fa;
+        border-radius: 999px;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.86rem;
+        cursor: pointer;
+      }
+
+      .tab-btn:hover {
+        background: var(--accent-soft);
+      }
+
+      .tab-btn.active {
+        background: var(--accent);
+        color: #ffffff;
+        border-color: var(--accent);
+      }
+
+      /* Content sections */
+      .section-block {
+        display: none;
+      }
+      .section-block.active {
+        display: block;
+      }
+
+      .section-block h2 {
+        margin-top: 0;
+      }
+
+      .section-block h3 {
+        margin-top: 0.8rem;
+        font-size: 1rem;
+      }
+
+      .section-block ul {
+        padding-left: 1.1rem;
+        font-size: 0.95rem;
+      }
+
+      .section-block li {
+        margin-bottom: 0.25rem;
+      }
+
+      .highlight-box {
+        background: #f6f8fc;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+        margin-top: 0.6rem;
+      }
+
+      .quality-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 0.7rem;
+      }
+
+      .quality-table th,
+      .quality-table td {
+        border-bottom: 1px solid #e0e4ec;
+        padding: 0.4rem 0.3rem;
+        text-align: left;
+      }
+
+      .quality-table th {
+        background: #f6f7fb;
+        font-weight: 600;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 0.8rem 1.5rem 1.2rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      /* Responsief */
+      @media (max-width: 880px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        aside {
+          position: static;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        nav.main-nav {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="site-title">
+          <a href="index.html">
+            <img src="ECGeo.jpg" alt="ECGeo logo" class="logo" />
+          </a>
+          <div>
+            <h1>BGT Objectenhandboek</h1>
+            <span>ECGeo – richtlijnen voor inwinning en beheer</span>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Start</a>
+          <a href="handboek.html">Over dit handboek</a>
+          <a href="leeswijzer.html">Leeswijzer &amp; definities</a>
+          <a href="kwaliteit.html">Kwaliteit</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="side-card">
+          <h2>Wegdeel functie: Fietspad</h2>
+          <p>
+            Detailpagina voor de functie Fietspad binnen de objectklasse
+            Wegdeel.
+          </p>
+          <ul class="side-nav">
+            <li>
+              <a href="#" class="js-section-link" data-target="definitie"
+                >Definitie</a
+              >
+            </li>
+            <li>
+              <a href="#" class="js-section-link" data-target="afbakening"
+                >Afbakening</a
+              >
+            </li>
+            <li>
+              <a href="#" class="js-section-link" data-target="beheer"
+                >Beheer</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h2>Navigatie</h2>
+          <ul class="side-nav">
+            <li><a href="handboek.html">Over dit handboek</a></li>
+
+            <li><a href="leeswijzer.html">Leeswijzer &amp; definities</a></li>
+
+            <li><a href="kwaliteit.html">Kwaliteit</a></li>
+
+            <li><a href="index.html">Terug naar startpagina</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <main id="top">
+        <!-- Object header -->
+        <section class="card object-header">
+          <div class="object-title">
+            <h1>Wegdeel functie: Fietspad</h1>
+            <span>Groep Transport · Objectklasse Wegdeel</span>
+          </div>
+
+          <div class="object-meta">
+            <div class="meta-grid">
+              <div class="meta-item">
+                <div class="meta-item-label">Objectdeel</div>
+                <div class="meta-item-value">Wegdeel</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">BGT functie</div>
+                <div class="meta-item-value">
+                  <span class="badge">Fietspad</span>
+                </div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">Geometrie</div>
+                <div class="meta-item-value">Vlak</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">Nauwkeurigheid</div>
+                <div class="meta-item-value">
+                  30 cm; idealisatie 2–5 cm per punt
+                </div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">Actualiteit</div>
+                <div class="meta-item-value">6 maanden</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">Beheerder</div>
+                <div class="meta-item-value">Wegbeheer (WE)</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">Bronhouder</div>
+                <div class="meta-item-value">L · N · R · W</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">Naamgeving</div>
+                <div class="meta-item-value">Uit BAG</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">BGT-verplichting</div>
+                <div class="meta-item-value">
+                  Ja (landelijke BGT-objectklasse)
+                </div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-item-label">Inwinning</div>
+                <div class="meta-item-value">Terrestrisch</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <button class="tab-btn active" data-target="definitie">
+              Definitie
+            </button>
+            <button class="tab-btn" data-target="afbakening">Afbakening</button>
+            <button class="tab-btn" data-target="beheer">Beheer</button>
+          </div>
+        </section>
+
+        <!-- Definitie -->
+        <section id="definitie" class="card section-block active">
+          <h2>Definitie</h2>
+          <p class="intro">
+            Wegdeel met name bestemd voor fietsers en, indien toegestaan,
+            bromfietsers en dat afgescheiden is van de andere wegdelen.
+          </p>
+
+          <h3>BGT- en IMGeo-classificatie</h3>
+          <ul>
+            <li><strong>Objectdeel</strong>: Wegdeel</li>
+            <li><strong>BGT functie</strong>: Fietspad</li>
+            <li>
+              <strong>BGT fysiek voorkomen</strong>: Gesloten verharding, Open
+              verharding
+            </li>
+            <li><strong>IMGEO-classificatie</strong>: N.v.t.</li>
+            <li>
+              <strong>Code objecttype NGdW</strong>: WGD, WGDM1, WGDM2, WGDP1
+            </li>
+            <li>
+              <strong>IMGeo fysiek voorkomen</strong>: Asfalt, Cementbeton,
+              Betonstraatstenen, Gebakken klinkers, Tegels, (Roermond
+              rubbertegels)
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            Hier gaat het om <em>zelfstandige fietspaden</em> als wegdeel.
+            Fietsstroken die alleen met belijning op de rijbaan zijn aangegeven,
+            vallen niet onder deze functie, maar onder de functie van het
+            betreffende rijbaan-wegdeel.
+          </div>
+        </section>
+
+        <!-- Afbakening -->
+        <section id="afbakening" class="card section-block">
+          <h2>Afbakening</h2>
+          <p class="intro">
+            De afbakening van het wegdeel functie Fietspad volgt de landelijke
+            BGT-regels, aangevuld met werkwijze en keuzes binnen ECGeo.
+          </p>
+
+          <h3>Landelijke IMGeo‑afbakening (Geonovum)</h3>
+          <p class="intro" style="margin-bottom: 0.4rem">
+            Hieronder is het relevante deel uit het landelijke
+            IMGeo‑objectenhandboek opgenomen, als referentie naast de
+            ECGeo‑richtlijnen.
+          </p>
+
+          <div class="highlight-box" style="padding: 0; overflow: hidden">
+            <iframe
+              src="https://geonovum.github.io/IMGeo-objectenhandboek/wegdeel#fietspad"
+              title="IMGeo objectenhandboek – Wegdeel functie fietspad"
+              loading="lazy"
+              style="width: 100%; height: 600px; border: 0"
+            >
+            </iframe>
+          </div>
+
+          <p class="intro" style="margin-top: 0.5rem">
+            Wil je een grotere weergave?
+            <a
+              href="https://geonovum.github.io/IMGeo-objectenhandboek/wegdeel#fietspad"
+              target="_blank"
+              rel="noopener"
+              >Open ‘fietspad’ in een nieuw tabblad</a
+            >.
+          </p>
+
+          <h3>Wat hoort bij het fietspad?</h3>
+          <ul>
+            <li>
+              Alle verharding die duidelijk als fietspad is aangewezen,
+              inclusief kleine uitwijk- en verbredingsstukken.
+            </li>
+            <li>
+              De buitenzijde van de molgoot of opsluitband wordt als grens van
+              het wegdeel gebruikt, zolang de hoogte nagenoeg gelijk is aan het
+              fietspad.
+            </li>
+            <li>
+              Fysieke afscheidingen zoals berm, groenstrook, talud, hekwerken of
+              verhoogde banden vormen de grens tussen fietspad en aangrenzende
+              wegdelen of terreindelen.
+            </li>
+          </ul>
+
+          <h3>Wat hoort niet bij het fietspad?</h3>
+          <ul>
+            <li>
+              Fietsstroken op de rijbaan die alleen door belijning, kleur of
+              symboliek zijn aangegeven.
+            </li>
+            <li>
+              Voetpaden, trottoirs en gemengde voetgangersgebieden: deze worden
+              als eigen wegdeel- of terreindeeltype ingewonnen.
+            </li>
+            <li>
+              Kleine uitsparingen voor groen of bomen &lt; 5 m²: deze worden in
+              principe niet apart als (begroeid) terreindeel vastgelegd; het
+              wegdeel loopt daar kaarttechnisch door.
+            </li>
+          </ul>
+
+          <h3>Aanvullende informatie</h3>
+          <p>
+            De kruinlijn moet bij het wegdeel worden opgenomen als de helling
+            een verhouding heeft van verticaal:horizontaal van 1:4 of steiler en
+            het hoogteverschil &gt; 1 m bedraagt. Een van de zijden van het
+            wegdeel valt altijd samen met de kruinlijn, zijnde bovenkant talud.
+            Het gedeelte van een object dat op het talud ligt, is altijd een
+            apart begrensd vlak ten opzichte van het deel van het object dat
+            niet op het talud ligt.
+          </p>
+        </section>
+
+        <!-- Beheer -->
+        <section id="beheer" class="card section-block">
+          <h2>Beheer</h2>
+          <p class="intro">
+            Gegevenskwaliteit en inwinning van fietspaden volgen de landelijke
+            BGT- en IMGeo-eisen; voor operationeel beheer kan ECGeo eigen
+            afspraken vastleggen.
+          </p>
+
+          <h3>Gebruik in beheer</h3>
+          <ul>
+            <li>
+              Aanpassingen in fietsinfrastructuur (nieuw aangelegde of vervallen
+              fietspaden) moeten worden verwerkt in de BGT.
+            </li>
+            <li>
+              Wijzigingen in verharding, breedte of tracé kunnen invloed hebben
+              op de segmentering en moeten worden beoordeeld in samenhang met
+              aangrenzende wegdelen.
+            </li>
+            <li>
+              Beheerafdelingen (bijv. verkeer, wegbeheer, BOR) gebruiken de
+              functie Fietspad als selectiecriterium in analyses zoals
+              onderhoudsplanning, verkeersveiligheid, schoolroutes en
+              fietsroutenetwerken.
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> ECGeo – BGT Objectenhandboek (concept).
+      Inhoud en structuur kunnen nog wijzigen.
+    </footer>
+
+    <script>
+      // Huidig jaar in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
+      const sections = Array.from(document.querySelectorAll(".section-block"));
+      const sectionLinks = Array.from(
+        document.querySelectorAll(".js-section-link")
+      );
+
+      function activateSection(targetId) {
+        sections.forEach((sec) => {
+          sec.classList.toggle("active", sec.id === targetId);
+        });
+
+        tabButtons.forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.target === targetId);
+        });
+      }
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.dataset.target;
+          activateSection(target);
+          const mainTop = document.getElementById("top");
+          if (mainTop) {
+            mainTop.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      sectionLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = link.dataset.target;
+          activateSection(target);
+          const mainTop = document.getElementById("top");
+          if (mainTop) {
+            mainTop.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

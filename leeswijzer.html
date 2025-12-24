@@ -1,0 +1,885 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Leeswijzer & definities – BGT Objectenhandboek (ECGeo)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --bg: #f5f7fa;
+        --bg-alt: #ffffff;
+        --accent: #0066aa;
+        --accent-soft: #e5f2fb;
+        --text: #023672;
+        --text-muted: #666666;
+        --border: #d0d6e0;
+        --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.08);
+        --radius: 8px;
+        --radius-large: 10px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      header {
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .site-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .logo {
+        height: 48px;
+        margin-right: 0.5rem;
+        display: block;
+      }
+      .site-title h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+      .site-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        display: block;
+        margin-top: -4px;
+      }
+      nav.main-nav {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+      }
+      nav.main-nav a {
+        padding: 0.4rem 0.6rem;
+        border-radius: 999px;
+      }
+      nav.main-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      .layout {
+        max-width: 1200px;
+        margin: 1.5rem auto;
+        padding: 0 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+      aside {
+        align-self: flex-start;
+        position: sticky;
+        top: 5.5rem;
+      }
+      .side-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 1rem;
+      }
+      .side-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+      .side-card p {
+        margin: 0.3rem 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+      .side-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+      }
+      .side-nav li {
+        margin-bottom: 0.2rem;
+      }
+      .side-nav a {
+        display: block;
+        padding: 0.3rem 0.4rem;
+        border-radius: var(--radius);
+      }
+      .side-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1.25rem 1.4rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+      }
+      .card h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+      .intro {
+        font-size: 0.98rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0.2rem 0 0;
+      }
+
+      /* Labels/pills */
+      .pill {
+        display: inline-block;
+        padding: 0.12rem 0.55rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.78rem;
+      }
+
+      /* Tabellen */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 0.55rem 0.5rem;
+        border-bottom: 1px solid #e0e4ec;
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+        font-weight: 600;
+        background: #f6f7fb;
+      }
+      td:first-child {
+        white-space: nowrap;
+        font-weight: 600;
+      }
+
+      /* Begrippenlijst grid */
+      .term-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 0.8rem;
+        margin-top: 0.9rem;
+      }
+      .term-card {
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 0.85rem 0.95rem;
+        background: #fff;
+      }
+      .term-card h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .term-card p {
+        margin: 0.35rem 0 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+      .term-meta {
+        margin-top: 0.45rem;
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+
+      details {
+        margin-top: 0.6rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: #fff;
+      }
+      summary {
+        cursor: pointer;
+        padding: 0.65rem 0.85rem;
+        font-weight: 600;
+      }
+      .details-inner {
+        padding: 0.2rem 0.85rem 0.85rem;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.5rem;
+        margin-top: 0.4rem;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 0.8rem 1.5rem 1.2rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      @media (max-width: 880px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        aside {
+          position: static;
+        }
+      }
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="site-title">
+          <a href="index.html"
+            ><img src="ECGeo.jpg" alt="ECGeo logo" class="logo"
+          /></a>
+          <div>
+            <h1>BGT Objectenhandboek</h1>
+            <span>ECGeo &ndash; richtlijnen voor inwinning en beheer</span>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Start</a>
+          <a href="handboek.html">Over dit handboek</a>
+          <a href="leeswijzer.html">Leeswijzer &amp; definities</a>
+          <a href="kwaliteit.html">Kwaliteit</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="side-card">
+          <h2>Op deze pagina</h2>
+          <p>Korte uitleg van termen die je terugziet op de detailpagina’s.</p>
+          <ul class="side-nav">
+            <li><a href="#inleiding">Inleiding</a></li>
+            <li><a href="#leeswijzer">Leeswijzer: vaste opbouw</a></li>
+            <li><a href="#definities">Definities (begrippen)</a></li>
+            <li><a href="#fysiek-voorkomen">Fysiek voorkomen (lijst)</a></li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h2>Navigatie</h2>
+          <ul class="side-nav">
+            <li><a href="handboek.html">Over dit handboek</a></li>
+            <li><a href="kwaliteit.html">Kwaliteit</a></li>
+            <li><a href="index.html">Terug naar startpagina</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <main>
+        <!-- Inleiding -->
+        <section class="card" id="inleiding" aria-labelledby="inleiding-title">
+          <h2 id="inleiding-title">Inleiding</h2>
+          <p class="intro">
+            Dit objectenhandboek is een levend document en wordt gebruikt voor
+            opbouw, bijhouding en beheer van het IMGEO-bestand, zodat de
+            registratie aansluit op gemeentelijke werkprocessen.
+          </p>
+        </section>
+
+        <!-- Leeswijzer -->
+        <section
+          class="card"
+          id="leeswijzer"
+          aria-labelledby="leeswijzer-title"
+        >
+          <h2 id="leeswijzer-title">
+            Leeswijzer: vaste opbouw van detailpagina’s
+          </h2>
+          <p class="intro">
+            Iedere objectdetailpagina volgt hetzelfde stramien; onderstaande
+            velden komen (meestal) terug en helpen je de informatie snel te
+            duiden.
+          </p>
+
+          <table aria-label="Leeswijzer velden">
+            <thead>
+              <tr>
+                <th>Veld</th>
+                <th>Toelichting</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Actualiteit</td>
+                <td>
+                  De maximale periode waarin een wijziging verwerkt hoort te
+                  zijn (bijv. 6 of 12 maanden).
+                </td>
+              </tr>
+              <tr>
+                <td>Geometrie</td>
+                <td>
+                  De vorm waarin het object wordt vastgelegd (punt, lijn, vlak
+                  of multi-geometrie).
+                </td>
+              </tr>
+              <tr>
+                <td>Objectdeel</td>
+                <td>
+                  De (sub)indeling van het object binnen de
+                  catalogus/registratie (bijv. wegdeel, ondersteunend wegdeel).
+                </td>
+              </tr>
+              <tr>
+                <td>BGT functie</td>
+                <td>
+                  De functionele typering van het object volgens de BGT (wat het
+                  “doet” in de openbare ruimte).
+                </td>
+              </tr>
+              <tr>
+                <td>BGT fysiek voorkomen</td>
+                <td>
+                  Het materiaal/uiterlijk volgens BGT-classificatie (bijv.
+                  gesloten verharding, groenvoorziening).
+                </td>
+              </tr>
+              <tr>
+                <td>IMGEO classificatie</td>
+                <td>
+                  De inhoudelijke groep/klasse waarin het object binnen IMGeo
+                  valt.
+                </td>
+              </tr>
+              <tr>
+                <td>IMGEO fysiek voorkomen</td>
+                <td>
+                  Het fysiek voorkomen zoals het in IMGeo wordt gebruikt (kan
+                  gelijk zijn aan of afwijken van BGT).
+                </td>
+              </tr>
+              <tr>
+                <td>Definitie</td>
+                <td>
+                  De afgebakende betekenis van het object: wat hoort er wel en
+                  niet bij.
+                </td>
+              </tr>
+              <tr>
+                <td>Wijze inwinning</td>
+                <td>
+                  Hoe de geometrie/attribuutinformatie wordt verkregen (bijv.
+                  terrestrisch, fotogrammetrisch, construeren).
+                </td>
+              </tr>
+              <tr>
+                <td>Nauwkeurigheid</td>
+                <td>
+                  De beoogde inwinningsnauwkeurigheid en eventuele idealisatie
+                  (bijv. cm per punt).
+                </td>
+              </tr>
+              <tr>
+                <td>Informatiemodel</td>
+                <td>
+                  De “bron-taal”/standaard waarop de inhoud is gebaseerd (bijv.
+                  BGT/IMGeo en eventueel landelijk handboek).
+                </td>
+              </tr>
+              <tr>
+                <td>Naamgeving</td>
+                <td>
+                  De conventie voor objectnamen/velden (bijv. naamgeving uit BAG
+                  of “n.v.t.”).
+                </td>
+              </tr>
+              <tr>
+                <td>Visualisatie</td>
+                <td>
+                  Een standaardafbeelding/voorbeeld dat de herkenning en
+                  afbakening ondersteunt.
+                </td>
+              </tr>
+              <tr>
+                <td>Beheerder</td>
+                <td>
+                  De vakafdeling/discipline die het object in beheer heeft
+                  (bijv. Wegbeheer, Groenbeheer, BAG).
+                </td>
+              </tr>
+              <tr>
+                <td>Bronhouder</td>
+                <td>
+                  De partij die als verantwoordelijke bron optreedt voor de
+                  registratie van het object.
+                </td>
+              </tr>
+              <tr>
+                <td>Code objecttype</td>
+                <td>
+                  De interne/standaard code(s) waarmee het objecttype wordt
+                  aangeduid in systemen.
+                </td>
+              </tr>
+              <tr>
+                <td>Opdelend / Inrichtend</td>
+                <td>
+                  Een typering die aangeeft of het object de ruimte “opdeelt” of
+                  juist “inricht” binnen de topologie.
+                </td>
+              </tr>
+              <tr>
+                <td>Aanvullende info</td>
+                <td>
+                  Lokale afspraken, uitzonderingen en praktische notities die in
+                  de praktijk belangrijk zijn.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Definities (nu als uitklapmenu) -->
+        <section
+          class="card"
+          id="definities"
+          aria-labelledby="definities-title"
+        >
+          <h2 id="definities-title">Definities: begrippen in het handboek</h2>
+          <p class="intro">
+            Hieronder staan de kernbegrippen die je steeds terugziet; elk begrip
+            heeft korte toelichting. Klik de lijst open voor het volledige
+            overzicht.
+          </p>
+
+          <details>
+            <summary>Toon definities (begrippenlijst)</summary>
+            <div class="details-inner">
+              <div class="term-grid" id="termGrid">
+                <article class="term-card" data-term="objectenhandboek">
+                  <h3>Objectenhandboek</h3>
+                  <p>
+                    Levend document met afspraken over opname, afbakening,
+                    inwinning en beheer van (IM)Geo-objecten.
+                  </p>
+                  <div class="term-meta"><span class="pill">context</span></div>
+                </article>
+
+                <article class="term-card" data-term="BGT">
+                  <h3>BGT</h3>
+                  <p>
+                    Basisregistratie Grootschalige Topografie: landelijke,
+                    uniforme basiskaart met grootschalige objecten.
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">registratie</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="IMGEO IMGeo">
+                  <h3>IMGeo / IMGEO</h3>
+                  <p>
+                    Uitbreiding/uitwerking bovenop BGT om beter aan te sluiten
+                    op beheer van de openbare ruimte.
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">informatiemodel</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="actualiteit">
+                  <h3>Actualiteit</h3>
+                  <p>
+                    De termijn waarbinnen mutaties moeten zijn verwerkt zodat de
+                    registratie up-to-date blijft.
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">kwaliteit</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="bronhouder">
+                  <h3>Bronhouder</h3>
+                  <p>
+                    De organisatie die verantwoordelijk is voor de juistheid en
+                    bijhouding van de registratie voor dit object.
+                  </p>
+                  <div class="term-meta"><span class="pill">rol</span></div>
+                </article>
+
+                <article class="term-card" data-term="beheerder">
+                  <h3>Beheerder</h3>
+                  <p>
+                    De (vak)afdeling die het object in beheer heeft en in de
+                    praktijk wijzigingen signaleert of uitvoert.
+                  </p>
+                  <div class="term-meta"><span class="pill">rol</span></div>
+                </article>
+
+                <article class="term-card" data-term="geometrie">
+                  <h3>Geometrie</h3>
+                  <p>
+                    De ruimtelijke representatie van een object in de kaart:
+                    punt, lijn, vlak of multi-geometrie.
+                  </p>
+                  <div class="term-meta"><span class="pill">data</span></div>
+                </article>
+
+                <article class="term-card" data-term="definitie">
+                  <h3>Definitie</h3>
+                  <p>
+                    Beschrijving van het object met focus op afbakening: wat
+                    hoort er wel en niet bij.
+                  </p>
+                  <div class="term-meta"><span class="pill">inhoud</span></div>
+                </article>
+
+                <article class="term-card" data-term="wijze inwinning">
+                  <h3>Wijze inwinning</h3>
+                  <p>
+                    De methode waarmee objectgegevens worden verzameld, zoals
+                    terrestrisch meten of fotogrammetrie.
+                  </p>
+                  <div class="term-meta"><span class="pill">proces</span></div>
+                </article>
+
+                <article class="term-card" data-term="nauwkeurigheid">
+                  <h3>Nauwkeurigheid</h3>
+                  <p>
+                    De beoogde meet-/inwinningsprecisie (en eventuele
+                    idealisatie) waarmee het object wordt vastgelegd.
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">kwaliteit</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="naamgeving">
+                  <h3>Naamgeving</h3>
+                  <p>
+                    Afspraken over hoe objecten/attributen worden benoemd (bijv.
+                    herkomst uit BAG of n.v.t.).
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">conventie</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="visualisatie">
+                  <h3>Visualisatie</h3>
+                  <p>
+                    Een afbeelding/voorbeeld op basis van een (liefst
+                    landelijke) standaard ter verduidelijking van het object.
+                  </p>
+                  <div class="term-meta"><span class="pill">uitleg</span></div>
+                </article>
+
+                <article class="term-card" data-term="bgt fysiek voorkomen">
+                  <h3>BGT fysiek voorkomen</h3>
+                  <p>
+                    Materiaal/uiterlijk volgens BGT-indeling (bijv. gesloten
+                    verharding, open verharding, groenvoorziening).
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">classificatie</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="imgeo fysiek voorkomen">
+                  <h3>IMGEO fysiek voorkomen</h3>
+                  <p>
+                    Materiaal/uiterlijk volgens de IMGeo-uitwerking, gebruikt
+                    voor beheergerichte details.
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">classificatie</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="objectdeel">
+                  <h3>Objectdeel</h3>
+                  <p>
+                    De (sub)component of specifieke variant binnen een
+                    objecttype, vaak gekoppeld aan functie of gebruik.
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">structuur</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="opdelend inrichtend">
+                  <h3>Opdelend / Inrichtend</h3>
+                  <p>
+                    Indicatie of een object de ruimte scheidt/verdeelt
+                    (opdelend) of juist als inrichtingselement fungeert.
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">topologie</span>
+                  </div>
+                </article>
+
+                <article class="term-card" data-term="aanvullende info">
+                  <h3>Aanvullende info</h3>
+                  <p>
+                    Praktische lokale afspraken en uitzonderingen die niet in
+                    één landelijke definitie passen.
+                  </p>
+                  <div class="term-meta">
+                    <span class="pill">praktijk</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <!-- Fysiek voorkomen -->
+        <section class="card" id="fysiek-voorkomen" aria-labelledby="fv-title">
+          <h2 id="fv-title">Fysiek voorkomen</h2>
+          <p class="intro">
+            Onderstaande lijst bevat alle begrippen voor “fysiek voorkomen” die
+            in het handboek worden gebruikt, elk met een korte toelichting. Klik
+            de lijst open voor het volledige overzicht.
+          </p>
+
+          <details>
+            <summary>Toon volledige lijst fysiek voorkomen</summary>
+            <div class="details-inner">
+              <div class="two-col">
+                <div class="term-card">
+                  <h3>Asfalt</h3>
+                  <p>
+                    Gesloten verharding op basis van asfaltbeton of andere met
+                    bitumen gebonden materialen.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Cementbeton</h3>
+                  <p>
+                    Gesloten verharding bestaande uit gewapend of ongewapend
+                    beton.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Betonstraatstenen</h3>
+                  <p>
+                    Verharding gemaakt van betonstraatstenen (veel gebruikt als
+                    alternatief voor gebakken klinkers).
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Gebakken klinkers</h3>
+                  <p>
+                    Verharding gemaakt van straatbakstenen (gebakken klinkers),
+                    veelal uit kleigrondstoffen.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Tegels</h3>
+                  <p>
+                    Bestrating van (vaak vierkante) betonnen tegels, veel
+                    gebruikt voor trottoirs.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Sierbestrating</h3>
+                  <p>
+                    Bestrating in sierverband of mix van materialen, vooral
+                    toegepast om esthetische redenen.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Beton element</h3>
+                  <p>
+                    Geprepareerde betonelementen zoals trottoirbanden,
+                    opsluitbanden en stelconplaten.
+                  </p>
+                </div>
+
+                <div class="term-card">
+                  <h3>Grasklinkers</h3>
+                  <p>
+                    Elementenverharding met openingen/tussenruimten voor
+                    doorgroei van grassen en kruiden.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Schelpen</h3>
+                  <p>Ongebonden verharding bestaande uit schelpenmateriaal.</p>
+                </div>
+                <div class="term-card">
+                  <h3>Puin</h3>
+                  <p>
+                    Ongebonden verharding van losse brokstukken (steen/beton)
+                    afkomstig van sloop of instorting.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Grind</h3>
+                  <p>
+                    Ongebonden verharding van kiezelmateriaal met steentjes van
+                    circa 1–5 cm.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Gravel</h3>
+                  <p>
+                    Ondergrond van gemalen baksteen, vaak toegepast op
+                    sportbanen (zoals tennis).
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Boomschors</h3>
+                  <p>Onverhard met als deklaag boomschors.</p>
+                </div>
+                <div class="term-card">
+                  <h3>Zand</h3>
+                  <p>Onverhard met als deklaag zand.</p>
+                </div>
+                <div class="term-card">
+                  <h3>Kunststof</h3>
+                  <p>
+                    Verharding of toplaag van kunststof (bijv. rubber-/
+                    kunststoftegels of -delen).
+                  </p>
+                </div>
+
+                <div class="term-card">
+                  <h3>Bosplantsoen</h3>
+                  <p>
+                    Opgaande beplanting van houtige gewassen, vaak inheems,
+                    aangeplant als bosplantsoen.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Gras- en kruidachtigen</h3>
+                  <p>
+                    Laagblijvende, aaneengesloten kruidachtige vegetatie (gras
+                    met kruiden).
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Planten</h3>
+                  <p>
+                    Beheerde (niet nader gespecificeerde) beplanting van
+                    groenvak in de openbare ruimte.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Struikrozen</h3>
+                  <p>
+                    Beheerde beplanting van groenvak in struikvorm groeiende
+                    rozen.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Heesters</h3>
+                  <p>
+                    Beheerde beplanting van houtige gewassen in struikvorm
+                    (sierwaarde vaak leidend).
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Bodembedekkers</h3>
+                  <p>
+                    Laagblijvende beplanting die de bodem afdekt en onkruidgroei
+                    helpt beperken.
+                  </p>
+                </div>
+
+                <div class="term-card">
+                  <h3>Loofbos</h3>
+                  <p>
+                    Terreindeel met overwegend loofbomen dat een (bijna)
+                    gesloten geheel vormt of zal vormen.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Gemengd bos</h3>
+                  <p>
+                    Terreindeel met zowel naald- als loofbomen dat een (bijna)
+                    gesloten geheel vormt of zal vormen.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Struiken</h3>
+                  <p>
+                    Terreindeel met natuurlijke, lage houtachtige planten met
+                    vertakkingen dicht bij de wortel.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Houtwal</h3>
+                  <p>
+                    Lijnvormige begroeiing met bomen en/of struiken, vaak als
+                    landschapselement of begrenzing.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Grasland overig</h3>
+                  <p>
+                    Grasland met grassen en kruiden dat niet in gebruik is voor
+                    agrarische doeleinden.
+                  </p>
+                </div>
+                <div class="term-card">
+                  <h3>Rietland</h3>
+                  <p>
+                    Terreindeel dat overwegend begroeid is met rietvegetatie.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> ECGeo – Leeswijzer & definities (concept).
+      Inhoud kan wijzigen.
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+```
