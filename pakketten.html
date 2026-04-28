@@ -1,0 +1,4760 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inhoud BGT-pakketten – ECGeo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<link rel="icon" type="image/x-icon" href="ecgeo.ico">
+
+	
+    <style>
+      :root {
+        --bg: #f5f7fa;
+        --bg-alt: #ffffff;
+        --accent: #0066aa;
+        --accent-soft: #e5f2fb;
+        --text: #023672;
+        --text-muted: #666666;
+        --border: #d0d6e0;
+        --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.08);
+        --radius: 8px;
+        --radius-large: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .logo {
+        height: 48px;
+        margin-right: 0.5rem;
+        display: block;
+      }
+
+      header {
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-inner {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .site-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .site-title h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      .site-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        display: block;
+        margin-top: -4px;
+      }
+
+      nav.main-nav {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.95rem;
+      }
+
+      nav.main-nav a {
+        padding: 0.4rem 0.6rem;
+        border-radius: 999px;
+      }
+
+      nav.main-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      .layout {
+        max-width: 1500px;
+        margin: 1.5rem auto;
+        padding: 0 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+
+      aside {
+        align-self: flex-start;
+        position: sticky;
+        top: 5.5rem;
+      }
+
+      .side-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 1rem;
+      }
+
+      .side-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+
+      .side-card p {
+        margin: 0.4rem 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .side-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+      }
+
+      .side-nav li {
+        margin-bottom: 0.2rem;
+      }
+
+      .side-nav a {
+        display: block;
+        padding: 0.3rem 0.4rem;
+        border-radius: var(--radius);
+      }
+
+      .side-nav a:hover {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1.25rem 1.4rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .card h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+
+      .intro {
+        font-size: 0.98rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 0.8rem 1.5rem 1.2rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      @media (max-width: 880px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        aside {
+          position: static;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav.main-nav {
+          flex-wrap: wrap;
+        }
+      }
+
+      .object-details {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--bg-alt);
+        box-shadow: var(--shadow-soft);
+        padding: 0.1rem 1rem;
+        margin-top: 1rem;
+      }
+
+      .object-details summary {
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 0;
+        gap: 1rem;
+        position: relative;
+      }
+
+      .object-details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .object-details summary:hover {
+        background: var(--accent-soft);
+        border-radius: var(--radius);
+      }
+
+      .object-details summary::after {
+        content: "▸";
+        font-size: 1.4rem;
+        color: var(--accent);
+        transition: transform 0.2s ease;
+        margin-left: auto;
+      }
+
+      .object-details[open] summary::after {
+        transform: rotate(90deg);
+      }
+
+      .object-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .pakket-tabs {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        padding: 0.6rem 0 0.7rem;
+        border-top: 1px solid var(--border);
+        margin-top: 0.2rem;
+      }
+
+      .tab-btn {
+        border: 1px solid var(--border);
+        background: var(--bg);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 0.35rem 0.7rem;
+        cursor: pointer;
+        font-weight: 650;
+      }
+
+      .tab-btn:hover {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+      }
+
+      .tab-btn.active {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+      }
+
+      .tab-panel {
+        display: none;
+        padding-bottom: 0.7rem;
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      .mini-btn {
+        display: inline-block;
+        margin: 0.2rem 0 0.6rem;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 0.35rem 0.8rem;
+        cursor: pointer;
+        font-weight: 650;
+      }
+
+      .mini-btn:hover {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+      }
+
+      .table-wrap {
+        overflow: auto;
+      }
+
+      .woordenlijst-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 0.2rem;
+        min-width: 980px;
+      }
+
+      .woordenlijst-table th,
+      .woordenlijst-table td {
+        border: 1px solid var(--border);
+        padding: 0.45rem 0.55rem;
+        vertical-align: top;
+      }
+
+      .woordenlijst-table th {
+        background: #eef1f7;
+        text-align: left;
+        font-weight: 700;
+      }
+	  		.highlight-reading {
+			background: #fff3a3;
+			border-radius: 4px;
+		}
+	  
+	  
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="site-title">
+          <a href="index.html">
+            <img src="ECGeo.jpg" alt="ECGeo logo" class="logo" />
+          </a>
+          <div>
+            <h1>BGT Objectenhandboek</h1>
+            <span>ECGeo – richtlijnen voor inwinning en beheer</span>
+          </div>
+        </div>
+
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="side-card">
+          <h2>Navigatie</h2>
+          <p>
+            Dit objectenhandboek beschrijft hoe ECGeo BGT-objecten inwint,
+            beheert en afbakent.
+          </p>
+          <ul class="side-nav">
+            <li><a href="handboek.html">Over dit handboek</a></li>
+            <li><a href="leeswijzer.html">Leeswijzer &amp; definities</a></li>
+            <li><a href="kwaliteit.html">Kwaliteit</a></li>
+            <li><a href="rc.html">Ruimtelijke Component (RC)</a></li>
+            <li><a href="fg.html">Functionele Gebieden (FG)</a></li>
+            <li><a href="index.html">Terug naar startpagina</a></li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h2>Contact &amp; feedback</h2>
+          <p>Vragen of verbetervoorstellen?</p>
+          <p>
+            Dien een melding in via
+            <a href="https://topdesk.example.org" target="_blank">TOPdesk</a>.
+          </p>
+        </div>
+      </aside>
+
+      <main>
+	  
+        <!-- 🔊 knoppen -->
+        <div style="display:flex; gap:0.4rem;">
+          <button id="playBtn">▶ Voorlezen</button>
+          <button id="stopBtn">■ Stop</button>
+        </div>
+	  
+	  
+	  
+        <section class="card" id="inhoud-bgt-pakketten">
+          <h2>Inhoud BGT-pakketten</h2>
+          <p class="intro">
+            Klik een object open en kies het pakket om de inhoud te bekijken.
+          </p>
+
+          <!-- =========================
+             OBJECT: WEGDEEL
+             ========================= -->
+          <details class="object-details" data-object="wegdeel">
+            <summary>
+              <span class="object-title">Wegdeel</span>
+            </summary>
+
+            <div class="pakket-tabs">
+              <button class="tab-btn active" type="button" data-tab="wd-p1">
+                Pakket 1
+              </button>
+              <button class="tab-btn" type="button" data-tab="wd-p2">
+                Pakket 2
+              </button>
+              <button class="tab-btn" type="button" data-tab="wd-p3">
+                Pakket 3
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="wd-p1">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Wegdeel</td>
+                      <td>rijbaan autosnelweg</td>
+                      <td></td>
+                      <td>gesloten verharding</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>rijbaan autoweg</td>
+                      <td></td>
+                      <td>open verharding</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>rijbaan regionale weg</td>
+                      <td></td>
+                      <td>half verhard</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>rijbaan lokale weg</td>
+                      <td></td>
+                      <td>onverhard</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>fietspad</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>voetpad</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>voetpad op trap</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>ruiterpad</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>parkeervlak</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>voetgangersgebied</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>inrit</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>woonerf</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="wd-p2">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Wegdeel</td>
+                      <td>rijbaan autosnelweg</td>
+                      <td>verbindingsweg</td>
+                      <td>gesloten verharding</td>
+                      <td>asfalt</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>calamiteitendoorsteek</td>
+                      <td></td>
+                      <td></td>
+                      <td>cementbeton</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>rijbaan autoweg</td>
+                      <td>verbindingsweg</td>
+                      <td>open verharding</td>
+                      <td>betonstraatstenen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>calamiteitendoorsteek</td>
+                      <td></td>
+                      <td></td>
+                      <td>gebakken klinkers</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>rijbaan regionale weg</td>
+                      <td>verbindingsweg</td>
+                      <td></td>
+                      <td>tegels</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>verkeersdrempel</td>
+                      <td></td>
+                      <td></td>
+                      <td>sierbestrating</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>rijbaan lokale weg</td>
+                      <td>verkeersdrempel</td>
+                      <td></td>
+                      <td>beton element</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>fietspad</td>
+                      <td></td>
+                      <td>half verhard</td>
+                      <td>grasklinkers</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>voetpad</td>
+                      <td></td>
+                      <td></td>
+                      <td>schelpen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>voetpad op trap</td>
+                      <td></td>
+                      <td></td>
+                      <td>puin</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>ruiterpad</td>
+                      <td></td>
+                      <td></td>
+                      <td>grind</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>parkeervlak</td>
+                      <td></td>
+                      <td></td>
+                      <td>gravel</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>voetgangersgebied</td>
+                      <td></td>
+                      <td>onverhard</td>
+                      <td>boomschors</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>inrit</td>
+                      <td></td>
+                      <td></td>
+                      <td>zand</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>woonerf</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="wd-p3">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Wegdeel</strong> is
+                <strong>pakket 3 gelijk aan pakket 2</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="wd-p3-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="wd-p3-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Wegdeel</td>
+                        <td>rijbaan autosnelweg</td>
+                        <td>verbindingsweg</td>
+                        <td>gesloten verharding</td>
+                        <td>asfalt</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>calamiteitendoorsteek</td>
+                        <td></td>
+                        <td></td>
+                        <td>cementbeton</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>rijbaan autoweg</td>
+                        <td>verbindingsweg</td>
+                        <td>open verharding</td>
+                        <td>betonstraatstenen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>calamiteitendoorsteek</td>
+                        <td></td>
+                        <td></td>
+                        <td>gebakken klinkers</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>rijbaan regionale weg</td>
+                        <td>verbindingsweg</td>
+                        <td></td>
+                        <td>tegels</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>verkeersdrempel</td>
+                        <td></td>
+                        <td></td>
+                        <td>sierbestrating</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>rijbaan lokale weg</td>
+                        <td>verkeersdrempel</td>
+                        <td></td>
+                        <td>beton element</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>fietspad</td>
+                        <td></td>
+                        <td>half verhard</td>
+                        <td>grasklinkers</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>voetpad</td>
+                        <td></td>
+                        <td></td>
+                        <td>schelpen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>voetpad op trap</td>
+                        <td></td>
+                        <td></td>
+                        <td>puin</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>ruiterpad</td>
+                        <td></td>
+                        <td></td>
+                        <td>grind</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>parkeervlak</td>
+                        <td></td>
+                        <td></td>
+                        <td>gravel</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>voetgangersgebied</td>
+                        <td></td>
+                        <td>onverhard</td>
+                        <td>boomschors</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>inrit</td>
+                        <td></td>
+                        <td></td>
+                        <td>zand</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>woonerf</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- =========================
+             OBJECT: ONDERSTEUNEND WEGDEEL
+             ========================= -->
+          <details class="object-details" data-object="ondersteunend-wegdeel">
+            <summary>
+              <span class="object-title">Ondersteunend wegdeel</span>
+            </summary>
+
+            <div class="pakket-tabs">
+              <button class="tab-btn active" type="button" data-tab="ow-p1">
+                Pakket 1
+              </button>
+              <button class="tab-btn" type="button" data-tab="ow-p2">
+                Pakket 2
+              </button>
+              <button class="tab-btn" type="button" data-tab="ow-p3">
+                Pakket 3
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="ow-p1">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ondersteunend wegdeel</td>
+                      <td>verkeerseiland</td>
+                      <td></td>
+                      <td>gesloten verharding</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>berm</td>
+                      <td></td>
+                      <td>open verharding</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>half verhard</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>onverhard</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>groenvoorziening</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="ow-p2">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ondersteunend wegdeel</td>
+                      <td>verkeerseiland</td>
+                      <td></td>
+                      <td>gesloten verharding</td>
+                      <td>asfalt</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>cementbeton</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>berm</td>
+                      <td></td>
+                      <td>open verharding</td>
+                      <td>betonstraatstenen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gebakken klinkers</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>tegels</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>sierbestrating</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>beton element</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>half verhard</td>
+                      <td>grasklinkers</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>schelpen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>puin</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>grind</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gravel</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>onverhard</td>
+                      <td>boomschors</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>zand</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>groenvoorziening</td>
+                      <td>bosplantsoen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gras</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>planten</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>struikrozen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>heesters</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>bodembedekkers</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="ow-p3">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Ondersteunend wegdeel</strong> is
+                <strong>pakket 3 gelijk aan pakket 2</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="ow-p3-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="ow-p3-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ondersteunend wegdeel</td>
+                        <td>verkeerseiland</td>
+                        <td></td>
+                        <td>gesloten verharding</td>
+                        <td>asfalt</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>cementbeton</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>berm</td>
+                        <td></td>
+                        <td>open verharding</td>
+                        <td>betonstraatstenen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>gebakken klinkers</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>tegels</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>sierbestrating</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>beton element</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>half verhard</td>
+                        <td>grasklinkers</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>schelpen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>puin</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>grind</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>gravel</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>onverhard</td>
+                        <td>boomschors</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>zand</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>groenvoorziening</td>
+                        <td>bosplantsoen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>gras</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>planten</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>struikrozen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>heesters</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>bodembedekkers</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- =========================
+             OBJECT: ONBEGROEID TERREINDEEL
+             ========================= -->
+          <details class="object-details" data-object="onbegroeid-terreindeel">
+            <summary>
+              <span class="object-title">Onbegroeid terreindeel</span>
+            </summary>
+
+            <div class="pakket-tabs">
+              <button class="tab-btn active" type="button" data-tab="ob-p1">
+                Pakket 1
+              </button>
+              <button class="tab-btn" type="button" data-tab="ob-p2">
+                Pakket 2
+              </button>
+              <button class="tab-btn" type="button" data-tab="ob-p3">
+                Pakket 3
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="ob-p1">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Onbegroeid terreindeel</td>
+                      <td></td>
+                      <td></td>
+                      <td>erf</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gesloten verharding</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>open verharding</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>half verhard</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>onverhard</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>zand</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="ob-p2">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Onbegroeid terreindeel</td>
+                      <td></td>
+                      <td></td>
+                      <td>erf</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gesloten verharding</td>
+                      <td>asfalt</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>cementbeton</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>kunststof</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>open verharding</td>
+                      <td>betonstraatstenen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gebakken klinkers</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>tegels</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>sierbestrating</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>beton element</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>half verhard</td>
+                      <td>grasklinkers</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>schelpen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>puin</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>grind</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gravel</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>onverhard</td>
+                      <td>boomschors</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>zand</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>zand</td>
+                      <td>strand en strandwal</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>zandverstuiving</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="ob-p3">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Onbegroeid terreindeel</strong> is
+                <strong>pakket 3 gelijk aan pakket 2</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="ob-p3-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="ob-p3-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Onbegroeid terreindeel</td>
+                        <td></td>
+                        <td></td>
+                        <td>erf</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>gesloten verharding</td>
+                        <td>asfalt</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>cementbeton</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>kunststof</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>open verharding</td>
+                        <td>betonstraatstenen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>gebakken klinkers</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>tegels</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>sierbestrating</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>beton element</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>half verhard</td>
+                        <td>grasklinkers</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>schelpen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>puin</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>grind</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>gravel</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>onverhard</td>
+                        <td>boomschors</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>zand</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>zand</td>
+                        <td>strand en strandwal</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>zandverstuiving</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- =========================
+             OBJECT: BEGROEID TERREINDEEL
+             ========================= -->
+          <details class="object-details" data-object="begroeid-terreindeel">
+            <summary>
+              <span class="object-title">Begroeid terreindeel</span>
+            </summary>
+
+            <div class="pakket-tabs">
+              <button class="tab-btn active" type="button" data-tab="bt-p1">
+                Pakket 1
+              </button>
+              <button class="tab-btn" type="button" data-tab="bt-p2">
+                Pakket 2
+              </button>
+              <button class="tab-btn" type="button" data-tab="bt-p3">
+                Pakket 3
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="bt-p1">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Begroeid terreindeel</td>
+                      <td></td>
+                      <td></td>
+                      <td>loofbos</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gemengd bos</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>naaldbos</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>heide</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>struiken</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>houtwal</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>moeras</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>rietland</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>kwelder</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>fruitteelt</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>boomteelt</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>bouwland</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>grasland agrarisch</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>grasland overig</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>groenvoorziening</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="bt-p2">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Begroeid terreindeel</td>
+                      <td></td>
+                      <td></td>
+                      <td>loofbos</td>
+                      <td>griend en hakhout</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gemengd bos</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>naaldbos</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>heide</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>struiken</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>houtwal</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>moeras</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>rietland</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>kwelder</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>fruitteelt</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>boomteelt</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>bouwland</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>grasland agrarisch</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>grasland overig</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>groenvoorziening</td>
+                      <td>bosplantsoen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>gras- en kruidachtigen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>planten</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>struikrozen</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>heesters</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>bodembedekkers</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="bt-p3">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Begroeid terreindeel</strong> is
+                <strong>pakket 3 gelijk aan pakket 2</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="bt-p3-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="bt-p3-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Begroeid terreindeel</td>
+                        <td></td>
+                        <td></td>
+                        <td>loofbos</td>
+                        <td>griend en hakhout</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>gemengd bos</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>naaldbos</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>heide</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>struiken</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>houtwal</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>moeras</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>rietland</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>kwelder</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>fruitteelt</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>boomteelt</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>bouwland</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>grasland agrarisch</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>grasland overig</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>groenvoorziening</td>
+                        <td>bosplantsoen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>gras- en kruidachtigen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>planten</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>struikrozen</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>heesters</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>bodembedekkers</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- =========================
+             OBJECT: WATERDEEL
+             ========================= -->
+          <details class="object-details" data-object="waterdeel">
+            <summary>
+              <span class="object-title">Waterdeel</span>
+            </summary>
+
+            <div class="pakket-tabs">
+              <button class="tab-btn active" type="button" data-tab="wtd-p1">
+                Pakket 1
+              </button>
+              <button class="tab-btn" type="button" data-tab="wtd-p2">
+                Pakket 2
+              </button>
+              <button class="tab-btn" type="button" data-tab="wtd-p3">
+                Pakket 3
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="wtd-p1">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Waterdeel</td>
+                      <td>greppel/droge sloot</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>waterloop</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>watervlakte</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="wtd-p2">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Waterdeel</td>
+                      <td>greppel/droge sloot</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>waterloop</td>
+                      <td>beek</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>gracht</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>rivier</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>sloot</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>watervlakte</td>
+                      <td>haven</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>meer, plas, ven, vijver</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="wtd-p3">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Waterdeel</strong> is
+                <strong>pakket 3 gelijk aan pakket 2</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="wtd-p3-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="wtd-p3-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Waterdeel</td>
+                        <td>greppel/droge sloot</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>waterloop</td>
+                        <td>beek</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>gracht</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>rivier</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>sloot</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>watervlakte</td>
+                        <td>haven</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>meer, plas, ven, vijver</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- =========================
+             OBJECT: ONDERSTEUNEND WATERDEEL
+             ========================= -->
+          <details class="object-details" data-object="ondersteunend-waterdeel">
+            <summary>
+              <span class="object-title">Ondersteunend waterdeel</span>
+            </summary>
+
+            <div class="pakket-tabs">
+              <button class="tab-btn active" type="button" data-tab="owtd-p1">
+                Pakket 1
+              </button>
+              <button class="tab-btn" type="button" data-tab="owtd-p2">
+                Pakket 2
+              </button>
+              <button class="tab-btn" type="button" data-tab="owtd-p3">
+                Pakket 3
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="owtd-p1">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ondersteunend waterdeel</td>
+                      <td>oever, slootkant</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="owtd-p2">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Ondersteunend waterdeel</strong> is
+                <strong>pakket 2 gelijk aan pakket 1</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="owtd-p2-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="owtd-p2-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ondersteunend waterdeel</td>
+                        <td>oever, slootkant</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="owtd-p3">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Ondersteunend waterdeel</strong> is
+                <strong>pakket 3 gelijk aan pakket 1</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="owtd-p3-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="owtd-p3-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ondersteunend waterdeel</td>
+                        <td>oever, slootkant</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- =========================
+             OBJECT: PAND
+             ========================= -->
+          <details class="object-details" data-object="pand">
+            <summary>
+              <span class="object-title">Pand</span>
+            </summary>
+
+            <div class="pakket-tabs">
+              <button class="tab-btn active" type="button" data-tab="pd-p1">
+                Pakket 1
+              </button>
+              <button class="tab-btn" type="button" data-tab="pd-p2">
+                Pakket 2
+              </button>
+              <button class="tab-btn" type="button" data-tab="pd-p3">
+                Pakket 3
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="pd-p1">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Pand</td>
+                      <td>grondvlakgeometrie van BAG-pand</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        BAG-pand geometrie op een andere relatieve hoogte dan
+                        het maaiveld
+                      </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="pd-p2">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Pand</strong> is
+                <strong>pakket 2 gelijk aan pakket 1</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="pd-p2-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="pd-p2-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Pand</td>
+                        <td>grondvlakgeometrie van BAG-pand</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          BAG-pand geometrie op een andere relatieve hoogte dan
+                          het maaiveld
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="pd-p3">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Pand</strong> is
+                <strong>pakket 3 gelijk aan pakket 1</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="pd-p3-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="pd-p3-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Pand</td>
+                        <td>grondvlakgeometrie van BAG-pand</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          BAG-pand geometrie op een andere relatieve hoogte dan
+                          het maaiveld
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- =========================
+             OBJECT: OVERIG BOUWWERK
+             ========================= -->
+          <details class="object-details" data-object="overig-bouwwerk">
+            <summary>
+              <span class="object-title">Overig bouwwerk</span>
+            </summary>
+
+            <div class="pakket-tabs">
+              <button class="tab-btn active" type="button" data-tab="obw-p1">
+                Pakket 1
+              </button>
+              <button class="tab-btn" type="button" data-tab="obw-p2">
+                Pakket 2
+              </button>
+              <button class="tab-btn" type="button" data-tab="obw-p3">
+                Pakket 3
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="obw-p1">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Overig bouwwerk</td>
+                      <td>overkapping</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>open loods</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>opslagtank</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>bezinkbak</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>windturbine</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>lage trafo</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>bassin</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="obw-p2">
+              <div class="table-wrap">
+                <table class="woordenlijst-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Functie</th>
+                      <th>IMGEO functie</th>
+                      <th>Fysiek voorkomen</th>
+                      <th>IMGEO voorkomen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Overig bouwwerk</td>
+                      <td>overkapping</td>
+                      <td>overkapping achter pand</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>open loods</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>opslagtank</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>bezinkbak</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>windturbine</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>lage trafo</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>bassin</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>bunker</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>voedersilo</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>schuur</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="obw-p3">
+              <p class="intro" style="margin-top: 0">
+                Voor <strong>Overig bouwwerk</strong> is
+                <strong>pakket 3 gelijk aan pakket 2</strong>.
+              </p>
+
+              <button
+                class="mini-btn"
+                type="button"
+                data-toggle-target="obw-p3-details"
+              >
+                Toon toch de volledige tabel
+              </button>
+
+              <div id="obw-p3-details" hidden>
+                <div class="table-wrap">
+                  <table class="woordenlijst-table">
+                    <thead>
+                      <tr>
+                        <th>Object</th>
+                        <th>Functie</th>
+                        <th>IMGEO functie</th>
+                        <th>Fysiek voorkomen</th>
+                        <th>IMGEO voorkomen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Overig bouwwerk</td>
+                        <td>overkapping</td>
+                        <td>overkapping achter pand</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>open loods</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>opslagtank</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>bezinkbak</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>windturbine</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>lage trafo</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>bassin</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>bunker</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>voedersilo</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td>schuur</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </details>		  
+		  <!-- =========================
+   OBJECT: SCHEIDING
+   ========================= -->
+<details class="object-details" data-object="scheiding">
+  <summary>
+    <span class="object-title">Scheiding</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="sch-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="sch-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="sch-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="sch-p1">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Scheiding</td><td>muur</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>kademuur</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>damwand</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>geluidsscherm</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>walbescherming</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>hek</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="sch-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Scheiding</td><td>muur</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>kademuur</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>damwand</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>geluidsscherm</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>walbescherming</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>hek</td><td></td><td></td><td></td></tr>
+
+          <!-- IMGEO functies -->
+          <tr><td></td><td></td><td>draadraster</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>faunaraster</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="sch-p3">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Scheiding</strong> is
+      <strong>pakket 3 gelijk aan pakket 2</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="sch-p3-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="sch-p3-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Scheiding</td><td>muur</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>kademuur</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>damwand</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>geluidsscherm</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>walbescherming</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>hek</td><td></td><td></td><td></td></tr>
+
+            <tr><td></td><td></td><td>draadraster</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>faunaraster</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</details>
+		<!-- =========================
+   OBJECT: OVERBRUGGINGSDEEL
+   ========================= -->
+<details class="object-details" data-object="overbruggingsdeel">
+  <summary>
+    <span class="object-title">Overbruggingsdeel</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="obd-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="obd-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="obd-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="obd-p1">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Overbruggingsdeel</td>
+            <td>overbruggingsdeel</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="obd-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Overbruggingsdeel</td>
+            <td>overbruggingsdeel</td>
+            <td>brug</td>
+            <td></td>
+          </tr>
+          <tr><td></td><td></td><td>aquaduct</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>viaduct</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>ecoduct</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>landhoofd</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>pijler</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>sloof</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>pyloon</td><td></td><td></td></tr>
+		  <tr><td></td><td></td><td>dek</td><td></td><td></td></tr>        
+		  </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="obd-p3">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Overbruggingsdeel</strong> is
+      <strong>pakket 3 gelijk aan pakket 2</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="obd-p3-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="obd-p3-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Overbruggingsdeel</td>
+              <td>overbruggingsdeel</td>
+              <td>brug</td>
+              <td></td>
+            </tr>
+            <tr><td></td><td></td><td>aquaduct</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>viaduct</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>ecoduct</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>landhoofd</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>pijler</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>sloof</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>pyloon</td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>dek</td><td></td><td></td></tr>        
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</details>	
+		<!-- =========================
+   OBJECT: TUNNELDEEL
+   ========================= -->
+<details class="object-details" data-object="tunneldeel">
+  <summary>
+    <span class="object-title">Tunneldeel</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="td-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="td-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="td-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="td-p1">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tunneldeel</td>
+            <td>tunneldeel</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="td-p2">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Tunneldeel</strong> is
+      <strong>pakket 2 gelijk aan pakket 1</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="td-p2-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="td-p2-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tunneldeel</td>
+              <td>tunneldeel</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="td-p3">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Tunneldeel</strong> is
+      <strong>pakket 3 gelijk aan pakket 1</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="td-p3-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="td-p3-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tunneldeel</td>
+              <td>tunneldeel</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</details>
+		<!-- =========================
+   OBJECT: KUNSTWERKDEEL
+   ========================= -->
+<details class="object-details" data-object="kunstwerkdeel">
+  <summary>
+    <span class="object-title">Kunstwerkdeel</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="kwd-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="kwd-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="kwd-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="kwd-p1">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Kunstwerkdeel</td><td>hoogspanningsmast</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>gemaal</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>perron</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>sluis</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>strekdam</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>steiger</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>stuw</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="kwd-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kunstwerkdeel</td>
+            <td>hoogspanningsmast</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr><td></td><td>gemaal</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>perron</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>sluis</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>strekdam</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>steiger</td><td></td><td></td><td></td></tr>
+<tr>
+  <td></td>
+  <td>stuw</td>
+  <td>keermuur</td>
+  <td></td>
+  <td></td>
+</tr>
+          <tr><td></td><td></td><td>overkluizing</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>duiker</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>faunavoorziening</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="kwd-p3">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Kunstwerkdeel</strong> is
+      <strong>pakket 3 gelijk aan pakket 2</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="kwd-p3-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="kwd-p3-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kunstwerkdeel</td>
+              <td>hoogspanningsmast</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr><td></td><td>gemaal</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>perron</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>sluis</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>strekdam</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>steiger</td><td></td><td></td><td></td></tr>
+<tr>
+  <td></td>
+  <td>stuw</td>
+  <td>keermuur</td>
+  <td></td>
+  <td></td>
+</tr>
+            <tr><td></td><td></td><td>overkluizing</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>duiker</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>faunavoorziening</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: FUNCTIONEEL GEBIED
+   ========================= -->
+<details class="object-details" data-object="functioneel-gebied">
+  <summary>
+    <span class="object-title">Functioneel gebied</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="fg-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="fg-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="fg-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="fg-p1">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Functioneel gebied</td>
+            <td>kering</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>begraafplaats</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>recreatie: speeltuin</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>recreatie: park</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>recreatie: sportterrein</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>recreatie: camping</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>recreatie: bungalowpark</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>recreatie: volkstuin</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="fg-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Functioneel gebied</td>
+            <td>kering</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr><td></td><td></td><td>bedrijvigheid</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>natuur en landschap</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>landbouw</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>bewoning</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>infrastructuur verkeer en vervoer</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>infrastructuur waterstaatswerken</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>waterbergingsgebied</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>maatschappelijke en/of publieksvoorziening</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>begraafplaats</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>functioneel beheer</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>functioneel beheer: hondenuitlaatplaats</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>recreatie: speeltuin</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>recreatie: park</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>recreatie: sportterrein</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>recreatie: camping</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>recreatie: bungalowpark</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>recreatie: volkstuin</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>bushalte</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>carpoolplaats</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>benzinestation</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>verzorgingsplaats</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="fg-p3">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Functioneel gebied</strong> is
+      <strong>pakket 3 gelijk aan pakket 2</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="fg-p3-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="fg-p3-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Functioneel gebied</td>
+              <td>kering</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr><td></td><td></td><td>bedrijvigheid</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>natuur en landschap</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>landbouw</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>bewoning</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>infrastructuur verkeer en vervoer</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>infrastructuur waterstaatswerken</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>waterbergingsgebied</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>maatschappelijke en/of publieksvoorziening</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>begraafplaats</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>functioneel beheer</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>functioneel beheer: hondenuitlaatplaats</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>recreatie: speeltuin</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>recreatie: park</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>recreatie: sportterrein</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>recreatie: camping</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>recreatie: bungalowpark</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>recreatie: volkstuin</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>bushalte</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>carpoolplaats</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>benzinestation</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>verzorgingsplaats</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: LABEL
+   ========================= -->
+<details class="object-details" data-object="label">
+  <summary>
+    <span class="object-title">Label</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="lbl-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="lbl-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="lbl-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="lbl-p1">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Label</td><td>openbareruimtelabel</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>huisnummerlabel</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="lbl-p2">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Label</strong> is
+      <strong>pakket 2 gelijk aan pakket 1</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="lbl-p2-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="lbl-p2-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Label</td><td>openbareruimtelabel</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>huisnummerlabel</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="lbl-p3">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Label</strong> is
+      <strong>pakket 3 gelijk aan pakket 1</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="lbl-p3-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="lbl-p3-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Label</td><td>openbareruimtelabel</td><td></td><td></td><td></td></tr>
+            <tr><td></td><td>huisnummerlabel</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</details>  
+<!-- =========================
+   OBJECT: BAK
+   ========================= -->
+<details class="object-details" data-object="bak">
+  <summary>
+    <span class="object-title">Bak</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="bak-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="bak-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="bak-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="bak-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1</strong> is <strong>Bak niet van toepassing.</strong> 
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="bak-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Bak</td><td></td><td>afval apart plaats</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>afvalbak</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>bloembak</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>container</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="bak-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Bak</td><td></td><td>afval apart plaats</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>afvalbak</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>drinkbak</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>bloembak</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>zand- / zoutbak</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>container</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: BORD
+   ========================= -->
+<details class="object-details" data-object="bord">
+  <summary>
+    <span class="object-title">Bord</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="brd-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="brd-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="brd-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="brd-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2 is Bord niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="brd-p2">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2 is Bord niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="brd-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Bord</td><td></td><td>informatiebord</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>plaatsnaambord</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>straatnaambord</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>verkeersbord</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>scheepvaartbord</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>verklikker transportleiding</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>reclamebord</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>wegwijzer</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>waarschuwingshek</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>dynamische snelheidsindicator</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: GEBOUWINSTALLATIE
+   ========================= -->
+<details class="object-details" data-object="gebouwinstallatie">
+  <summary>
+    <span class="object-title">Gebouwinstallatie</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="gi-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="gi-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="gi-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="gi-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1</strong> is
+      <strong>Gebouwinstallatie niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="gi-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gebouwinstallatie</td><td></td><td>luifel</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="gi-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gebouwinstallatie</td><td></td><td>luifel</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>bordes</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>toegangstrap</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: INSTALLATIE
+   ========================= -->
+<details class="object-details" data-object="installatie">
+  <summary>
+    <span class="object-title">Installatie</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="ins-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="ins-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="ins-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="ins-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2 is Installatie niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="ins-p2">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2 is Gebouwinstallatie niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="ins-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Installatie</td><td></td><td>pomp</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>zonnepaneel</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: KAST
+   ========================= -->
+<details class="object-details" data-object="kast">
+  <summary>
+    <span class="object-title">Kast</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="kst-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="kst-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="kst-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="kst-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1</strong> is
+      <strong>Kast niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="kst-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Kast</td><td></td><td>rioolkast</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="kst-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Kast</td><td></td><td>rioolkast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>CAI-kast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>elektrakast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>gaskast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>telecomkast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>openbare verlichtingkast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>verkeersregelinstallatiekast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>telkast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>GMS-kast</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: MAST
+   ========================= -->
+<details class="object-details" data-object="mast">
+  <summary>
+    <span class="object-title">Mast</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="mst-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="mst-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="mst-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="mst-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2 </strong> is
+      <strong>Mast niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="mst-p2">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2</strong> is
+      <strong>Mast niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="mst-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mast</td><td></td><td>bovenleidingmast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>laagspanningsmast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>straalzender</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>zendmast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>radarmast</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: PAAL
+   ========================= -->
+<details class="object-details" data-object="paal">
+  <summary>
+    <span class="object-title">Paal</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="pl-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="pl-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="pl-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="pl-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2</strong> is
+      <strong>Paal niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="pl-p2">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2</strong> is
+      <strong>Paal niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="pl-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Paal</td><td></td><td>lichtmast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>telpaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>portaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>verkeersregelinstallatiepaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>verkeersbordpaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>poller</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>haltepaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>vlaggenmast</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>afsluitpaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>praatpaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>hectometerpaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>dijkpaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>drukknoppaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>grensmarkering</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>sirene</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: PUT
+   ========================= -->
+<details class="object-details" data-object="put">
+  <summary>
+    <span class="object-title">Put</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="put-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="put-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="put-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="put-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1</strong> is
+      <strong>Put niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="put-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Put</td><td></td><td>inspectie- / rioolput</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>kolk</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="put-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Put</td><td></td><td>inspectie- / rioolput</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>kolk</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>benzine- / olieput</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>brandkraan / -put</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>drainageput</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>gasput</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>waterleidingput</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: STRAATMEUBILAIR
+   ========================= -->
+<details class="object-details" data-object="straatmeubilair">
+  <summary>
+    <span class="object-title">Straatmeubilair</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="sm-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="sm-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="sm-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="sm-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1</strong> is
+      <strong>Straatmeubilair niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="sm-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Straatmeubilair</td><td></td><td>kunstobject</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>speelvoorziening</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>bank</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>picknicktafel</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="sm-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Straatmeubilair</td><td></td><td>kunstobject</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>speelvoorziening</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>bank</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>picknicktafel</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>abri</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>bolder</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>brievenbus</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>fietsenrek</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>openbaar toilet</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>slagboom</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>telefooncel</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>fontein</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>lichtpunt</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>parkeerbeugel</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>betaalautomaat</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>reclamezuil</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>fietsenkluis</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>herdenkingsmonument</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: VEGETATIEOBJECT
+   ========================= -->
+<details class="object-details" data-object="vegetatieobject">
+  <summary>
+    <span class="object-title">Vegetatieobject</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="vo-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="vo-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="vo-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="vo-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1</strong> is
+      <strong>Vegetatieobject niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="vo-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Vegetatieobject</td><td></td><td>boom</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>haag</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="vo-p3">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Vegetatieobject</strong> is
+      <strong>pakket 3 gelijk aan pakket 2</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="vo-p3-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="vo-p3-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Vegetatieobject</td><td></td><td>boom</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>haag</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: WATERINRICHTINGSELEMENT
+   ========================= -->
+<details class="object-details" data-object="waterinrichtingselement">
+  <summary>
+    <span class="object-title">Waterinrichtingselement</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="wie-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="wie-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="wie-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="wie-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2</strong> is
+      <strong>Waterinrichtingselement niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="wie-p2">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1 en 2</strong> is
+      <strong>Waterinrichtingselement niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="wie-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Waterinrichtingselement</td><td></td><td>remmingswerk</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>betonning</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>geleidewerk</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>vuilvang</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>meerpaal</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>hoogtemerk</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: WEGINRICHTINGSELEMENT
+   ========================= -->
+<details class="object-details" data-object="weginrichtingselement">
+  <summary>
+    <span class="object-title">Weginrichtingselement</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="wie2-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="wie2-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="wie2-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="wie2-p1">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>pakket 1</strong> is
+      <strong>Weginrichtingselement niet van toepassing</strong>.
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="wie2-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Weginrichtingselement</td><td></td><td>wildrooster</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="wie2-p3">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Weginrichtingselement</td><td></td><td>wildrooster</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>molgoot</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>lijnafwatering</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>wegmarkering</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>rooster</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>geleideconstructie</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>balustrade</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>boomspiegel</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>verblindingswering</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+<!-- =========================
+   OBJECT: REGISTRATIEF GEBIED
+   ========================= -->
+<details class="object-details" data-object="registratief-gebied">
+  <summary>
+    <span class="object-title">Registratief gebied</span>
+  </summary>
+
+  <div class="pakket-tabs">
+    <button class="tab-btn active" type="button" data-tab="rg-p1">
+      Pakket 1
+    </button>
+    <button class="tab-btn" type="button" data-tab="rg-p2">
+      Pakket 2
+    </button>
+    <button class="tab-btn" type="button" data-tab="rg-p3">
+      Pakket 3
+    </button>
+  </div>
+
+  <!-- P1 -->
+  <div class="tab-panel active" id="rg-p1">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Registratief gebied</td><td></td><td>openbare ruimte</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="tab-panel" id="rg-p2">
+    <div class="table-wrap">
+      <table class="woordenlijst-table">
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Functie</th>
+            <th>IMGEO functie</th>
+            <th>Fysiek voorkomen</th>
+            <th>IMGEO voorkomen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Registratief gebied</td><td></td><td>Openbare ruimte</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>Buurt</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>Wijk</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>Stadsdeel</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>Waterschap</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="tab-panel" id="rg-p3">
+    <p class="intro" style="margin-top: 0">
+      Voor <strong>Registratief gebied</strong> is
+      <strong>pakket 3 gelijk aan pakket 2</strong>.
+    </p>
+
+    <button
+      class="mini-btn"
+      type="button"
+      data-toggle-target="rg-p3-details"
+    >
+      Toon toch de volledige tabel
+    </button>
+
+    <div id="rg-p3-details" hidden>
+      <div class="table-wrap">
+        <table class="woordenlijst-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Functie</th>
+              <th>IMGEO functie</th>
+              <th>Fysiek voorkomen</th>
+              <th>IMGEO voorkomen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Registratief gebied</td><td></td><td>Openbare ruimte</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>Buurt</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>Wijk</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>Stadsdeel</td><td></td><td></td></tr>
+            <tr><td></td><td></td><td>Waterschap</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</details></section>
+      </main>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> ECGeo &ndash; BGT Objectenhandboek
+
+    </footer>
+
+    <script>
+      // Huidig jaar in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.querySelectorAll(".object-details").forEach((details) => {
+        const tabButtons = details.querySelectorAll(".tab-btn[data-tab]");
+        const panels = details.querySelectorAll(".tab-panel");
+
+        tabButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = btn.dataset.tab;
+
+            tabButtons.forEach((b) => b.classList.remove("active"));
+            panels.forEach((p) => p.classList.remove("active"));
+
+            btn.classList.add("active");
+
+            const target = details.querySelector("#" + targetId);
+            if (target) target.classList.add("active");
+          });
+        });
+
+        details.querySelectorAll("[data-toggle-target]").forEach((btn) => {
+          const targetId = btn.getAttribute("data-toggle-target");
+          const target = details.querySelector("#" + targetId);
+          if (!target) return;
+
+          btn.addEventListener("click", () => {
+            const isHidden = target.hasAttribute("hidden");
+            if (isHidden) {
+              target.removeAttribute("hidden");
+              btn.textContent = "Verberg de volledige tabel";
+            } else {
+              target.setAttribute("hidden", "");
+              btn.textContent = "Toon toch de volledige tabel";
+            }
+          });
+        });
+      });
+    </script>
+	    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const playBtn = document.getElementById("playBtn");
+      const stopBtn = document.getElementById("stopBtn");
+
+      let nodes = [];
+      let index = 0;
+      let utterance;
+
+      function getNodes() {
+        const container = document.querySelector("main");
+
+        const walker = document.createTreeWalker(
+          container,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode(node) {
+              if (!node.parentElement) return NodeFilter.FILTER_REJECT;
+
+              const tag = node.parentElement.tagName.toLowerCase();
+
+              if (["button", "script", "style"].includes(tag)) {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              if (node.textContent.trim().length < 2) {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              return NodeFilter.FILTER_ACCEPT;
+            },
+          }
+        );
+
+        let list = [];
+        let n;
+        while ((n = walker.nextNode())) list.push(n);
+
+        return list;
+      }
+
+      function highlight(node) {
+        clearHighlight();
+        const span = document.createElement("span");
+        span.className = "highlight-reading";
+        node.parentNode.insertBefore(span, node);
+        span.appendChild(node);
+      }
+
+      function clearHighlight() {
+        document.querySelectorAll(".highlight-reading").forEach((span) => {
+          const parent = span.parentNode;
+          while (span.firstChild) {
+            parent.insertBefore(span.firstChild, span);
+          }
+          parent.removeChild(span);
+        });
+      }
+
+      function speakNext() {
+        if (index >= nodes.length) return;
+
+        const text = nodes[index].textContent.trim();
+        highlight(nodes[index]);
+
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "nl-NL";
+
+        utterance.onend = () => {
+          index++;
+          speakNext();
+        };
+
+        speechSynthesis.speak(utterance);
+      }
+
+      playBtn.onclick = () => {
+        speechSynthesis.cancel();
+        clearHighlight();
+        nodes = getNodes();
+        index = 0;
+        speakNext();
+      };
+
+      stopBtn.onclick = () => {
+        speechSynthesis.cancel();
+        clearHighlight();
+      };
+    </script>
+  </body>
+
+</html>

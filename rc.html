@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ruimtelijke Component – BGT Objectenhandboek (ECGeo)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+		<link rel="icon" type="image/x-icon" href="ecgeo.ico">
+
+    <style>
+      :root {
+        --bg: #f5f7fa;
+        --bg-alt: #ffffff;
+        --accent: #0066aa;
+        --accent-soft: #e5f2fb;
+        --text: #023672;
+        --text-muted: #666666;
+        --border: #d0d6e0;
+        --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.08);
+        --radius: 8px;
+        --radius-large: 10px;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .logo {
+        height: 48px;
+        margin-right: 0.5rem;
+        display: block;
+      }
+
+      header {
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        position: sticky;
+        top: 0;
+      }
+
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .site-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .site-title h1 {
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      .site-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .layout {
+        max-width: 1200px;
+        margin: 1.5rem auto;
+        padding: 0 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 1.5rem;
+      }
+
+      aside {
+        position: sticky;
+        top: 5.5rem;
+      }
+
+      .side-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 0.6rem 1.1rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 1rem;
+      }
+
+      .side-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+
+      .side-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+      }
+
+      .side-nav li {
+        margin-bottom: 0.2rem;
+      }
+
+      .side-nav a {
+        display: block;
+        padding: 0.3rem 0.4rem;
+        border-radius: var(--radius);
+      }
+
+      .side-nav a:hover {
+        background: var(--accent-soft);
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 0.8rem 1.4rem 1.25rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .intro {
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      ul {
+        margin-top: 0.5rem;
+      }
+
+      .highlight-box {
+        margin-top: 0.8rem;
+        padding: 0.8rem;
+        background: #f6f7fb;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+	  
+	  		.highlight-reading {
+			background: #fff3a3;
+			border-radius: 4px;
+		}
+	  
+		
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="site-title">
+          <a href="index.html">
+            <img src="ECGeo.jpg" alt="ECGeo logo" class="logo" />
+          </a>
+          <div>
+            <h1>BGT Objectenhandboek</h1>
+            <span>ECGeo – richtlijnen voor inwinning en beheer</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="side-card">
+          <h2>Navigatie</h2>
+          <ul class="side-nav">
+            <li><a href="handboek.html">Over dit handboek</a></li>
+            <li><a href="leeswijzer.html">Leeswijzer &amp; definities</a></li>
+            <li><a href="kwaliteit.html">Kwaliteit</a></li>
+            <li><a href="fg.html">Functionele Gebieden (FG)</a></li>
+            <li><a href="pakketten.html">BGT-pakketten</a></li>
+            <li><a href="index.html">Terug naar startpagina</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <main>
+        <!-- 🔊 knoppen -->
+        <div style="display:flex; gap:0.4rem;">
+          <button id="playBtn">▶ Voorlezen</button>
+          <button id="stopBtn">■ Stop</button>
+        </div>
+	  
+	  
+        <section class="card">
+          <h2>Ruimtelijke Component (RC)</h2>
+          <p class="intro">
+            De ruimtelijke component geeft aan hoe objecten zich ruimtelijk tot elkaar verhouden. Het beschrijft de structuur van de openbare ruimte en maakt duidelijk welke objecten een begrenzende of structurerende rol hebben.
+          </p>
+
+          <div class="highlight-box">
+            De ruimtelijke component helpt bij het consistent indelen en interpreteren van de BGT en ondersteunt een eenduidige afbakening van objecten.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Waarom gebruiken we de ruimtelijke component?</h2>
+          <ul>
+            <li>Structuur aanbrengen in de openbare ruimte</li>
+            <li>Helpen bij het bepalen van grenzen tussen objecten</li>
+            <li>Consistente en reproduceerbare keuzes maken bij afbakening</li>
+            <li>Ondersteunen van analyse en visualisatie</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Relatie met BGT-objecten</h2>
+          <p class="intro">
+            De ruimtelijke component staat niet los van de BGT-objecten, maar ondersteunt deze. Het geeft context aan hoe objecten zijn opgebouwd en hoe ze elkaar begrenzen.
+          </p>
+
+          <div class="highlight-box">
+            Een object kan zowel een fysieke verschijningsvorm hebben als een rol binnen de ruimtelijke structuur. Die rol wordt vastgelegd met de ruimtelijke component.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Inrichtend en opdelend</h2>
+          <p class="intro">
+            Binnen de ruimtelijke component wordt onderscheid gemaakt tussen twee rollen:
+          </p>
+          <ul>
+            <li><strong>Inrichtend:</strong> objecten die de ruimte fysiek vormgeven</li>
+            <li><strong>Opdelend:</strong> objecten die grenzen bepalen en structuur aanbrengen</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Gebruik binnen ECGeo</h2>
+          <p class="intro">
+            ECGeo gebruikt de ruimtelijke component als hulpmiddel bij het maken van consistente keuzes in de BGT. Dit helpt bij zowel inwinning als beheer en zorgt voor een uniforme werkwijze tussen gemeenten.
+          </p>
+
+          <div class="highlight-box">
+            Door de ruimtelijke component expliciet te benoemen, wordt het eenvoudiger om keuzes te onderbouwen en te herhalen in vergelijkbare situaties.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> ECGeo &ndash; BGT Objectenhandboek
+
+    </footer>
+
+    <script>
+      // Huidig jaar in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+	    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const playBtn = document.getElementById("playBtn");
+      const stopBtn = document.getElementById("stopBtn");
+
+      let nodes = [];
+      let index = 0;
+      let utterance;
+
+      function getNodes() {
+        const container = document.querySelector("main");
+
+        const walker = document.createTreeWalker(
+          container,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode(node) {
+              if (!node.parentElement) return NodeFilter.FILTER_REJECT;
+
+              const tag = node.parentElement.tagName.toLowerCase();
+
+              if (["button", "script", "style"].includes(tag)) {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              if (node.textContent.trim().length < 2) {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              return NodeFilter.FILTER_ACCEPT;
+            },
+          }
+        );
+
+        let list = [];
+        let n;
+        while ((n = walker.nextNode())) list.push(n);
+
+        return list;
+      }
+
+      function highlight(node) {
+        clearHighlight();
+        const span = document.createElement("span");
+        span.className = "highlight-reading";
+        node.parentNode.insertBefore(span, node);
+        span.appendChild(node);
+      }
+
+      function clearHighlight() {
+        document.querySelectorAll(".highlight-reading").forEach((span) => {
+          const parent = span.parentNode;
+          while (span.firstChild) {
+            parent.insertBefore(span.firstChild, span);
+          }
+          parent.removeChild(span);
+        });
+      }
+
+      function speakNext() {
+        if (index >= nodes.length) return;
+
+        const text = nodes[index].textContent.trim();
+        highlight(nodes[index]);
+
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "nl-NL";
+
+        utterance.onend = () => {
+          index++;
+          speakNext();
+        };
+
+        speechSynthesis.speak(utterance);
+      }
+
+      playBtn.onclick = () => {
+        speechSynthesis.cancel();
+        clearHighlight();
+        nodes = getNodes();
+        index = 0;
+        speakNext();
+      };
+
+      stopBtn.onclick = () => {
+        speechSynthesis.cancel();
+        clearHighlight();
+      };
+    </script>
+  </body>
+
+</html>
