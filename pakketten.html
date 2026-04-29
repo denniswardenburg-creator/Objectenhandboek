@@ -4632,18 +4632,23 @@
         const tabButtons = details.querySelectorAll(".tab-btn[data-tab]");
         const panels = details.querySelectorAll(".tab-panel");
 
+        function activateTab(targetId) {
+          tabButtons.forEach((b) => b.classList.remove("active"));
+          panels.forEach((p) => p.classList.remove("active"));
+
+          const button = Array.from(tabButtons).find(
+            (btn) => btn.dataset.tab === targetId
+          );
+          const target = details.querySelector("#" + targetId);
+
+          if (button) button.classList.add("active");
+          if (target) target.classList.add("active");
+        }
+
         tabButtons.forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.preventDefault();
-            const targetId = btn.dataset.tab;
-
-            tabButtons.forEach((b) => b.classList.remove("active"));
-            panels.forEach((p) => p.classList.remove("active"));
-
-            btn.classList.add("active");
-
-            const target = details.querySelector("#" + targetId);
-            if (target) target.classList.add("active");
+            activateTab(btn.dataset.tab);
           });
         });
 
@@ -4664,6 +4669,27 @@
           });
         });
       });
+
+      const params = new URLSearchParams(window.location.search);
+      const objectToOpen = params.get("open");
+      const pakketToOpen = params.get("pakket");
+
+      if (objectToOpen && ["1", "2", "3"].includes(pakketToOpen)) {
+        const details = Array.from(
+          document.querySelectorAll(".object-details")
+        ).find((item) => item.dataset.object === objectToOpen);
+
+        if (details) {
+          details.open = true;
+
+          const tabButton = Array.from(
+            details.querySelectorAll(".tab-btn[data-tab]")
+          ).find((btn) => btn.dataset.tab.endsWith("-p" + pakketToOpen));
+
+          if (tabButton) tabButton.click();
+          details.scrollIntoView({ block: "start" });
+        }
+      }
     </script>
 	    <script>
       document.getElementById("year").textContent = new Date().getFullYear();
