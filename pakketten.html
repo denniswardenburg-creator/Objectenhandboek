@@ -4628,27 +4628,29 @@
       // Huidig jaar in footer
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      document.querySelectorAll(".object-details").forEach((details) => {
+      function activateTab(details, targetId) {
         const tabButtons = details.querySelectorAll(".tab-btn[data-tab]");
         const panels = details.querySelectorAll(".tab-panel");
 
-        function activateTab(targetId) {
-          tabButtons.forEach((b) => b.classList.remove("active"));
-          panels.forEach((p) => p.classList.remove("active"));
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        panels.forEach((p) => p.classList.remove("active"));
 
-          const button = Array.from(tabButtons).find(
-            (btn) => btn.dataset.tab === targetId
-          );
-          const target = details.querySelector("#" + targetId);
+        const button = Array.from(tabButtons).find(
+          (btn) => btn.dataset.tab === targetId
+        );
+        const target = details.querySelector("#" + targetId);
 
-          if (button) button.classList.add("active");
-          if (target) target.classList.add("active");
-        }
+        if (button) button.classList.add("active");
+        if (target) target.classList.add("active");
+      }
+
+      document.querySelectorAll(".object-details").forEach((details) => {
+        const tabButtons = details.querySelectorAll(".tab-btn[data-tab]");
 
         tabButtons.forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.preventDefault();
-            activateTab(btn.dataset.tab);
+            activateTab(details, btn.dataset.tab);
           });
         });
 
@@ -4671,8 +4673,15 @@
       });
 
       const params = new URLSearchParams(window.location.search);
-      const objectToOpen = params.get("open");
-      const pakketToOpen = params.get("pakket");
+      const objectToOpen = (params.get("open") || "").trim();
+      const pakketToOpen = (
+        params.get("pakket") ||
+        params.get("amp;pakket") ||
+        ""
+      )
+        .trim()
+        .replace(/\D/g, "")
+        .charAt(0);
 
       if (objectToOpen && ["1", "2", "3"].includes(pakketToOpen)) {
         const details = Array.from(
@@ -4686,7 +4695,7 @@
             details.querySelectorAll(".tab-btn[data-tab]")
           ).find((btn) => btn.dataset.tab.endsWith("-p" + pakketToOpen));
 
-          if (tabButton) tabButton.click();
+          if (tabButton) activateTab(details, tabButton.dataset.tab);
           details.scrollIntoView({ block: "start" });
         }
       }
