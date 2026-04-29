@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
   <head>
     <meta charset="UTF-8" />
@@ -22,7 +22,11 @@
       }
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
           sans-serif;
         background: var(--bg);
         color: var(--text);
@@ -264,12 +268,11 @@
           align-items: flex-start;
         }
       }
-	  
-  	  		.highlight-reading {
-			background: #fff3a3;
-			border-radius: 4px;
-		}
 
+      .highlight-reading {
+        background: #fff3a3;
+        border-radius: 4px;
+      }
     </style>
   </head>
 
@@ -303,22 +306,19 @@
             <li><a href="rc.html">Ruimtelijke Component (RC)</a></li>
             <li><a href="fg.html">Functionele Gebieden (FG)</a></li>
             <li><a href="pakketten.html">BGT-pakketten</a></li>
+            <li><a href="versie.html">Versies & wijzigingen</a></li>
             <li><a href="index.html">Terug naar startpagina</a></li>
           </ul>
         </div>
       </aside>
-	  
+
       <main>
-	  
         <!-- 🔊 knoppen -->
-        <div style="display:flex; gap:0.4rem;">
+        <div style="display: flex; gap: 0.4rem">
           <button id="playBtn">▶ Voorlezen</button>
           <button id="stopBtn">■ Stop</button>
         </div>
-	  
-	  
-	  
-	  
+
         <!-- Inleiding -->
         <section class="card" id="inleiding" aria-labelledby="inleiding-title">
           <h2 id="inleiding-title">Inleiding</h2>
@@ -328,8 +328,6 @@
             registratie aansluit op gemeentelijke werkprocessen.
           </p>
         </section>
-		
-		
 
         <!-- Leeswijzer -->
         <section
@@ -350,96 +348,105 @@
             <summary>Toon velden</summary>
             <div class="details-inner">
               <table aria-label="Leeswijzer velden">
-            <thead>
-              <tr>
-                <th>Veld</th>
-                <th>Toelichting</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Objectdeel</td>
-                <td>
-                  De (sub)indeling van het object binnen de
-                  catalogus/registratie (bijv. wegdeel, ondersteunend wegdeel).
-                </td>
-              </tr>
-              <tr>
-                <td>BGT functie</td>
-                <td>
-                  De functionele typering van het object volgens de BGT (wat het
-                  “doet” in de openbare ruimte).
-                </td>
-              </tr>
-			  
-			  <tr>
-                <td>Geometrie</td>
-                <td>
-                  De vorm waarin het object wordt vastgelegd (punt, lijn, vlak
-                  of multi-geometrie).
-                </td>
-              </tr>
-			  
-			  <tr>
-                <td>Bronhouder</td>
-                <td>
-                  De partij die als verantwoordelijke bron optreedt voor de
-                  registratie van het object.
-                </td>
-              </tr>
-			  
-			  <tr>
-                <td>Naamgeving</td>
-                <td>
-                  De conventie voor objectnamen/velden (bijv. naamgeving uit BAG
-                  of “n.v.t.”).
-                </td>
-              </tr>
-			  
-			  <tr>
-				<td>BGT-verplicht</td>
-				<td>
-					Geeft aan of een object volgens de landelijke BGT-regelgeving verplicht moet worden opgenomen in de basisregistratie.
-				</td>
-			 </tr>
-				
-			 <tr>
-                <td>Inwinning</td>
-                <td>
-                  Geeft aan hoe de geometrie/attribuutinformatie wordt verkregen (bijv.
-                  terrestrisch, fotogrammetrisch, construeren).
-                </td>
-              </tr>
-			
-			<tr>
-				<td>Ruimtelijke rol</td>
-				<td>
-				De ruimtelijke rol geeft aan of een object een inrichtend (fysiek vormgevend) of opdelend (begrenzend en structurerend) karakter heeft binnen de BGT.
-				</td>
-			</tr>
-			
-               <tr>
-                <td>Wettelijk fysiek voorkomen</td>
-                <td>
-                  Betreft fysieke kenmerken die volgens de BGT-specificaties verplicht moeten worden ingewonnen en geregistreerd.
-                </td>
-              </tr>
-			  
-			  <tr>
-                <td>Optioneel fysiek voorkomen</td>
-                <td>
-                  Omvat aanvullende fysieke kenmerken die niet verplicht zijn, maar kunnen worden vastgelegd voor extra detail of lokale toepassingen.
-                </td>
-              </tr>
-			  <tr>
-                <td>IMGEO classificatie</td>
-                <td>
-                  De inhoudelijke groep/klasse waarin het object binnen IMGeo
-                  valt.
-                </td>
-              </tr>
-              <tr>
-             </tbody>
+                <thead>
+                  <tr>
+                    <th>Veld</th>
+                    <th>Toelichting</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Objectdeel</td>
+                    <td>
+                      De (sub)indeling van het object binnen de
+                      catalogus/registratie (bijv. wegdeel, ondersteunend
+                      wegdeel).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>BGT functie</td>
+                    <td>
+                      De functionele typering van het object volgens de BGT (wat
+                      het “doet” in de openbare ruimte).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Geometrie</td>
+                    <td>
+                      De vorm waarin het object wordt vastgelegd (punt, lijn,
+                      vlak of multi-geometrie).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Bronhouder</td>
+                    <td>
+                      De partij die als verantwoordelijke bron optreedt voor de
+                      registratie van het object.
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Naamgeving</td>
+                    <td>
+                      De conventie voor objectnamen/velden (bijv. naamgeving uit
+                      BAG of “n.v.t.”).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>BGT-verplicht</td>
+                    <td>
+                      Geeft aan of een object volgens de landelijke
+                      BGT-regelgeving verplicht moet worden opgenomen in de
+                      basisregistratie.
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Inwinning</td>
+                    <td>
+                      Geeft aan hoe de geometrie/attribuutinformatie wordt
+                      verkregen (bijv. terrestrisch, fotogrammetrisch,
+                      construeren).
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Ruimtelijke rol</td>
+                    <td>
+                      De ruimtelijke rol geeft aan of een object een inrichtend
+                      (fysiek vormgevend) of opdelend (begrenzend en
+                      structurerend) karakter heeft binnen de BGT.
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Wettelijk fysiek voorkomen</td>
+                    <td>
+                      Betreft fysieke kenmerken die volgens de BGT-specificaties
+                      verplicht moeten worden ingewonnen en geregistreerd.
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Optioneel fysiek voorkomen</td>
+                    <td>
+                      Omvat aanvullende fysieke kenmerken die niet verplicht
+                      zijn, maar kunnen worden vastgelegd voor extra detail of
+                      lokale toepassingen.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>IMGEO classificatie</td>
+                    <td>
+                      De inhoudelijke groep/klasse waarin het object binnen
+                      IMGeo valt.
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </tbody>
               </table>
             </div>
           </details>
@@ -453,9 +460,9 @@
         >
           <h2 id="definities-title">Definities: begrippen in het handboek</h2>
           <p class="intro">
-            Hieronder staan de kernbegrippen die op de objectpagina's voorkomen. Elk begrip
-            heeft een korte toelichting. Klik de lijst open voor het volledige
-            overzicht.
+            Hieronder staan de kernbegrippen die op de objectpagina's voorkomen.
+            Elk begrip heeft een korte toelichting. Klik de lijst open voor het
+            volledige overzicht.
           </p>
 
           <details>
@@ -512,7 +519,6 @@
                   </p>
                   <div class="term-meta"><span class="pill">rol</span></div>
                 </article>
-
 
                 <article class="term-card" data-term="geometrie">
                   <h3>Geometrie</h3>
@@ -574,7 +580,6 @@
                   </div>
                 </article>
 
-
                 <article class="term-card" data-term="objectdeel">
                   <h3>Objectdeel</h3>
                   <p>
@@ -596,7 +601,6 @@
                     <span class="pill">topologie</span>
                   </div>
                 </article>
-
               </div>
             </div>
           </details>
@@ -806,15 +810,14 @@
 
     <footer>
       &copy; <span id="year"></span> ECGeo &ndash; BGT Objectenhandboek
-
     </footer>
 
     <script>
       // Huidig jaar in footer
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-	
-	    <script>
+
+    <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
       const playBtn = document.getElementById("playBtn");
@@ -846,7 +849,7 @@
 
               return NodeFilter.FILTER_ACCEPT;
             },
-          }
+          },
         );
 
         let list = [];
@@ -904,9 +907,6 @@
         clearHighlight();
       };
     </script>
-	
-	
-	
   </body>
 </html>
 ```

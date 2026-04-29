@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <title>Ruimtelijke Component – BGT Objectenhandboek (ECGeo)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-	
-		<link rel="icon" type="image/x-icon" href="ecgeo.ico">
+
+    <link rel="icon" type="image/x-icon" href="ecgeo.ico" />
 
     <style>
       :root {
@@ -21,17 +21,28 @@
         --radius-large: 10px;
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
         background: var(--bg);
         color: var(--text);
       }
 
-      a { color: var(--accent); text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
 
       .logo {
         height: 48px;
@@ -158,13 +169,11 @@
         font-size: 0.8rem;
         color: var(--text-muted);
       }
-	  
-	  		.highlight-reading {
-			background: #fff3a3;
-			border-radius: 4px;
-		}
-	  
-		
+
+      .highlight-reading {
+        background: #fff3a3;
+        border-radius: 4px;
+      }
     </style>
   </head>
 
@@ -193,6 +202,7 @@
             <li><a href="kwaliteit.html">Kwaliteit</a></li>
             <li><a href="fg.html">Functionele Gebieden (FG)</a></li>
             <li><a href="pakketten.html">BGT-pakketten</a></li>
+            <li><a href="versie.html">Versies & wijzigingen</a></li>
             <li><a href="index.html">Terug naar startpagina</a></li>
           </ul>
         </div>
@@ -200,20 +210,24 @@
 
       <main>
         <!-- 🔊 knoppen -->
-        <div style="display:flex; gap:0.4rem;">
+        <div style="display: flex; gap: 0.4rem">
           <button id="playBtn">▶ Voorlezen</button>
           <button id="stopBtn">■ Stop</button>
         </div>
-	  
-	  
+
         <section class="card">
           <h2>Ruimtelijke Component (RC)</h2>
           <p class="intro">
-            De ruimtelijke component geeft aan hoe objecten zich ruimtelijk tot elkaar verhouden. Het beschrijft de structuur van de openbare ruimte en maakt duidelijk welke objecten een begrenzende of structurerende rol hebben.
+            De ruimtelijke component geeft aan hoe objecten zich ruimtelijk tot
+            elkaar verhouden. Het beschrijft de structuur van de openbare ruimte
+            en maakt duidelijk welke objecten een begrenzende of structurerende
+            rol hebben.
           </p>
 
           <div class="highlight-box">
-            De ruimtelijke component helpt bij het consistent indelen en interpreteren van de BGT en ondersteunt een eenduidige afbakening van objecten.
+            De ruimtelijke component helpt bij het consistent indelen en
+            interpreteren van de BGT en ondersteunt een eenduidige afbakening
+            van objecten.
           </div>
         </section>
 
@@ -230,33 +244,48 @@
         <section class="card">
           <h2>Relatie met BGT-objecten</h2>
           <p class="intro">
-            De ruimtelijke component staat niet los van de BGT-objecten, maar ondersteunt deze. Het geeft context aan hoe objecten zijn opgebouwd en hoe ze elkaar begrenzen.
+            De ruimtelijke component staat niet los van de BGT-objecten, maar
+            ondersteunt deze. Het geeft context aan hoe objecten zijn opgebouwd
+            en hoe ze elkaar begrenzen.
           </p>
 
           <div class="highlight-box">
-            Een object kan zowel een fysieke verschijningsvorm hebben als een rol binnen de ruimtelijke structuur. Die rol wordt vastgelegd met de ruimtelijke component.
+            Een object kan zowel een fysieke verschijningsvorm hebben als een
+            rol binnen de ruimtelijke structuur. Die rol wordt vastgelegd met de
+            ruimtelijke component.
           </div>
         </section>
 
         <section class="card">
           <h2>Inrichtend en opdelend</h2>
           <p class="intro">
-            Binnen de ruimtelijke component wordt onderscheid gemaakt tussen twee rollen:
+            Binnen de ruimtelijke component wordt onderscheid gemaakt tussen
+            twee rollen:
           </p>
           <ul>
-            <li><strong>Inrichtend:</strong> objecten die de ruimte fysiek vormgeven</li>
-            <li><strong>Opdelend:</strong> objecten die grenzen bepalen en structuur aanbrengen</li>
+            <li>
+              <strong>Inrichtend:</strong> objecten die de ruimte fysiek
+              vormgeven
+            </li>
+            <li>
+              <strong>Opdelend:</strong> objecten die grenzen bepalen en
+              structuur aanbrengen
+            </li>
           </ul>
         </section>
 
         <section class="card">
           <h2>Gebruik binnen ECGeo</h2>
           <p class="intro">
-            ECGeo gebruikt de ruimtelijke component als hulpmiddel bij het maken van consistente keuzes in de BGT. Dit helpt bij zowel inwinning als beheer en zorgt voor een uniforme werkwijze tussen gemeenten.
+            ECGeo gebruikt de ruimtelijke component als hulpmiddel bij het maken
+            van consistente keuzes in de BGT. Dit helpt bij zowel inwinning als
+            beheer en zorgt voor een uniforme werkwijze tussen gemeenten.
           </p>
 
           <div class="highlight-box">
-            Door de ruimtelijke component expliciet te benoemen, wordt het eenvoudiger om keuzes te onderbouwen en te herhalen in vergelijkbare situaties.
+            Door de ruimtelijke component expliciet te benoemen, wordt het
+            eenvoudiger om keuzes te onderbouwen en te herhalen in vergelijkbare
+            situaties.
           </div>
         </section>
       </main>
@@ -264,14 +293,13 @@
 
     <footer>
       &copy; <span id="year"></span> ECGeo &ndash; BGT Objectenhandboek
-
     </footer>
 
     <script>
       // Huidig jaar in footer
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-	    <script>
+    <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
       const playBtn = document.getElementById("playBtn");
@@ -303,7 +331,7 @@
 
               return NodeFilter.FILTER_ACCEPT;
             },
-          }
+          },
         );
 
         let list = [];
@@ -362,5 +390,4 @@
       };
     </script>
   </body>
-
 </html>

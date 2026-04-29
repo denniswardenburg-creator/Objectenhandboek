@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Versie &amp; wijzigingen &ndash; BGT Objectenhandboek (ECGeo)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      :root {
+        --bg: #f5f7fa;
+        --bg-alt: #ffffff;
+        --accent: #0066aa;
+        --accent-soft: #e5f2fb;
+        --text: #023672;
+        --text-muted: #666666;
+        --border: #d0d6e0;
+        --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.08);
+        --radius: 8px;
+        --radius-large: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      header {
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .site-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .logo {
+        height: 48px;
+        margin-right: 0.5rem;
+        display: block;
+      }
+
+      .site-title h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      .site-title span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        display: block;
+        margin-top: -4px;
+      }
+
+      .layout {
+        max-width: 1200px;
+        margin: 1.5rem auto;
+        padding: 0 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+
+      aside {
+        align-self: flex-start;
+        position: sticky;
+        top: 5.5rem;
+      }
+
+      .side-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 1rem;
+      }
+
+      .side-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+
+      .side-card p {
+        margin: 0.3rem 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .side-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+      }
+
+      .side-nav li {
+        margin-bottom: 0.2rem;
+      }
+
+      .side-nav a {
+        display: block;
+        padding: 0.3rem 0.4rem;
+        border-radius: var(--radius);
+      }
+
+      .side-nav a:hover,
+      .side-nav a[aria-current="page"] {
+        background: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border-radius: var(--radius-large);
+        padding: 1.25rem 1.4rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .card h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+
+      .card h3 {
+        margin: 1rem 0 0.35rem;
+        font-size: 1rem;
+      }
+
+      .intro {
+        font-size: 0.98rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0.2rem 0 0;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        margin-top: 0.9rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 0.55rem 0.5rem;
+        border-bottom: 1px solid #e0e4ec;
+        vertical-align: top;
+      }
+
+      th {
+        text-align: left;
+        font-weight: 600;
+        background: #f6f7fb;
+      }
+
+      td:first-child {
+        white-space: nowrap;
+        font-weight: 600;
+      }
+
+      .empty-row td {
+        color: var(--text-muted);
+        font-style: italic;
+        font-weight: 400;
+        white-space: normal;
+      }
+
+      .notice {
+        border-left: 4px solid var(--accent);
+      }
+
+      .notice-list {
+        margin: 0.8rem 0 0;
+        padding-left: 1.2rem;
+      }
+
+      .notice-list li {
+        margin-bottom: 0.75rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .notice-list strong {
+        color: var(--text);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 0.8rem 1.5rem 1.2rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      .highlight-reading {
+        background: #fff3a3;
+        border-radius: 4px;
+      }
+
+      @media (max-width: 880px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        aside {
+          position: static;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="site-title">
+          <a href="index.html">
+            <img src="ECGeo.jpg" alt="ECGeo logo" class="logo" />
+          </a>
+          <div>
+            <h1>BGT Objectenhandboek</h1>
+            <span>ECGeo &ndash; richtlijnen voor inwinning en beheer</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="side-card">
+          <h2>Versie &amp; wijzigingen</h2>
+          <p>Overzicht van versies, wijzigingsdata en toelichtingen.</p>
+        </div>
+
+        <div class="side-card">
+          <h2>Navigatie</h2>
+          <ul class="side-nav">
+            <li><a href="handboek.html">Over dit handboek</a></li>
+            <li><a href="leeswijzer.html">Leeswijzer &amp; definities</a></li>
+            <li><a href="kwaliteit.html">Kwaliteit</a></li>
+            <li><a href="rc.html">Ruimtelijke Component (RC)</a></li>
+            <li><a href="fg.html">Functionele Gebieden (FG)</a></li>
+            <li><a href="pakketten.html">BGT-pakketten</a></li>
+            <li><a href="index.html">Terug naar startpagina</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <main>
+        <div style="display: flex; gap: 0.4rem">
+          <button id="playBtn">Voorlezen</button>
+          <button id="stopBtn">Stop</button>
+        </div>
+
+        <section class="card" id="versieoverzicht">
+          <h2>Versie &amp; wijzigingen</h2>
+          <p class="intro">
+            Op deze pagina wordt bijgehouden welke versies van het
+            objectenhandboek zijn gepubliceerd, wanneer deze zijn gewijzigd en
+            welke aanpassingen zijn doorgevoerd.
+          </p>
+
+          <div class="table-wrap">
+            <table aria-label="Versieoverzicht">
+              <thead>
+                <tr>
+                  <th>Datum</th>
+                  <th>Wijziging</th>
+                  <th>Korte toelichting</th>
+                  <th>Versie</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="empty-row">
+                  <td colspan="4"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card notice" id="disclaimer">
+          <h2>Disclaimer</h2>
+          <p class="intro">
+            Dit objectenhandboek is een dynamisch document en wordt periodiek
+            geactualiseerd. Wijzigingen kunnen onder andere voortkomen uit:
+          </p>
+
+          <ul class="notice-list">
+            <li>
+              <strong>Landelijke ontwikkelingen</strong><br />
+              Aanpassingen in wet- en regelgeving, standaarden of richtlijnen,
+              zoals vastgesteld door Geonovum of andere landelijke instanties.
+            </li>
+            <li>
+              <strong>Redactionele verbeteringen</strong><br />
+              Aanpassingen ter verduidelijking, correctie of verbetering van de
+              leesbaarheid en consistentie van de inhoud.
+            </li>
+            <li>
+              <strong>Inhoudelijke wijzigingen</strong><br />
+              Aanpassingen die nodig zijn voor een juiste en eenduidige
+              inwinning, interpretatie en registratie van objecten binnen de
+              BGT.
+            </li>
+          </ul>
+
+          <p class="intro">
+            Aan dit document kunnen geen rechten worden ontleend. Bij
+            wijzigingen wordt, waar relevant, een toelichting opgenomen in het
+            versieoverzicht.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> ECGeo &ndash; BGT Objectenhandboek
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const playBtn = document.getElementById("playBtn");
+      const stopBtn = document.getElementById("stopBtn");
+
+      let nodes = [];
+      let index = 0;
+      let utterance;
+
+      function getNodes() {
+        const container = document.querySelector("main");
+
+        const walker = document.createTreeWalker(
+          container,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode(node) {
+              if (!node.parentElement) return NodeFilter.FILTER_REJECT;
+
+              const tag = node.parentElement.tagName.toLowerCase();
+
+              if (["button", "script", "style"].includes(tag)) {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              if (node.textContent.trim().length < 2) {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              return NodeFilter.FILTER_ACCEPT;
+            },
+          },
+        );
+
+        const list = [];
+        let n;
+        while ((n = walker.nextNode())) list.push(n);
+
+        return list;
+      }
+
+      function highlight(node) {
+        clearHighlight();
+        const span = document.createElement("span");
+        span.className = "highlight-reading";
+        node.parentNode.insertBefore(span, node);
+        span.appendChild(node);
+      }
+
+      function clearHighlight() {
+        document.querySelectorAll(".highlight-reading").forEach((span) => {
+          const parent = span.parentNode;
+          while (span.firstChild) {
+            parent.insertBefore(span.firstChild, span);
+          }
+          parent.removeChild(span);
+        });
+      }
+
+      function speakNext() {
+        if (index >= nodes.length) return;
+
+        const text = nodes[index].textContent.trim();
+        highlight(nodes[index]);
+
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "nl-NL";
+
+        utterance.onend = () => {
+          index++;
+          speakNext();
+        };
+
+        speechSynthesis.speak(utterance);
+      }
+
+      playBtn.onclick = () => {
+        speechSynthesis.cancel();
+        clearHighlight();
+        nodes = getNodes();
+        index = 0;
+        speakNext();
+      };
+
+      stopBtn.onclick = () => {
+        speechSynthesis.cancel();
+        clearHighlight();
+      };
+    </script>
+  </body>
+</html>

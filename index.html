@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <title>BGT Objectenhandboek &ndash; ECGeo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-	
-	<link rel="icon" type="image/x-icon" href="ecgeo.ico">
+
+    <link rel="icon" type="image/x-icon" href="ecgeo.ico" />
 
     <style>
       :root {
@@ -392,12 +392,12 @@
           position: static;
         }
       }
-	  
+
       /* 🔊 highlight */
       .highlight-reading {
         background: #fff3a3;
         border-radius: 4px;
-		}
+      }
 
       @media (max-width: 640px) {
         .header-inner {
@@ -415,7 +415,6 @@
         .category-grid.masonry .masonry-col:nth-child(3) {
           display: none;
         }
-		
       }
     </style>
   </head>
@@ -465,13 +464,12 @@
       </aside>
 
       <main>
-	  
         <!-- 🔊 VOORLEESKNOPPEN -->
-        <div style="display:flex; gap:0.4rem;">
+        <div style="display: flex; gap: 0.4rem">
           <button id="playBtn">▶ Voorlezen</button>
           <button id="stopBtn">■ Stop</button>
         </div>
-	  
+
         <!-- Zoek & overzicht -->
         <section class="card" aria-labelledby="zoek-title">
           <h2 id="zoek-title">Zoek in het handboek</h2>
@@ -518,29 +516,36 @@
               <div class="category-group">
                 <h4>Wegdeel: functie</h4>
                 <ul class="category-sublist">
-                  <li><a href="fietspad.html">Fietspad</a></li>
-                  <li><a href="inrit.html">Inrit</a></li>
                   <li><a href="ov-baan.html">OV-baan</a></li>
                   <li><a href="overweg.html">Overweg</a></li>
                   <li><a href="spoorbaan.html">Spoorbaan</a></li>
-                  <li><a href="parkeervlak.html">Parkeervlak</a></li>
+
                   <li>
                     <a href="rijbaan_autosnelweg.html">Rijbaan autosnelweg</a>
-                  </li>
-                  <li>
-                    <a href="rijbaan_lokale_weg.html">Rijbaan lokale weg</a>
                   </li>
                   <li>
                     <a href="rijbaan_regionale_weg.html"
                       >Rijbaan regionale weg</a
                     >
                   </li>
+                  <li>
+                    <a href="rijbaan_lokale_weg.html">Rijbaan lokale weg</a>
+                  </li>
+
+                  <li>
+                    <a href="verkeersdrempel.html">Verkeersdrempel</a>
+                  </li>
+
+                  <li><a href="fietspad.html">Fietspad</a></li>
+                  <li><a href="voetpad.html">Voetpad</a></li>
+                  <li><a href="voetpad_op_trap.html">Voetpad op trap</a></li>
                   <li><a href="ruiterpad.html">Ruiterpad</a></li>
+
+                  <li><a href="parkeervlak.html">Parkeervlak</a></li>
                   <li>
                     <a href="voetgangersgebied.html">Voetgangersgebied</a>
                   </li>
-                  <li><a href="voetpad.html">Voetpad</a></li>
-                  <li><a href="voetpad_op_trap.html">Voetpad op trap</a></li>
+                  <li><a href="inrit.html">Inrit</a></li>
                   <li><a href="woonerf.html">Woonerf</a></li>
                 </ul>
               </div>
@@ -548,8 +553,8 @@
               <div class="category-group">
                 <h4>Ondersteunend wegdeel: functie</h4>
                 <ul class="category-sublist">
-                  <li><a href="berm.html">Berm</a></li>
                   <li><a href="#">Verkeerseiland</a></li>
+                  <li><a href="berm.html">Berm</a></li>
                   <li><a href="#">Groenvoorziening</a></li>
                 </ul>
               </div>
@@ -906,40 +911,41 @@
       }
 
       // Auto-index: pakt ALLE object-links op deze startpagina (ook href="#")
-function buildAutoIndex() {
-  const anchors = Array.from(
-    document.querySelectorAll(".category-sublist a"),
-  );
+      function buildAutoIndex() {
+        const anchors = Array.from(
+          document.querySelectorAll(".category-sublist a"),
+        );
 
-  const items = anchors.map((a) => {
-    const title = (a.textContent || "").trim();
-    const url = (a.getAttribute("href") || "").trim() || "#";
-    const isClickable = url !== "#" && !url.startsWith("#");
+        const items = anchors.map((a) => {
+          const title = (a.textContent || "").trim();
+          const url = (a.getAttribute("href") || "").trim() || "#";
+          const isClickable = url !== "#" && !url.startsWith("#");
 
-    // 🔑 Zoek de context (subcategorie + hoofdcategorie)
-    const subcategory =
-      a.closest(".category-group")?.querySelector("h4")?.textContent || "";
+          // 🔑 Zoek de context (subcategorie + hoofdcategorie)
+          const subcategory =
+            a.closest(".category-group")?.querySelector("h4")?.textContent ||
+            "";
 
-    const maincategory =
-      a.closest(".category-card")?.querySelector("h3")?.textContent || "";
+          const maincategory =
+            a.closest(".category-card")?.querySelector("h3")?.textContent || "";
 
-    return {
-      title,
-      url,
-      isClickable,
-      keywords: [title, subcategory, maincategory].join(" "),
-    };
-  });
+          return {
+            title,
+            url,
+            isClickable,
+            keywords: [title, subcategory, maincategory].join(" "),
+          };
+        });
 
-  // Dedup
-  const seen = new Set();
-  return items.filter((it) => {
-    const key = it.title + "__" + it.url;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
+        // Dedup
+        const seen = new Set();
+        return items.filter((it) => {
+          const key = it.title + "__" + it.url;
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+      }
       // Combineer autoIndex + pageIndex (pageIndex kan keywords toevoegen)
       function buildSearchIndex(autoIndex, manualIndex) {
         const map = new Map();
@@ -1085,7 +1091,7 @@ function buildAutoIndex() {
 
       window.addEventListener("resize", debounce(buildMasonry, 150));
     </script>
-	
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -1117,7 +1123,7 @@ function buildAutoIndex() {
 
               return NodeFilter.FILTER_ACCEPT;
             },
-          }
+          },
         );
 
         let list = [];
@@ -1175,6 +1181,5 @@ function buildAutoIndex() {
         clearHighlight();
       };
     </script>
-	
   </body>
 </html>

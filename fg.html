@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <title>Functionele gebieden – BGT Objectenhandboek (ECGeo)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-	
-	<link rel="icon" type="image/x-icon" href="ecgeo.ico">
+
+    <link rel="icon" type="image/x-icon" href="ecgeo.ico" />
 
     <style>
       :root {
@@ -21,17 +21,28 @@
         --radius-large: 10px;
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
         background: var(--bg);
         color: var(--text);
       }
 
-      a { color: var(--accent); text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
 
       .logo {
         height: 48px;
@@ -192,14 +203,15 @@
             <li><a href="kwaliteit.html">Kwaliteit</a></li>
             <li><a href="rc.html">Ruimtelijke Component (RC)</a></li>
             <li><a href="pakketten.html">BGT-pakketten</a></li>
-			<li><a href="index.html">Terug naar startpagina</a></li>
+            <li><a href="versie.html">Versies & wijzigingen</a></li>
+            <li><a href="index.html">Terug naar startpagina</a></li>
           </ul>
         </div>
       </aside>
 
       <main>
         <!-- 🔊 knoppen toegevoegd -->
-        <div style="display:flex; gap:0.4rem;">
+        <div style="display: flex; gap: 0.4rem">
           <button id="playBtn">▶ Voorlezen</button>
           <button id="stopBtn">■ Stop</button>
         </div>
@@ -207,11 +219,16 @@
         <section class="card">
           <h2>Functionele gebieden (FG)</h2>
           <p class="intro">
-            Functionele gebieden zijn begrensde vlakken die een gebied beschrijven op basis van gebruik of functie, zoals wonen, recreatie of bedrijvigheid. Ze geven extra context aan de BGT en ondersteunen analyse en beheer.
+            Functionele gebieden zijn begrensde vlakken die een gebied
+            beschrijven op basis van gebruik of functie, zoals wonen, recreatie
+            of bedrijvigheid. Ze geven extra context aan de BGT en ondersteunen
+            analyse en beheer.
           </p>
 
           <div class="highlight-box">
-            Functionele gebieden zijn inrichtend, mogen overlappen en hoeven niet landsdekkend te zijn. Ze vormen dus een aanvullende laag bovenop de BGT.
+            Functionele gebieden zijn inrichtend, mogen overlappen en hoeven
+            niet landsdekkend te zijn. Ze vormen dus een aanvullende laag
+            bovenop de BGT.
           </div>
         </section>
 
@@ -220,7 +237,9 @@
           <ul>
             <li>Verschillende onderhoudsniveaus inzichtelijk maken</li>
             <li>Gebieden duidelijk kunnen afbakenen voor beheer</li>
-            <li>Ondersteunen van analyses (bijv. oppervlakte of waterinhoud)</li>
+            <li>
+              Ondersteunen van analyses (bijv. oppervlakte of waterinhoud)
+            </li>
             <li>Verbeteren van mutatiesignalering</li>
           </ul>
         </section>
@@ -228,11 +247,14 @@
         <section class="card">
           <h2>Gebruik binnen ECGeo</h2>
           <p class="intro">
-            ECGeo adviseert gemeenten over het gebruik van functionele gebieden. Het is aan de gemeente om te bepalen welke gebieden worden opgenomen.
+            ECGeo adviseert gemeenten over het gebruik van functionele gebieden.
+            Het is aan de gemeente om te bepalen welke gebieden worden
+            opgenomen.
           </p>
 
           <div class="highlight-box">
-            Functionele gebieden worden door ECGeo actief ingezet voor analyses en om beter te bepalen welke mutaties wel of niet relevant zijn.
+            Functionele gebieden worden door ECGeo actief ingezet voor analyses
+            en om beter te bepalen welke mutaties wel of niet relevant zijn.
           </div>
         </section>
 
@@ -252,7 +274,8 @@
         <section class="card">
           <h2>Wat nemen we niet op?</h2>
           <p class="intro">
-            Sommige gebieden worden niet als functioneel gebied opgenomen omdat deze al voldoende worden beschreven door bestaande BGT-objecten.
+            Sommige gebieden worden niet als functioneel gebied opgenomen omdat
+            deze al voldoende worden beschreven door bestaande BGT-objecten.
           </p>
           <ul>
             <li>Infrastructuur (wegen, spoor)</li>
@@ -299,7 +322,7 @@
 
               return NodeFilter.FILTER_ACCEPT;
             },
-          }
+          },
         );
 
         let list = [];
