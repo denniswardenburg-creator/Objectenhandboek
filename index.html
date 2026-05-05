@@ -447,7 +447,7 @@
             <li><a href="rc.html">Ruimtelijke Component (RC)</a></li>
             <li><a href="fg.html">Functionele Gebieden (FG)</a></li>
             <li><a href="pakketten.html">BGT-pakketten</a></li>
-            <li><a href="versie.html">Versies & wijzigingen</a></li>
+            <li><a href="versie.html">Versies &amp; wijzigingen</a></li>
           </ul>
         </div>
 
@@ -494,7 +494,7 @@
         </section>
 
         <!-- BGT-objecten -->
-        <section class="card bgt-categories">
+        <section class="card bgt-categories" id="objecten">
           <h2>Hoofdcategorie&euml;n BGT</h2>
           <p>
             Dit overzicht toont per objectgroep uit de BGT-pakketten de
@@ -1001,8 +1001,6 @@
     </footer>
 
     <script>
-      // Huidig jaar in footer
-      document.getElementById("year").textContent = new Date().getFullYear();
 
       const searchBox = document.getElementById("searchBox");
       const resultsContainer = document.getElementById("searchResults");
@@ -1244,95 +1242,6 @@
 
       window.addEventListener("resize", debounce(buildMasonry, 150));
     </script>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      const playBtn = document.getElementById("playBtn");
-      const stopBtn = document.getElementById("stopBtn");
-
-      let nodes = [];
-      let index = 0;
-      let utterance;
-
-      function getNodes() {
-        const container = document.querySelector("main");
-
-        const walker = document.createTreeWalker(
-          container,
-          NodeFilter.SHOW_TEXT,
-          {
-            acceptNode(node) {
-              if (!node.parentElement) return NodeFilter.FILTER_REJECT;
-              const tag = node.parentElement.tagName.toLowerCase();
-
-              if (["button", "script", "style"].includes(tag)) {
-                return NodeFilter.FILTER_REJECT;
-              }
-
-              if (node.textContent.trim().length < 2) {
-                return NodeFilter.FILTER_REJECT;
-              }
-
-              return NodeFilter.FILTER_ACCEPT;
-            },
-          },
-        );
-
-        let list = [];
-        let n;
-        while ((n = walker.nextNode())) list.push(n);
-
-        return list;
-      }
-
-      function highlight(node) {
-        clearHighlight();
-        const span = document.createElement("span");
-        span.className = "highlight-reading";
-        node.parentNode.insertBefore(span, node);
-        span.appendChild(node);
-      }
-
-      function clearHighlight() {
-        document.querySelectorAll(".highlight-reading").forEach((span) => {
-          const parent = span.parentNode;
-          while (span.firstChild) {
-            parent.insertBefore(span.firstChild, span);
-          }
-          parent.removeChild(span);
-        });
-      }
-
-      function speakNext() {
-        if (index >= nodes.length) return;
-
-        const text = nodes[index].textContent.trim();
-        highlight(nodes[index]);
-
-        utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = "nl-NL";
-
-        utterance.onend = () => {
-          index++;
-          speakNext();
-        };
-
-        speechSynthesis.speak(utterance);
-      }
-
-      playBtn.onclick = () => {
-        speechSynthesis.cancel();
-        clearHighlight();
-        nodes = getNodes();
-        index = 0;
-        speakNext();
-      };
-
-      stopBtn.onclick = () => {
-        speechSynthesis.cancel();
-        clearHighlight();
-      };
-    </script>
+    <script src="site.js"></script>
   </body>
 </html>

@@ -375,29 +375,31 @@ ul li {
   <aside>
     <div class="side-card">
       <h2>Kwaliteit</h2>
-      <p>De kwaliteit van BGT-objecten wordt bepaald door factoren zoals juistheid, volledigheid, nauwkeurigheid en actualiteit. 
-	  <p></p>
-	  <p>
-	  Deze aspecten zorgen ervoor dat de geregistreerde gegevens betrouwbaar en up-to-date zijn.</p>
+      <p>
+        De kwaliteit van BGT-objecten wordt bepaald door factoren zoals juistheid,
+        volledigheid, nauwkeurigheid en actualiteit.
+      </p>
+      <p>
+        Deze aspecten zorgen ervoor dat de geregistreerde gegevens betrouwbaar en
+        up-to-date zijn.
+      </p>
     </div>
 
     <div class="side-card">
       <h2>Navigatie</h2>
-      <ul class="side-nav">
       <ul class="side-nav">
             <li><a href="handboek.html">Over dit handboek</a></li>
             <li><a href="leeswijzer.html">Leeswijzer &amp; definities</a></li>
             <li><a href="rc.html">Ruimtelijke Component (RC)</a></li>
             <li><a href="fg.html">Functionele Gebieden (FG)</a></li>
             <li><a href="pakketten.html">BGT-pakketten</a></li>
-            <li><a href="versie.html">Versies & wijzigingen</a></li>
+            <li><a href="versie.html">Versies &amp; wijzigingen</a></li>
             <li><a href="index.html">Terug naar startpagina</a></li>
             
       </ul>
     </div>
   </aside>
 
-  <main id="top">
   <main id="top">
   
         <!-- 🔊 knoppen -->
@@ -473,13 +475,6 @@ ul li {
         De afbakening van het wegdeel functie Fietspad volgt de landelijke BGT-regels, aangevuld met
         werkwijze en keuzes binnen ECGeo.
       </p>
-
-      <!-- Afbeelding uit objectenhandboek -->
-      <div style="margin: 0.8rem 0;">
-        <img src="fietspad.jpg"
-             alt="Voorbeeld van een fietspad met BGT-afbakening"
-             style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);" />
-      </div>
 
       <h3>Wat hoort bij het fietspad?</h3>
       <ul>
@@ -607,143 +602,6 @@ ul li {
       &copy; <span id="year"></span> ECGeo &ndash; BGT Objectenhandboek
 
     </footer>
-
-    <script>
-      // Huidig jaar in footer
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-  const tabButtons = Array.from(document.querySelectorAll('.tab-btn'));
-  const sections = Array.from(document.querySelectorAll('.section-block'));
-  const sectionLinks = Array.from(document.querySelectorAll('.js-section-link'));
-
-  function activateSection(targetId) {
-    sections.forEach(sec => {
-      sec.classList.toggle('active', sec.id === targetId);
-    });
-
-    tabButtons.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.target === targetId);
-    });
-  }
-
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.target;
-      activateSection(target);
-      const mainTop = document.getElementById('top');
-      if (mainTop) {
-        mainTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  sectionLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = link.dataset.target;
-      activateSection(target);
-      const mainTop = document.getElementById('top');
-      if (mainTop) {
-        mainTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
-
-	    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      const playBtn = document.getElementById("playBtn");
-      const stopBtn = document.getElementById("stopBtn");
-
-      let nodes = [];
-      let index = 0;
-      let utterance;
-
-      function getNodes() {
-        const container = document.querySelector("main");
-
-        const walker = document.createTreeWalker(
-          container,
-          NodeFilter.SHOW_TEXT,
-          {
-            acceptNode(node) {
-              if (!node.parentElement) return NodeFilter.FILTER_REJECT;
-
-              const tag = node.parentElement.tagName.toLowerCase();
-
-              if (["button", "script", "style"].includes(tag)) {
-                return NodeFilter.FILTER_REJECT;
-              }
-
-              if (node.textContent.trim().length < 2) {
-                return NodeFilter.FILTER_REJECT;
-              }
-
-              return NodeFilter.FILTER_ACCEPT;
-            },
-          }
-        );
-
-        let list = [];
-        let n;
-        while ((n = walker.nextNode())) list.push(n);
-
-        return list;
-      }
-
-      function highlight(node) {
-        clearHighlight();
-        const span = document.createElement("span");
-        span.className = "highlight-reading";
-        node.parentNode.insertBefore(span, node);
-        span.appendChild(node);
-      }
-
-      function clearHighlight() {
-        document.querySelectorAll(".highlight-reading").forEach((span) => {
-          const parent = span.parentNode;
-          while (span.firstChild) {
-            parent.insertBefore(span.firstChild, span);
-          }
-          parent.removeChild(span);
-        });
-      }
-
-      function speakNext() {
-        if (index >= nodes.length) return;
-
-        const text = nodes[index].textContent.trim();
-        highlight(nodes[index]);
-
-        utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = "nl-NL";
-
-        utterance.onend = () => {
-          index++;
-          speakNext();
-        };
-
-        speechSynthesis.speak(utterance);
-      }
-
-      playBtn.onclick = () => {
-        speechSynthesis.cancel();
-        clearHighlight();
-        nodes = getNodes();
-        index = 0;
-        speakNext();
-      };
-
-      stopBtn.onclick = () => {
-        speechSynthesis.cancel();
-        clearHighlight();
-      };
-    </script>
-
-
-
-
-
+    <script src="site.js"></script>
 </body>
 </html>
