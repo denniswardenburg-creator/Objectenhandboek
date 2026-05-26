@@ -274,23 +274,51 @@
         background: #fff3a3;
         border-radius: 4px;
       }
+	.header-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.back-home-btn {
+		display: inline-block;
+		padding: 0.45rem 0.85rem;
+		border-radius: 999px;
+		background: var(--accent-soft);
+		color: var(--accent);
+		font-size: 0.85rem;
+		font-weight: 500;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.back-home-btn:hover {
+		background: var(--accent);
+		color: #ffffff;
+		text-decoration: none;
+	}
+	  
     </style>
   </head>
 
   <body>
-    <header>
-      <div class="header-inner">
-        <div class="site-title">
-          <a href="index.html"
-            ><img src="ECGeo.jpg" alt="ECGeo logo" class="logo"
-          /></a>
-          <div>
-            <h1>BGT Objectenhandboek</h1>
-            <span>ECGeo &ndash; richtlijnen voor inwinning en beheer</span>
-          </div>
-        </div>
+<header>
+  <div class="header-inner">
+    <div class="site-title">
+      <a href="index.html">
+        <img src="ECGeo.jpg" alt="ECGeo logo" class="logo" />
+      </a>
+      <div>
+        <h1>BGT Objectenhandboek</h1>
+        <span>ECGeo – richtlijnen voor inwinning en beheer</span>
       </div>
-    </header>
+    </div>
+
+    <a href="index.html" class="back-home-btn">
+      Terug naar startpagina
+    </a>
+  </div>
+</header>
 
     <div class="layout">
       <aside>
@@ -308,7 +336,6 @@
             <li><a href="fg.html">Functionele Gebieden (FG)</a></li>
             <li><a href="pakketten.html">BGT-pakketten</a></li>
             <li><a href="versie.html">Versies &amp; wijzigingen</a></li>
-            <li><a href="index.html">Terug naar startpagina</a></li>
           </ul>
         </div>
       </aside>

@@ -355,3 +355,27 @@
         background: #fff3a3;
         border-radius: 4px;
       }
+
+	.header-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.back-home-btn {
+	display: inline-block;
+	padding: 0.45rem 0.85rem;
+	border-radius: 999px;
+	background: var(--accent-soft);
+	color: var(--accent);
+	font-size: 0.85rem;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: nowrap;
+	}
+
+	.back-home-btn:hover {
+		background: var(--accent);
+	color: #ffffff;
+	text-decoration: none;
+	}
