@@ -515,6 +515,7 @@
               <div class="category-group">
                 <ul class="category-sublist">
                   <li><a href="ov-baan.html">OV-baan</a></li>
+                  <li><a href="overweg.html">Overweg</a></li>
                   <li>
                     <a href="rijbaan_autosnelweg.html">Rijbaan autosnelweg</a>
                   </li>
@@ -553,6 +554,17 @@
                   <li><a href="#">Ondersteunend wegdeel</a></li>
                   <li><a href="#">Verkeerseiland</a></li>
                   <li><a href="berm.html">Berm</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Spoor -->
+            <div class="category-card">
+              <h3>Spoor</h3>
+
+              <div class="category-group">
+                <ul class="category-sublist">
+                  <li><a href="trein.html">Trein</a></li>
                 </ul>
               </div>
             </div>
@@ -625,6 +637,17 @@
               <div class="category-group">
                 <ul class="category-sublist">
                   <li><a href="pand.html">Pand</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Overige constructie -->
+            <div class="category-card">
+              <h3>Overige constructie</h3>
+
+              <div class="category-group">
+                <ul class="category-sublist">
+                  <li><a href="#">Overige constructie</a></li>
                 </ul>
               </div>
             </div>
@@ -754,13 +777,13 @@
               </div>
             </div>
 
-            <!-- Label -->
+            <!-- Openbare ruimtelabel -->
             <div class="category-card">
-              <h3>Label</h3>
+              <h3>Openbare ruimtelabel</h3>
 
               <div class="category-group">
                 <ul class="category-sublist">
-                  <li><a href="#">Openbareruimtelabel</a></li>
+                  <li><a href="#">Openbare ruimtelabel</a></li>
                   <li><a href="#">Huisnummerlabel</a></li>
                 </ul>
               </div>
@@ -802,9 +825,9 @@
               </div>
             </div>
 
-            <!-- Gebouwinstallatie -->
+            <!-- Gebouw-installatie -->
             <div class="category-card">
-              <h3>Gebouwinstallatie</h3>
+              <h3>Gebouw-installatie</h3>
 
               <div class="category-group">
                 <ul class="category-sublist">
@@ -815,8 +838,21 @@
               </div>
             </div>
 
+            <!-- Inrichtingselement -->
+            <div class="category-card">
+              <h3>Inrichtingselement</h3>
+
+              <div class="category-group">
+                <ul class="category-sublist">
+                  <li><a href="#">Inrichtingselement</a></li>
+                </ul>
+              </div>
+            </div>
+
             <!-- Installatie -->
             <div class="category-card">
+              <h3>Installatie</h3>
+
               <div class="category-group">
                 <ul class="category-sublist">
                   <li><a href="#">Installatie</a></li>
@@ -902,6 +938,17 @@
               </div>
             </div>
 
+            <!-- Sensor -->
+            <div class="category-card">
+              <h3>Sensor</h3>
+
+              <div class="category-group">
+                <ul class="category-sublist">
+                  <li><a href="#">Sensor</a></li>
+                </ul>
+              </div>
+            </div>
+
             <!-- Straatmeubilair -->
             <div class="category-card">
               <h3>Straatmeubilair</h3>
@@ -930,9 +977,9 @@
               </div>
             </div>
 
-            <!-- Vegetatieobject -->
+            <!-- Vegetatie-object -->
             <div class="category-card">
-              <h3>Vegetatieobject</h3>
+              <h3>Vegetatie-object</h3>
 
               <div class="category-group">
                 <ul class="category-sublist">
@@ -983,11 +1030,31 @@
 
               <div class="category-group">
                 <ul class="category-sublist">
-                  <li><a href="#">Openbare ruimte</a></li>
-                  <li><a href="#">Buurt</a></li>
                   <li><a href="#">Wijk</a></li>
                   <li><a href="#">Stadsdeel</a></li>
                   <li><a href="#">Waterschap</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Buurt -->
+            <div class="category-card">
+              <h3>Buurt</h3>
+
+              <div class="category-group">
+                <ul class="category-sublist">
+                  <li><a href="#">Buurt</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Openbare ruimte -->
+            <div class="category-card">
+              <h3>Openbare ruimte</h3>
+
+              <div class="category-group">
+                <ul class="category-sublist">
+                  <li><a href="#">Openbare ruimte</a></li>
                 </ul>
               </div>
             </div>
@@ -1026,9 +1093,21 @@
             "wegdeel ov-baan ov baan busbaan openbaar vervoer bgt imgeo",
         },
         {
+          title: "Wegdeel functie: Overweg",
+          url: "overweg.html",
+          keywords:
+            "wegdeel overweg spoorwegovergang gelijkvloerse kruising trein sneltram spoorbaan bgt imgeo andere bronhouder",
+        },
+        {
           title: "Wegdeel functie: Inrit",
           url: "inrit.html",
           keywords: "wegdeel inrit uitrit oprit toegang bgt imgeo",
+        },
+        {
+          title: "Spoor functie: Trein",
+          url: "trein.html",
+          keywords:
+            "spoor trein rail rails spoorlijn spoorstaven transport bgt imgeo andere bronhouder verplicht",
         },
         {
           title: "Greppel/droge sloot",
@@ -1142,6 +1221,44 @@
 
       const autoIndex = buildAutoIndex();
       const searchIndex = buildSearchIndex(autoIndex, pageIndex);
+      const categoryOrder = [
+        "Wegdeel",
+        "Ondersteunend wegdeel",
+        "Spoor",
+        "Onbegroeid terreindeel",
+        "Begroeid terreindeel",
+        "Waterdeel",
+        "Ondersteunend waterdeel",
+        "Pand",
+        "Overige constructie",
+        "Overig bouwwerk",
+        "Overbruggingsdeel",
+        "Tunneldeel",
+        "Kunstwerkdeel",
+        "Scheiding",
+        "Functioneel gebied",
+        "Gebouw-installatie",
+        "Inrichtingselement",
+        "Bak",
+        "Bord",
+        "Installatie",
+        "Kast",
+        "Mast",
+        "Paal",
+        "Put",
+        "Sensor",
+        "Straatmeubilair",
+        "Waterinrichtingselement",
+        "Weginrichtingselement",
+        "Vegetatie-object",
+        "Openbare ruimtelabel",
+        "Registratief gebied",
+        "Buurt",
+        "Openbare ruimte",
+      ];
+      const categoryOrderMap = new Map(
+        categoryOrder.map((name, index) => [name, index]),
+      );
 
       function applyFilters() {
         const query = norm((searchBox.value || "").trim());
@@ -1201,7 +1318,19 @@
         if (!grid) return;
 
         const cols = Array.from(grid.querySelectorAll(".masonry-col"));
-        const cards = Array.from(grid.querySelectorAll(".category-card"));
+        const cards = Array.from(grid.querySelectorAll(".category-card")).sort(
+          (a, b) => {
+            const aTitle = (a.querySelector("h3")?.textContent || "").trim();
+            const bTitle = (b.querySelector("h3")?.textContent || "").trim();
+            const aRank = categoryOrderMap.has(aTitle)
+              ? categoryOrderMap.get(aTitle)
+              : Number.MAX_SAFE_INTEGER;
+            const bRank = categoryOrderMap.has(bTitle)
+              ? categoryOrderMap.get(bTitle)
+              : Number.MAX_SAFE_INTEGER;
+            return aRank - bRank;
+          },
+        );
 
         // kaarten tijdelijk terug naar grid (na de kolommen) zodat herverdelen stabiel is
         cards.forEach((card) => grid.appendChild(card));
@@ -1211,13 +1340,9 @@
         const activeCols = w <= 640 ? 1 : w <= 1100 ? 2 : 3;
         const useCols = cols.slice(0, activeCols);
 
-        // verdeel: steeds naar de kolom met de kleinste hoogte
-        cards.forEach((card) => {
-          let target = useCols[0];
-          for (const c of useCols) {
-            if (c.offsetHeight < target.offsetHeight) target = c;
-          }
-          target.appendChild(card);
+        // verdeel in vaste Geonovum-volgorde, ook bij meerdere kolommen
+        cards.forEach((card, index) => {
+          useCols[index % activeCols].appendChild(card);
         });
       }
 
