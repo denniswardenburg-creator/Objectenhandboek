@@ -4658,6 +4658,40 @@
 
     </footer>
     <script src="site.js"></script>
+	
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const openObject = params.get("open");
+    const pakket = params.get("pakket");
+
+    if (!openObject || !pakket) return;
+
+    const details = document.querySelector(
+      `.object-details[data-object="${openObject}"]`
+    );
+
+    if (!details) return;
+
+    details.open = true;
+
+    const targetTab = `ow-p${pakket}`;
+
+    const tabButton = details.querySelector(
+      `.pakket-tabs .tab-btn[data-tab="${targetTab}"]`
+    );
+
+    if (tabButton) {
+      tabButton.click();
+    }
+
+    details.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+</script>	
+	
 </body>
 
 </html>

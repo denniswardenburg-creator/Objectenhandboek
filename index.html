@@ -552,7 +552,7 @@
               <div class="category-group">
                 <ul class="category-sublist">
                   <li><a href="#">Ondersteunend wegdeel</a></li>
-                  <li><a href="#">Verkeerseiland</a></li>
+                  <li><a href="verkeerseiland.html">Verkeerseiland</a></li>
                   <li><a href="berm.html">Berm</a></li>
                 </ul>
               </div>
@@ -648,12 +648,12 @@
               <div class="category-group">
                 <ul class="category-sublist">
                   <li><a href="overkapping.html">Overkapping</a></li>
-                  <li><a href="#">Open loods</a></li>
-                  <li><a href="#">Opslagtank</a></li>
-                  <li><a href="#">Bezinkbak</a></li>
+                  <li><a href="open_loods.html">Open loods</a></li>
+                  <li><a href="opslagtank.html">Opslagtank</a></li>
+                  <li><a href="bezinkbak.html">Bezinkbak</a></li>
                   <li><a href="#">Windturbine</a></li>
-                  <li><a href="#">Lage trafo</a></li>
-                  <li><a href="#">Bassin</a></li>
+                  <li><a href="lage_trafo.html">Lage trafo</a></li>
+                  <li><a href="bassin.html">Bassin</a></li>
                   <li><a href="#">Bunker</a></li>
                   <li><a href="#">Voedersilo</a></li>
                   <li><a href="#">Schuur</a></li>
@@ -1150,63 +1150,43 @@
         });
       }
       // Combineer autoIndex + pageIndex (pageIndex kan keywords toevoegen)
-      function buildSearchIndex(autoIndex, manualIndex) {
-        const map = new Map();
+  function buildSearchIndex(autoIndex, manualIndex) {
+    const map = new Map();
 
-        autoIndex.forEach((it) => {
-          const key = it.isClickable ? "url:" + it.url : "title:" + it.title;
-          const ex = map.get(key);
+    [...autoIndex, ...manualIndex].forEach((it) => {
+      const title = (it.title || "").trim();
+      const url = (it.url || "").trim() || "#";
+      const key = norm(title);
 
-          if (ex) {
-            map.set(key, {
-              ...ex,
-              isClickable: ex.isClickable || it.isClickable,
-              keywords: (
-                (ex.keywords || "") +
-                " " +
-                (it.keywords || "") +
-                " " +
-                (it.title || "")
-              ).trim(),
-            });
-          } else {
-            map.set(key, { ...it });
-          }
+      const isClickable = url !== "#" && !url.startsWith("#");
+
+      const existing = map.get(key);
+
+      if (!existing) {
+        map.set(key, {
+          title,
+          url,
+          isClickable,
+          keywords: (it.keywords || title || "").trim(),
         });
-
-        manualIndex.forEach((it) => {
-          const url = (it.url || "").trim();
-          const title = (it.title || "").trim();
-          const key = url ? "url:" + url : "title:" + title;
-
-          const ex = map.get(key);
-          if (ex) {
-            map.set(key, {
-              ...ex,
-              ...it,
-              url: url || ex.url,
-              title: title || ex.title,
-              isClickable: url
-                ? url !== "#" && !url.startsWith("#")
-                : ex.isClickable,
-              keywords: (
-                (ex.keywords || "") +
-                " " +
-                (it.keywords || "")
-              ).trim(),
-            });
-          } else {
-            map.set(key, {
-              title,
-              url: url || "#",
-              isClickable: !!url && url !== "#" && !url.startsWith("#"),
-              keywords: (it.keywords || title || "").trim(),
-            });
-          }
-        });
-
-        return Array.from(map.values());
+        return;
       }
+
+      map.set(key, {
+        title: existing.title || title,
+        url: isClickable ? url : existing.url,
+        isClickable: existing.isClickable || isClickable,
+        keywords: (
+          (existing.keywords || "") +
+          " " +
+          (it.keywords || "") +
+          " " +
+          title
+        ).trim(),
+      });
+    });
+
+    return Array.from(map.values());      }
 
       const autoIndex = buildAutoIndex();
       const searchIndex = buildSearchIndex(autoIndex, pageIndex);
