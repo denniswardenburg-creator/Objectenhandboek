@@ -194,6 +194,15 @@
         line-height: 1.6;
         margin-bottom: 0.2rem;
       }
+	  
+	  .intro-list {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.intro-list li {
+  margin-bottom: 0.25rem;
+}
 
       .badge {
         display: inline-block;
@@ -428,7 +437,7 @@
             Deze website helpt je om snel de juiste keuze te maken bij
             inwinning, muteren en beheer. Denk aan:
           </p>
-          <ul>
+          <ul class="intro-list">
             <li>
               <strong>Afbakening:</strong> waar ligt de grens van het object (en
               wanneer splits je)?
@@ -452,30 +461,14 @@
 
         <!-- Levend document -->
         <section class="card" id="levend-document">
-          <h2>Levend document &amp; wijzigingen</h2>
+          <h2>Wijzigingen &amp; versiebeheer</h2>
           <p class="intro">
-            Het handboek is een <strong>levend document</strong>: afspraken
+            Het handboek is een levend document: afspraken
             kunnen wijzigen door landelijke ontwikkelingen, lokale keuzes of
             verbeterpunten uit de praktijk.
           </p>
 
-          <ul>
-            <li>
-              <strong>Waarom wijzigen?</strong> Nieuwe objecttypen,
-              aangescherpte regels, betere voorbeelden, of praktische
-              knelpunten.
-            </li>
-            <li>
-              <strong>Waar zie je dit terug?</strong> Op de startpagina bij
-              <em>Versies &amp; wijzigingen</em> (of per detailpagina bij
-              “Versie”).
-            </li>
-          </ul>
 
-          <p class="muted" style="margin-top: 0.7rem">
-            (In jouw huidige opzet staat al een plek klaar voor een
-            versie-overzicht.)
-          </p>
           <a href="versie.html">Naar versies &amp; wijzigingen →</a>
         </section>
 
@@ -491,7 +484,10 @@
             <strong>TOPdesk:</strong> dien een melding in via TOPdesk, zodat
             ECGeo dit kan oppakken en verwerken in het handboek.
             <div style="margin-top: 0.5rem">
-              <a href="https://login.microsoftonline.com/common/saml2"
+              <a
+                href="https://eva.ictnml.nl/tas/public"
+                target="_blank"
+                rel="noopener"
                 >Open TOPdesk →</a
               >
             </div>

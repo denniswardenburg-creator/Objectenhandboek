@@ -207,7 +207,7 @@
 
     .meta-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 0.6rem 1.2rem;
       margin-top: 0.3rem;
     }
@@ -225,6 +225,26 @@
       color: var(--text);
     }
 
+    .meta-item-wide {
+      grid-column: span 2;
+    }
+
+    .actuality-list {
+      display: grid;
+      grid-template-columns: minmax(0, max-content) max-content;
+      gap: 0.25rem 1rem;
+      align-items: baseline;
+    }
+
+    .actuality-term {
+      color: var(--text-muted);
+    }
+
+    .actuality-value {
+      color: var(--text);
+      white-space: nowrap;
+    }
+
     .badge {
       display: inline-block;
       padding: 0.12rem 0.5rem;
@@ -233,6 +253,20 @@
       color: var(--accent);
       font-size: 0.78rem;
       margin-right: 0.3rem;
+    }
+
+    @media (max-width: 720px) {
+      .meta-item-wide {
+        grid-column: 1 / -1;
+      }
+
+      .actuality-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .actuality-value {
+        white-space: normal;
+      }
     }
 
     /* Tabs */
@@ -283,6 +317,11 @@
     .section-block ul {
       padding-left: 1.1rem;
       font-size: 0.95rem;
+    }
+
+    #afbakening h3 + ul {
+      color: var(--text-muted);
+      line-height: 1.5;
     }
 
     .section-block li {
@@ -442,7 +481,7 @@ ul li {
     <section class="card object-header">
       <div class="object-title">
         <h1>Kwaliteitskenmerken</h1>
-        <span>Kwaliteitskenmerken van BGT-objecten: juistheid, volledigheid, nauwkeurigheid</span>
+        <span>Kwaliteitskenmerken van BGT-objecten: juistheid, volledigheid, nauwkeurigheid en actualiteit</span>
       </div>
 
       <div class="object-meta">
@@ -463,10 +502,16 @@ ul li {
             <div class="meta-item-value">30 cm</div>
           </div>
 
-          <div class="meta-item">
+          <div class="meta-item meta-item-wide">
             <div class="meta-item-label">Actualiteit</div>
-            <div class="meta-item-value"> - Harde topo: 3 maanden</div>
-            <div class="meta-item-value"> - Zachte topo: 18 maanden</div>
+            <div class="actuality-list">
+              <div class="actuality-term">
+                Bouwwerken en BGT-wegdelen en -kunstwerken:
+              </div>
+              <div class="actuality-value">6 maanden na melding</div>
+              <div class="actuality-term">Overige BGT-objecten:</div>
+              <div class="actuality-value">18 maanden na melding</div>
+            </div>
 	
           </div>
 
@@ -486,15 +531,25 @@ ul li {
     <section id="definitie" class="card section-block active">
       <h2>Toelichting kwaliteitskenmerken</h2>
 
-      <ul>
-        <li><strong>Juistheid</strong>: De mate waarin de geregistreerde gegevens overeenkomen met de werkelijke situatie in het veld.</li>
-        <li><strong>Beschikbaarheid</strong>: De mate waarin de gegevens toegankelijk en beschikbaar zijn voor gebruik op het juiste moment.</li>
-        <li><strong>Nauwkeurigheid</strong>: De precisie van de geometrie en attributen van BGT-objecten, uitgedrukt in centimeters.</li>
-        <li><strong>Actualiteit</strong>: De mate waarin de gegevens up-to-date zijn, gebaseerd op de laatste mutaties en inwinmomenten. </li>
-        <li><strong>Volledigheid</strong>: De mate waarin alle noodzakelijke gegevens zijn opgenomen, met inachtneming van wettelijke vereisten en relevante objecten.</li>
-        </li>
-      </ul>
+<p class="intro">
+  <strong>Juistheid</strong>: De mate waarin de geregistreerde gegevens overeenkomen met de werkelijke situatie in het veld.
+</p>
 
+<p class="intro">
+  <strong>Beschikbaarheid</strong>: De mate waarin de gegevens toegankelijk en beschikbaar zijn voor gebruik op het juiste moment.
+</p>
+
+<p class="intro">
+  <strong>Nauwkeurigheid</strong>: De precisie van de geometrie en attributen van BGT-objecten, uitgedrukt in centimeters.
+</p>
+
+<p class="intro">
+  <strong>Actualiteit</strong>: De termijn waarbinnen gemelde wijzigingen in de BGT moeten zijn verwerkt. Voor bouwwerken, BGT-wegdelen en BGT-kunstwerken geldt 6 maanden na melding; voor overige BGT-objecten geldt 18 maanden na melding.
+</p>
+
+<p class="intro">
+  <strong>Volledigheid</strong>: De mate waarin alle noodzakelijke gegevens zijn opgenomen, met inachtneming van wettelijke vereisten en relevante objecten.
+</p>
 
     <!-- Afbakening -->
     <section id="afbakening" class="card section-block">
@@ -600,8 +655,11 @@ ul li {
           </tr>
           <tr>
             <td>Actualiteit</td>
-            <td>6 maanden</td>
-            <td>Streefwaarde: verwerking binnen 6 maanden na fysieke wijziging.</td>
+            <td>
+              Bouwwerken en BGT-wegdelen en -kunstwerken: 6 maanden na melding.<br />
+              Overige BGT-objecten: 18 maanden na melding.
+            </td>
+            <td>Controleer of meldingen binnen de juiste actualiteitstermijn zijn verwerkt.</td>
           </tr>
           <tr>
             <td>Idealiseringsprecisie</td>
