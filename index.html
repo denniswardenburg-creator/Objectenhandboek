@@ -1156,29 +1156,51 @@
   function buildSearchIndex(autoIndex, manualIndex) {
     const map = new Map();
 
+    function cleanResultTitle(title) {
+      return (title || "")
+        .replace(/^[^:]+ functie:\s*/i, "")
+        .replace(/^[^:]+ type:\s*/i, "")
+        .trim();
+    }
+
+    function indexKey(item) {
+      const title = (item.title || "").trim();
+      const url = (item.url || "").trim() || "#";
+      const isClickable = url !== "#" && !url.startsWith("#");
+      return isClickable ? "url__" + url : "title__" + norm(title) + "__" + url;
+    }
+
     [...autoIndex, ...manualIndex].forEach((it) => {
       const title = (it.title || "").trim();
       const url = (it.url || "").trim() || "#";
-      const key = norm(title);
+      const key = indexKey(it);
 
       const isClickable = url !== "#" && !url.startsWith("#");
 
       const existing = map.get(key);
+      const displayTitle = cleanResultTitle(title) || title;
 
       if (!existing) {
         map.set(key, {
-          title,
+          title: displayTitle,
           url,
           isClickable,
+          aliases: [displayTitle],
           keywords: (it.keywords || title || "").trim(),
         });
         return;
       }
 
+      const aliases = existing.aliases || [existing.title];
+      if (displayTitle && !aliases.includes(displayTitle)) {
+        aliases.push(displayTitle);
+      }
+
       map.set(key, {
-        title: existing.title || title,
+        title: existing.title || displayTitle,
         url: isClickable ? url : existing.url,
         isClickable: existing.isClickable || isClickable,
+        aliases,
         keywords: (
           (existing.keywords || "") +
           " " +
@@ -1235,6 +1257,15 @@
       function applyFilters() {
         const query = norm((searchBox.value || "").trim());
 
+        function getResultTitle(page, terms) {
+          const aliases = page.aliases || [page.title];
+          const directMatch = aliases.find((alias) => {
+            const hay = norm(alias);
+            return terms.every((term) => hay.includes(term));
+          });
+          return directMatch || page.title;
+        }
+
         // 1) Chips filteren
         linkItems.forEach((li) => {
           const text = norm(li.textContent);
@@ -1266,17 +1297,19 @@
         let html = "<h3>Gevonden objecten / pagina\u2019s</h3>";
 
         matches.forEach((page) => {
+          const resultTitle = getResultTitle(page, terms);
+
           if (page.isClickable) {
             html +=
               '<div class="search-result-item"><a href="' +
               page.url +
               '">' +
-              page.title +
+              resultTitle +
               "</a></div>";
           } else {
             html +=
               '<div class="search-result-item is-disabled" title="Nog geen detailpagina beschikbaar"><span class="disabled-label">' +
-              page.title +
+              resultTitle +
               "</span></div>";
           }
         });
