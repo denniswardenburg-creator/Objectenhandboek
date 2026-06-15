@@ -48,94 +48,158 @@
     waterbergingsgebied: {
       title: "Waterbergingsgebied",
       anchor: "waterbergingsgebied",
+      iframe: {
+        windowHeight: "900px",
+        contentHeight: "1151px",
+      },
       definition:
         "Terrein met als functie het tijdelijk of langdurig bergen van wateroverschotten uit de omgeving.",
     },
     maatschappelijke_publieksvoorziening: {
       title: "Maatschappelijke en/of publieksvoorziening",
       anchor: "maatschappelijke-enof-publieksvoorziening",
+      iframe: {
+        windowHeight: "341px",
+        contentHeight: "341px",
+      },
       definition:
         "Bebouwd of landelijk gebied dat wordt gebruikt voor maatschappelijke of publieke doeleinden.",
     },
     recreatie: {
       title: "Recreatie",
       anchor: "recreatie",
+      iframe: {
+        windowHeight: "373px",
+        contentHeight: "373px",
+      },
       definition: "Gebied dat in gebruik is voor openluchtrecreatie.",
     },
     begraafplaats: {
       title: "Begraafplaats",
       anchor: "begraafplaats",
+      iframe: {
+        windowHeight: "397px",
+        contentHeight: "397px",
+      },
       definition:
         "Besloten gebied waar lichamen van overleden personen worden begraven en waar ook urnen kunnen worden bewaard.",
     },
     functioneel_beheer: {
       title: "Functioneel beheer",
       anchor: "functioneel-beheer",
+      iframe: {
+        windowHeight: "397px",
+        contentHeight: "397px",
+      },
       definition:
         "Gebied waarvoor specifiek beheer nodig is, bepaald vanuit beheeroogpunt.",
     },
     recreatie_speeltuin: {
       title: "Recreatie: speeltuin",
       anchor: "recreatie-speeltuin",
+      iframe: {
+        windowHeight: "900px",
+        contentHeight: "900px",
+      },
       definition:
         "Geheel van begroeiing, verharding, opstallen en speelwerktuigen, bedoeld als speelplaats voor kinderen.",
     },
     recreatie_park: {
       title: "Recreatie: park",
       anchor: "recreatie-park",
+      iframe: {
+        windowHeight: "900px",
+        contentHeight: "900px",
+      },
       definition:
         "Landschappelijk ingericht terrein met onder meer vegetatie, verharding, objecten en waterpartijen, bedoeld als recreatieve voorziening.",
     },
     recreatie_sportterrein: {
       title: "Recreatie: sportterrein",
       anchor: "recreatie-sportterrein",
+      iframe: {
+        windowHeight: "900px",
+        contentHeight: "900px",
+      },
       definition:
         "Terrein, mogelijk met groenvoorziening, verharding en bebouwing, bestemd voor sportbeoefening.",
     },
     recreatie_camping: {
       title: "Recreatie: camping",
       anchor: "recreatie-camping",
+      iframe: {
+        windowHeight: "397px",
+        contentHeight: "397px",
+      },
       definition:
         "Terrein met verharding, begroeiing en opstallen waar tijdelijk tenten of caravans kunnen worden geplaatst voor recreatie.",
     },
     recreatie_bungalowpark: {
       title: "Recreatie: bungalowpark",
       anchor: "recreatie-bungalowpark",
+      iframe: {
+        windowHeight: "397px",
+        contentHeight: "397px",
+      },
       definition:
         "Gebied met verharding, begroeiing, opstallen en gebouwen, bedoeld voor vakantie- of weekendhuisjes die niet permanent bewoond worden.",
     },
     bushalte: {
       title: "Bushalte",
       anchor: "bushalte",
+      iframe: {
+        windowHeight: "520px",
+        contentHeight: "720px",
+      },
       definition: "Halteplaats voor bussen van het openbaar vervoer.",
     },
     carpoolplaats: {
       title: "Carpoolplaats",
       anchor: "carpoolplaats",
+      iframe: {
+        windowHeight: "260px",
+        contentHeight: "260px",
+      },
       definition:
         "Parkeerplaats die qua ligging en ontsluiting geschikt is voor carpooling.",
     },
     benzinestation: {
       title: "Benzinestation",
       anchor: "benzinestation",
+      iframe: {
+        windowHeight: "900px",
+        contentHeight: "900px",
+      },
       definition:
         "Geheel van installaties, verharding en opstallen waar brandstoffen voor verbrandingsmotoren worden verkocht.",
     },
     verzorgingsplaats: {
       title: "Verzorgingsplaats",
       anchor: "verzorgingsplaats",
+      iframe: {
+        windowHeight: "397px",
+        contentHeight: "397px",
+      },
       definition:
         "Langs de weg gelegen parkeergelegenheid met bijbehorende banen en voorzieningen voor reizigers en/of voertuigen.",
     },
     functioneel_beheer_hondenuitlaatplaats: {
       title: "Functioneel beheer: hondenuitlaatplaats",
       anchor: "functioneel-beheer-hondenuitlaatplaats",
+      iframe: {
+        windowHeight: "900px",
+        contentHeight: "900px",
+      },
       definition:
         "Uitlaatplaats waar honden hun behoefte mogen doen en waar geen opruimplicht geldt.",
     },
     recreatie_volkstuin: {
       title: "Recreatie: volkstuin",
       anchor: "recreatie-volkstuin",
+      iframe: {
+        windowHeight: "397px",
+        contentHeight: "397px",
+      },
       definition:
         "Terreingedeelte in gebruik als volkstuinen, inclusief bebouwing, verharding en dergelijke.",
     },
@@ -149,6 +213,17 @@
       .replace(/"/g, "&quot;");
   }
 
+  function getIframeSettings(gebied) {
+    return {
+      windowHeight: "900px",
+      contentHeight: "1016px",
+      extraWidth: "600px",
+      shiftX: "320px",
+      shiftY: "0px",
+      ...(gebied.iframe || {}),
+    };
+  }
+
   function render() {
     const key = window.functioneelGebiedKey;
     const gebied = gebieden[key];
@@ -157,6 +232,7 @@
 
     const title = escapeHtml(gebied.title);
     const iframeUrl = `${baseUrl}#${gebied.anchor}`;
+    const iframe = getIframeSettings(gebied);
     const isBgtRequired = Boolean(gebied.bgtRequired);
     const standardLabel = isBgtRequired ? "BGT" : "IMGeo";
     const typeLabel = isBgtRequired ? "BGT type" : "IMGEO type";
@@ -330,14 +406,27 @@
         ECGeo-richtlijnen.
       </p>
 
-      <div class="highlight-box" style="padding: 0; overflow: hidden">
-        <iframe
-          src="${iframeUrl}"
-          title="IMGeo objectenhandboek &ndash; Functioneel gebied type ${title}"
-          loading="lazy"
-          style="width: 100%; height: 600px; border: 0"
+      <div class="external-source-frame">
+        <div class="external-source-label">
+          Externe bron: Geonovum &ndash; IMGeo-objectenhandboek
+        </div>
+
+        <div
+          class="iframe-scroll-wrapper"
+          style="
+            --iframe-window-height: ${iframe.windowHeight};
+            --iframe-content-height: ${iframe.contentHeight};
+            --iframe-extra-width: ${iframe.extraWidth};
+            --iframe-shift-x: ${iframe.shiftX};
+            --iframe-shift-y: ${iframe.shiftY};
+          "
         >
-        </iframe>
+          <iframe
+            src="${iframeUrl}"
+            title="IMGeo objectenhandboek &ndash; Functioneel gebied type ${title}"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
 
       <p class="intro" style="margin-top: 0.5rem">
@@ -351,14 +440,6 @@
         >.
       </p>
 
-      <h3>Wat hoort bij ${title.toLowerCase()}?</h3>
-      <ul>
-        Een begrensd vlak dat de functie ${title.toLowerCase()} beschrijft.
-        Neem het gebied op wanneer de functie als samenhangend gebied herkenbaar
-        is en relevant is voor beheer, analyse of communicatie. Functionele
-        gebieden zijn inrichtend, mogen overlappen met andere vlakobjecten en
-        hoeven niet landsdekkend te zijn.
-      </ul>
     </section>
   </main>
 </div>
