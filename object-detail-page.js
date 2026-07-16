@@ -132,7 +132,7 @@
       objectClass: "Weginrichtingselement",
       objectPart: "Weginrichtingselement",
       typeLabel: "IMGEO type",
-      geometry: "Punt, lijn of vlak",
+      geometry: "Vlak",
       packageObject: "weginrichtingselement",
       packages: [3],
       sourcePath: "weginrichtingselement",
