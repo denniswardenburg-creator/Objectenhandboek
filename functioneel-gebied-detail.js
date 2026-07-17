@@ -351,13 +351,6 @@
           </div>
 
           <div class="meta-item">
-            <div class="meta-item-label">Andere bronhouder</div>
-            <div class="meta-item-value">
-              <span class="cross-icon">&#10006;</span>
-            </div>
-          </div>
-
-          <div class="meta-item">
             <div class="meta-item-label">Naamgeving</div>
             <div class="meta-item-value">n.v.t.</div>
           </div>
@@ -395,15 +388,14 @@
     <section id="afbakening" class="card section-block">
       <h2>Afbakening</h2>
       <p class="intro">
-        De afbakening van Functioneel gebied type ${title} volgt de landelijke
-        IMGeo-regels, aangevuld met werkwijze en keuzes binnen ECGeo.
+        De landelijke IMGeo-afbakening is leidend voor Functioneel gebied type
+        ${title}.
       </p>
 
       <h3>Landelijke IMGeo-afbakening (Geonovum)</h3>
       <p class="intro" style="margin-bottom: 0.4rem">
         Hieronder is het relevante deel uit het landelijke
-        IMGeo-objectenhandboek opgenomen, als referentie naast de
-        ECGeo-richtlijnen.
+        IMGeo-objectenhandboek opgenomen.
       </p>
 
       <div class="external-source-frame">
