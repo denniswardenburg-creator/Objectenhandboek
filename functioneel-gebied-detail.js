@@ -388,8 +388,8 @@
     <section id="afbakening" class="card section-block">
       <h2>Afbakening</h2>
       <p class="intro">
-        De landelijke IMGeo-afbakening is leidend voor Functioneel gebied type
-        ${title}.
+        De afbakening van Functioneel gebied: ${title} volgt de landelijke
+        IMGeo-regels.
       </p>
 
       <h3>Landelijke IMGeo-afbakening (Geonovum)</h3>

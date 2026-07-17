@@ -579,7 +579,7 @@
     <section id="afbakening" class="card section-block">
       <h2>Afbakening</h2>
       <p class="intro">
-        De landelijke IMGeo-afbakening is leidend voor ${fullTitle}.
+        De afbakening van ${fullTitle} volgt de landelijke IMGeo-regels.
       </p>
 
       ${publicGuidance}
