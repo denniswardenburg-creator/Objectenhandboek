@@ -107,6 +107,8 @@
       },
       definition:
         "Een rijvormige afscheiding van zeer beperkte breedte bestaande uit aangeplante aaneengesloten struiken.",
+      publicGuidance:
+        "Begroeide terreindelen worden als basis geregistreerd als Begroeid terreindeel met het fysiek voorkomen groenvoorziening. Haag is de nadere IMGeo-duiding voor een rijvormige afscheiding van aaneengesloten aangeplante struiken. De afbakening volgt de waarneembare omvang en overgang naar aangrenzende objecten.",
     },
     wildrooster: {
       title: "Wildrooster",
@@ -461,9 +463,9 @@
     const iframe = iframeSettings(item);
     const requiredLabel = item.bgtRequired ? "Ja" : "Nee";
     const spatialRole = escapeHtml(item.spatialRole || "Inrichtend");
-    const otherOwnerIcon = item.otherOwner
-      ? '<span class="check-icon">&#10004;</span>'
-      : '<span class="cross-icon">&#10006;</span>';
+    const publicGuidance = item.publicGuidance
+      ? `<h3>Registratie en afbakening</h3><p class="intro">${escapeHtml(item.publicGuidance)}</p>`
+      : "";
 
     target.outerHTML = `
 <header>
@@ -540,13 +542,6 @@
           </div>
 
           <div class="meta-item">
-            <div class="meta-item-label">Andere bronhouder</div>
-            <div class="meta-item-value">
-              ${otherOwnerIcon}
-            </div>
-          </div>
-
-          <div class="meta-item">
             <div class="meta-item-label">Naamgeving</div>
             <div class="meta-item-value">n.v.t.</div>
           </div>
@@ -584,15 +579,15 @@
     <section id="afbakening" class="card section-block">
       <h2>Afbakening</h2>
       <p class="intro">
-        De afbakening van ${fullTitle} volgt de landelijke IMGeo-regels,
-        aangevuld met werkwijze en keuzes binnen ECGeo.
+        De landelijke IMGeo-afbakening is leidend voor ${fullTitle}.
       </p>
+
+      ${publicGuidance}
 
       <h3>Landelijke IMGeo-afbakening (Geonovum)</h3>
       <p class="intro" style="margin-bottom: 0.4rem">
         Hieronder is het relevante deel uit het landelijke
-        IMGeo-objectenhandboek opgenomen, als referentie naast de
-        ECGeo-richtlijnen.
+        IMGeo-objectenhandboek opgenomen.
       </p>
 
       <div class="external-source-frame">
