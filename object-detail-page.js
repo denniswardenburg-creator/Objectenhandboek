@@ -182,7 +182,7 @@
       bgtBase: "Waterdeel type waterloop",
       iframe: {
         windowHeight: "720px",
-        contentHeight: "940px",
+        contentHeight: "895px",
       },
       definition:
         "Een gracht is een gegraven greppel met water, die hoofdzakelijk voorkomt in oude steden.",

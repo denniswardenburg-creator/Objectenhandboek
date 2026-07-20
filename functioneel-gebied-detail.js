@@ -98,8 +98,8 @@
       title: "Recreatie: speeltuin",
       anchor: "recreatie-speeltuin",
       iframe: {
-        windowHeight: "900px",
-        contentHeight: "900px",
+        windowHeight: "700px",
+        contentHeight: "635px",
       },
       definition:
         "Geheel van begroeiing, verharding, opstallen en speelwerktuigen, bedoeld als speelplaats voor kinderen.",
@@ -149,7 +149,7 @@
       anchor: "bushalte",
       iframe: {
         windowHeight: "520px",
-        contentHeight: "720px",
+        contentHeight: "850px",
       },
       definition: "Halteplaats voor bussen van het openbaar vervoer.",
     },
