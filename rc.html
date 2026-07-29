@@ -209,6 +209,14 @@
 	}
 	  
     </style>
+    <link
+      href="https://geo.ecgeo.nl/geocomponent/css/geocomponent.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://geo.ecgeo.nl/geocomponent/css/gemeente.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -265,6 +273,25 @@
             interpreteren van de BGT en ondersteunt een eenduidige afbakening
             van objecten.
           </div>
+        </section>
+
+        <section class="card">
+          <h2>Ruimtelijke component bekijken</h2>
+          <div
+            id="geocomponent"
+            data-kaart-viewer-url=""
+            data-bookmark-name="geocomponent_leudal"
+            data-bookmark-group-name="Kroonringen"
+            data-cluster-zoom="16"
+            data-show-combi="0"
+            data-split-left="3"
+            data-split-right="9"
+            data-hide-search="0"
+            data-zoom-to-filter-result="1"
+            data-map-first="1"
+            data-dependent-filter="0"
+            data-update-url-params="0"
+          ></div>
         </section>
 
         <section class="card">
@@ -343,5 +370,6 @@
       &copy; <span id="year"></span> ECGeo &ndash; BGT Objectenhandboek
     </footer>
     <script src="site.js"></script>
+    <script src="https://geo.ecgeo.nl/geocomponent/js/geocomponent.js"></script>
 </body>
 </html>
