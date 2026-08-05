@@ -4,48 +4,40 @@ De objectpagina's in deze map zijn volledige HTML-bestanden. Daardoor blijven
 de inhoud, navigatie en landelijke iframe-informatie ook beschikbaar wanneer
 JavaScript voor inhoudsopbouw niet wordt uitgevoerd.
 
-## Centrale gegevensbron
+## Gegenereerde pagina's
 
-Alle objectspecifieke inhoud staat in:
+De 64 pagina's die in het Word-overzicht de status **Maken** hadden, plus de
+later toegevoegde pagina's voor Bron, Kanaal, zes waterinrichtingselementen en Wijk,
+worden beheerd met:
 
-`data/object-pages.json`
+`tools/generate-missing-object-pages.mjs`
 
-Per pagina bevat dit bestand:
+In dit bestand staan per pagina onder andere:
 
-- de titel van het HTML-document;
-- de introductie in de zijbalk;
-- de kop en metagegevens van het object;
-- de volledige definitie- en afbakeningssecties;
-- de bestaande iframe-URL's en alle bijbehorende afmetingen en verschuivingen.
-
-De HTML-fragmenten worden bewust letterlijk opgeslagen. Hierdoor blijven de
-bestaande teksten, links, opmaak en iframe-instellingen behouden.
-
-## Pagina's opnieuw genereren
+- titel, bestandsnaam, objectklasse en geometrie;
+- definitie, classificatie en geometrie;
+- de Geonovum-URL, het fragment en de gemeten iframe-hoogte;
+- de koppeling naar het juiste BGT-pakket.
 
 Voer vanuit deze map uit:
 
 ```powershell
-node tools/generate-object-pages.mjs
+node tools/generate-missing-object-pages.mjs
 ```
 
-Hiermee worden alle objectpagina's opnieuw opgebouwd vanuit de centrale bron.
+De generator bouwt de 73 pagina's opnieuw op en actualiseert tegelijk:
 
-Controleer zonder bestanden te wijzigen:
-
-```powershell
-node tools/generate-object-pages.mjs --check
-```
-
-De controle meldt het wanneer een gegenereerde objectpagina handmatig is
-gewijzigd en daardoor niet meer overeenkomt met de centrale gegevensbron.
+- de objectlinks op `index.html`;
+- de centrale zoekindex in `site.js`;
+- de aanvullende regels voor Sensor, Peilbuis en Pollerbedieningskast in
+  `pakketten.html`.
 
 ## Belangrijk bij wijzigingen
 
-Pas objectspecifieke inhoud aan in `data/object-pages.json` en genereer daarna
-de HTML-pagina's opnieuw. Wijzig een gegenereerde objectpagina niet los, omdat
-die wijziging bij een volgende generatie wordt overschreven.
+Pas de gegevens van deze 73 pagina's aan in de array `rawPages` in de generator
+en voer de generator daarna opnieuw uit. Wijzig een van deze gegenereerde
+objectpagina's niet los, omdat die wijziging bij een volgende generatie wordt
+overschreven.
 
-De algemene pagina's, zoals `index.html`, `handboek.html`, `leeswijzer.html`,
-`kwaliteit.html`, `rc.html`, `fg.html`, `pakketten.html` en `versie.html`, worden
-niet door deze generator beheerd.
+De overige, oudere objectpagina's en algemene pagina's worden niet door deze
+generator beheerd.
