@@ -387,7 +387,59 @@
       },
       definition:
         "Kast ten behoeve van het meten van weers- en wegdekomstandigheden.",
-    },  };
+    },    strekdam: {
+      title: "Strekdam",
+      prefix: "Kunstwerkdeel type",
+      objectClass: "Kunstwerkdeel",
+      objectPart: "Kunstwerkdeel",
+      typeLabel: "BGT type",
+      geometry: "Vlak of lijn",
+      packageObject: "kunstwerkdeel",
+      packages: [],
+      bgtRequired: true,
+      sourcePath: "kunstwerkdeel",
+      anchor: "strekdam",
+      iframe: {
+        windowHeight: "650px",
+        contentHeight: "2200px",
+      },
+      definition: "Constructie in het water ter verdediging van de kust/oever.",
+    },
+    vispassage: {
+      title: "Vispassage",
+      prefix: "Kunstwerkdeel type",
+      objectClass: "Kunstwerkdeel",
+      objectPart: "Kunstwerkdeel",
+      typeLabel: "IMGEO type",
+      geometry: "Vlak",
+      packageObject: "kunstwerkdeel",
+      packages: [2, 3],
+      sourcePath: "kunstwerkdeel",
+      anchor: "vispassage",
+      iframe: {
+        windowHeight: "610px",
+        contentHeight: "2200px",
+      },
+      definition: "Een kunstmatige passage ten behoeve van de vistrek bij kunstwerken in wateren.",
+    },
+    bodemval: {
+      title: "Bodemval",
+      prefix: "Kunstwerkdeel type",
+      objectClass: "Kunstwerkdeel",
+      objectPart: "Kunstwerkdeel",
+      typeLabel: "IMGEO type",
+      geometry: "Vlak",
+      packageObject: "kunstwerkdeel",
+      packages: [2, 3],
+      sourcePath: "kunstwerkdeel",
+      anchor: "bodemval",
+      iframe: {
+        windowHeight: "610px",
+        contentHeight: "2200px",
+      },
+      definition: "Sprong in de bodem van een waterloop.",
+    },
+  };
 
   function escapeHtml(value) {
     return String(value)
@@ -419,6 +471,26 @@
           <strong>Optionele IMGeo-inhoud</strong>:
           ${packageList(item)}
         </li>
+
+        <li><strong>IMGEO-classificatie</strong>: ${title}</li>
+      </ul>`;
+    }
+
+    if (item.bgtRequired) {
+      const optional = item.packages && item.packages.length
+        ? `
+        <li>
+          <strong>Optionele IMGeo-inhoud</strong>:
+          ${packageList(item)}
+        </li>`
+        : "";
+
+      return `
+      <ul>
+        <li>
+          <strong>Wettelijke BGT-inhoud</strong>:
+          ${pill(item.packageObject, 1)}
+        </li>${optional}
 
         <li><strong>IMGEO-classificatie</strong>: ${title}</li>
       </ul>`;
