@@ -271,6 +271,9 @@
     { title: "Voedersilo", url: "voedersilo.html", category: "Overig bouwwerk" },
     { title: "Schuur", url: "schuur.html", category: "Overig bouwwerk" },
     { title: "Hoogspanningsmast", url: "hoogspanningsmast.html", category: "Kunstwerkdeel" },
+    { title: "Strekdam", url: "strekdam.html", category: "Kunstwerkdeel" },
+    { title: "Vispassage", url: "vispassage.html", category: "Kunstwerkdeel" },
+    { title: "Bodemval", url: "bodemval.html", category: "Kunstwerkdeel" },
   ].forEach((replacement) => {
     const item = HEADER_SEARCH_ITEMS.find(
       (entry) =>
